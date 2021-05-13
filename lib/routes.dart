@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:trancentum_ui_kit/screens/otp/otp_screen.dart';
+import 'package:trancentum_ui_kit/screens/profile/profile_screen.dart';
 
 import './screens/login_success/login_screen_screen.dart';
 import './screens/forgot_password/forgot_password_screen.dart';
@@ -14,5 +15,5 @@ final Map<String, WidgetBuilder> routes = {
   LoginSuccessScreen.routeName: (context) => LoginSuccessScreen(),
   CompleteProfileScreen.routeName: (context) => CompleteProfileScreen(),
   OtpScreen.routeName: (context) => OtpScreen(),
-  
+  ProfileScreen.routeName: (context) => ProfileScreen(),
 };

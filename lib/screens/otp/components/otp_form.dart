@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trancentum_ui_kit/screens/profile/profile_screen.dart';
 
 import '../../../components/default_button.dart';
 import '../../../constants.dart';
@@ -107,7 +108,10 @@ class _OtpFormState extends State<OtpForm> {
           SizedBox(height: SizeConfig.screenHeight * 0.15),
           DefaultButton(
             text: "Continue",
-            pressHandler: () {},
+            pressHandler: () {
+              //remove this
+              Navigator.of(context).pushNamed(ProfileScreen.routeName);
+            },
           ),
         ],
       ),
