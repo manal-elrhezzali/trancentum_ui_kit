@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import './size_config.dart';
 
 const kPrimaryColor = Color(0xFF3A37C2);
 const kPrimaryLightColor = Color(0xFF858BA6);
@@ -14,13 +13,6 @@ const kSecondaryColor = Color(0xFF979797);
 const kTextColor = Color(0xFF757575);
 
 const kAnimationDuration = Duration(milliseconds: 200);
-
-final headingStyle = TextStyle(
-  fontSize: getProportionateScreenWidth(28),
-  fontWeight: FontWeight.bold,
-  color: Colors.black,
-  height: 1.5,
-);
 
 const defaultDuration = Duration(milliseconds: 250);
 
