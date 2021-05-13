@@ -3,7 +3,7 @@ import 'package:trancentum_ui_kit/screens/splash/components/body.dart';
 import 'package:trancentum_ui_kit/size_config.dart';
 
 class SplashScreen extends StatelessWidget {
-  static String routeName = "splash";
+  static String routeName = "/splash";
 
   @override
   Widget build(BuildContext context) {

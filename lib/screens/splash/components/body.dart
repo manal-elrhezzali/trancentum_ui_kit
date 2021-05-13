@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trancentum_ui_kit/constants.dart';
+import 'package:trancentum_ui_kit/screens/sign_in/sign_in_screen.dart';
 
 import 'package:trancentum_ui_kit/size_config.dart';
 import './splash_content.dart';
@@ -71,7 +72,9 @@ class _BodyState extends State<Body> {
                     Spacer(flex: 3),
                     DefaultButton(
                       text: "Continuer",
-                      pressHandler: () {},
+                      pressHandler: () {
+                        Navigator.of(context).pushNamed(SignInScreen.routeName);
+                      },
                     ),
                     Spacer(),
                   ],
