@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:trancentum_ui_kit/constants.dart';
 
 import './sign_form.dart';
+import '../../../components/no_account_text.dart';
 import '../../../size_config.dart';
 
 class Body extends StatelessWidget {
@@ -33,24 +33,7 @@ class Body extends StatelessWidget {
                 SizedBox(height: SizeConfig.screenHeight * 0.08),
                 SignForm(),
                 SizedBox(height: getProportionateScreenHeight(20)),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Don't have an account?",
-                      style: TextStyle(
-                        fontSize: getProportionateScreenWidth(12),
-                      ),
-                    ),
-                    Text(
-                      "Contact TranCENTUM",
-                      style: TextStyle(
-                        fontSize: getProportionateScreenWidth(12),
-                        color: kPrimaryColor,
-                      ),
-                    ),
-                  ],
-                ),
+                NoAccountText(),
               ],
             ),
           ),
@@ -59,3 +42,5 @@ class Body extends StatelessWidget {
     );
   }
 }
+
+

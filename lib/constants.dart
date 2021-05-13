@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:trancentum_ui_kit/size_config.dart';
 
+import './size_config.dart';
 
 const kPrimaryColor = Color(0xFF3A37C2);
 const kPrimaryLightColor = Color(0xFF858BA6);
@@ -29,3 +29,5 @@ const defaultDuration = Duration(milliseconds: 250);
 const String kIceNullError = "Please Enter your ICE";
 const String kInvalidIceError = "Please Enter Valid Ice";
 const String kPasswordNullError = "Please Enter your password";
+const String kPhoneNumberNullError = "Please Enter your phone number";
+
