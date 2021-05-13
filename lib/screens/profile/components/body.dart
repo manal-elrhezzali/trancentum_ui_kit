@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trancentum_ui_kit/screens/sign_in/sign_in_screen.dart';
 
 import './profile_menu.dart';
 import './profile_image.dart';
@@ -28,10 +29,11 @@ class Body extends StatelessWidget {
         ProfileMenu(
           icon: "assets/icons/Log out.svg",
           text: "Log Out",
-          press: () {},
+          press: () {
+            Navigator.of(context).pushNamed(SignInScreen.routeName);
+          },
         ),
       ],
     );
   }
 }
-
