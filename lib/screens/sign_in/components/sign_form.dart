@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trancentum_ui_kit/screens/login_success/login_screen_screen.dart';
 
 import '../../forgot_password/forgot_password_screen.dart';
 import '../../../components/default_button.dart';
@@ -50,13 +51,15 @@ class _SignFormState extends State<SignForm> {
               Text("Remember me"),
               Spacer(),
               GestureDetector(
-                onTap: () => Navigator.of(context).pushNamed(ForgotPasswordScreen.routeName) ,
-                child:  Text(
-                "Forgot Password",
-                style: TextStyle(decoration: TextDecoration.underline, color: kPrimaryColor),
+                onTap: () => Navigator.of(context)
+                    .pushNamed(ForgotPasswordScreen.routeName),
+                child: Text(
+                  "Forgot Password",
+                  style: TextStyle(
+                      decoration: TextDecoration.underline,
+                      color: kPrimaryColor),
+                ),
               ),
-              ),
-             
             ],
           ),
           FormError(errors: errors),
@@ -66,6 +69,9 @@ class _SignFormState extends State<SignForm> {
             pressHandler: () {
               if (_formKey.currentState.validate()) {
                 _formKey.currentState.save();
+                //if all user inputs are valid, navigate to login sucess screen
+                Navigator.of(context)
+                    .pushNamed(LoginSuccessScreen.routeName);
               }
             },
           ),
@@ -89,6 +95,7 @@ class _SignFormState extends State<SignForm> {
           setState(() {
             errors.add(kPasswordNullError);
           });
+          return "";
         }
         return null;
       },
@@ -141,6 +148,7 @@ class _SignFormState extends State<SignForm> {
           setState(() {
             errors.add(kIceNullError);
           });
+          return "";
         }
         return null;
       },
