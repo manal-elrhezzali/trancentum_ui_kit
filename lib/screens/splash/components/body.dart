@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:trancentum_ui_kit/constants.dart';
-import 'package:trancentum_ui_kit/screens/sign_in/sign_in_screen.dart';
 
-import 'package:trancentum_ui_kit/size_config.dart';
-import './splash_content.dart';
+import '../../../constants.dart';
+import '../../sign_in/sign_in_screen.dart';
+import '../../../size_config.dart';
 import '../../../components/default_button.dart';
+import './splash_content.dart';
+
 
 class Body extends StatefulWidget {
   @override

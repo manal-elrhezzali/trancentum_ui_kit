@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:trancentum_ui_kit/screens/otp/otp_screen.dart';
 
+import '../screens/home/home_screen.dart';
 import '../screens/profile/profile_screen.dart';
 import '../constants.dart';
 import '../enums.dart';
@@ -39,9 +39,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
           children: [
             IconButton(
               onPressed: () {
-                //navigate to home screen
-                //for test purposes
-                // Navigator.of(context).pushNamed(OtpScreen.routeName);
+                Navigator.of(context).pushNamed(HomeScreen.routeName);
               },
               icon: SvgPicture.asset(
                 "assets/icons/Shop Icon.svg",
@@ -55,7 +53,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                 //navigate to new shipping screen
               },
               icon: SvgPicture.asset(
-                "assets/icons/Parcel.svg",
+                "assets/icons/Package.svg",
                 color: MenuState.shipPackage == selectedMenuItem
                     ? kPrimaryColor
                     : activeIconColor,

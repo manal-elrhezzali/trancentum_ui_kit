@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:trancentum_ui_kit/components/custom_bottom_navigation_bar.dart';
-import 'package:trancentum_ui_kit/constants.dart';
-import 'package:trancentum_ui_kit/enums.dart';
 
-import 'components/body.dart';
+import '../../components/custom_bottom_navigation_bar.dart';
+import '../../enums.dart';
+import './components/body.dart';
 
 class ProfileScreen extends StatelessWidget {
   static String routeName = "/profile";

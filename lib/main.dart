@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 import './routes.dart';
 import './theme.dart';
-import './screens/splash/splash_screen.dart';
+// import './screens/splash/splash_screen.dart';
+import 'screens/home/home_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,11 +15,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'TranCENTUM',
       theme: theme(),
-      // home: SplashScreen(),
-      initialRoute: SplashScreen.routeName,
-      // initialRoute: ProfileScreen.routeName,
+      // initialRoute: SplashScreen.routeName,
+      initialRoute: HomeScreen.routeName,
       routes: routes,
     );
   }
