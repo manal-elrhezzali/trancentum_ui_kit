@@ -1,10 +1,12 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:trancentum_ui_kit/models/RecentExpedition.dart';
 
 import '../../constants.dart';
 import 'components/header.dart';
 import 'components/all_packages_status.dart';
 import 'components/my_shipments.dart';
+import 'components/recent_expeditions_array.dart';
 
 class DashboardScreen extends StatelessWidget {
   @override
@@ -65,7 +67,13 @@ class DashboardScreen extends StatelessWidget {
               children: [
                 Expanded(
                   flex: 5,
-                  child: MyShipments(),
+                  child: Column(
+                    children: [
+                      MyShipments(),
+                      SizedBox(height: defaultPadding),
+                      RecentExpeditionsArray(),
+                    ],
+                  ),
                 ),
                 SizedBox(width: defaultPadding),
                 Expanded(
@@ -81,3 +89,5 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 }
+
+
