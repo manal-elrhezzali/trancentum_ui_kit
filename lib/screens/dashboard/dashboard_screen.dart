@@ -2,9 +2,9 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
-import './components/header.dart';
+import 'components/header.dart';
 import 'components/all_packages_status.dart';
-
+import 'components/my_shipments.dart';
 
 class DashboardScreen extends StatelessWidget {
   @override
@@ -65,15 +65,13 @@ class DashboardScreen extends StatelessWidget {
               children: [
                 Expanded(
                   flex: 5,
-                  child: Container(
-                    height: 500,
-                    color: bgColor,
-                  ),
+                  child: MyShipments(),
                 ),
                 SizedBox(width: defaultPadding),
                 Expanded(
                   flex: 2,
-                  child: AllPackagesStatus(pieChartSectionData: pieChartSectionData),
+                  child: AllPackagesStatus(
+                      pieChartSectionData: pieChartSectionData),
                 ),
               ],
             ),
@@ -83,4 +81,3 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 }
-

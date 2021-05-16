@@ -21,7 +21,8 @@ const primaryColor = Color(0xFF2697FF);
 // const secondaryColor = Color(0xFF8CC8FF);
 const secondaryColor = Color(0xFF73BCFF);
 
-const bgColor = Color(0xFF212332);
+// const bgColor = Color(0xFF212332);
+const bgColor = Color(0xFF2A2D3E);
 
 const defaultPadding = 16.0;
 

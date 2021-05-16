@@ -1,7 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-
 import './chart.dart';
 import './package_status_info_card.dart';
 import '../../../constants.dart';
@@ -40,26 +39,31 @@ class AllPackagesStatus extends StatelessWidget {
             amountOfPackages: "4",
             color: primaryColor,
           ),
+          SizedBox(height: defaultPadding),
           PackageStatusInfoCard(
             title: "Chargée",
             amountOfPackages: "8",
             color: kPrimaryColor,
           ),
+          SizedBox(height: defaultPadding),
           PackageStatusInfoCard(
             title: "Reçue",
             amountOfPackages: "22",
             color: Colors.green,
           ),
+          SizedBox(height: defaultPadding),
           PackageStatusInfoCard(
             title: "Livrée",
             amountOfPackages: "7",
             color: Colors.brown,
           ),
+          SizedBox(height: defaultPadding),
           PackageStatusInfoCard(
             title: "Retour",
             amountOfPackages: "10",
             color: Colors.red,
           ),
+          SizedBox(height: defaultPadding),
           PackageStatusInfoCard(
             title: "Clôturée",
             amountOfPackages: "2",
@@ -70,5 +74,3 @@ class AllPackagesStatus extends StatelessWidget {
     );
   }
 }
-
-

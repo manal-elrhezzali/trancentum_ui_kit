@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:trancentum_ui_kit/screens/sign_in/sign_in_screen.dart';
 
 import '../../../constants.dart';
 
@@ -40,24 +41,30 @@ class ProfileCard extends StatelessWidget {
       padding: EdgeInsets.symmetric(
           horizontal: defaultPadding, vertical: defaultPadding / 2),
       decoration: BoxDecoration(
-        color: bgColor,
+        color: primaryColor,
         borderRadius: const BorderRadius.all(Radius.circular(10)),
         border: Border.all(color: Colors.white10),
       ),
-      child: Row(
-        children: [
-          Image.asset(
-            "assets/images/profile_image_placeholder.png",
-            height: 38,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: defaultPadding / 2),
-            child: Text(
-              "Eren Yeager",
-              style: TextStyle(color: Colors.white),
+      child: GestureDetector(
+        onTap: () {
+          //navigate to profile screen
+        },
+        child: Row(
+          children: [
+            Image.asset(
+              "assets/images/profile_image_placeholder.png",
+              height: 38,
             ),
-          ),
-        ],
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: defaultPadding / 2),
+              child: Text(
+                "Eren Yeager",
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -84,7 +91,7 @@ class SearchField extends StatelessWidget {
             margin: EdgeInsets.symmetric(horizontal: defaultPadding / 2),
             padding: EdgeInsets.all(defaultPadding * 0.75),
             decoration: BoxDecoration(
-              color: bgColor,
+              color: primaryColor,
               borderRadius: const BorderRadius.all(Radius.circular(10)),
             ),
             child: SvgPicture.asset("assets/icons/Search.svg"),
