@@ -40,7 +40,7 @@ class ProfileCard extends StatelessWidget {
       padding: EdgeInsets.symmetric(
           horizontal: defaultPadding, vertical: defaultPadding / 2),
       decoration: BoxDecoration(
-        color: primaryColor,
+        color: bgColor,
         borderRadius: const BorderRadius.all(Radius.circular(10)),
         border: Border.all(color: Colors.white10),
       ),
@@ -51,8 +51,7 @@ class ProfileCard extends StatelessWidget {
             height: 38,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: defaultPadding / 2),
+            padding: const EdgeInsets.symmetric(horizontal: defaultPadding / 2),
             child: Text(
               "Eren Yeager",
               style: TextStyle(color: Colors.white),
@@ -85,7 +84,7 @@ class SearchField extends StatelessWidget {
             margin: EdgeInsets.symmetric(horizontal: defaultPadding / 2),
             padding: EdgeInsets.all(defaultPadding * 0.75),
             decoration: BoxDecoration(
-              color: primaryColor,
+              color: bgColor,
               borderRadius: const BorderRadius.all(Radius.circular(10)),
             ),
             child: SvgPicture.asset("assets/icons/Search.svg"),
