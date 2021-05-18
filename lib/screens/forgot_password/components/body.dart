@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trancentum_ui_kit/screens/otp/otp_screen.dart';
 
 import '../../../components/default_button.dart';
 import '../../../components/form_error.dart';
@@ -70,9 +71,7 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
             text: "Continue",
             pressHandler: () {
               if(_formKey.currentState.validate()){
-                //.........................
-                //.........................
-                //.........................
+                Navigator.of(context).pushNamed(OtpScreen.routeName);
               }
             },
           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trancentum_ui_kit/models/PackageStatusInfo.dart';
+import 'package:trancentum_ui_kit/responsive.dart';
 
 import '../../../constants.dart';
 import 'header_package_info_card.dart';
@@ -44,6 +45,7 @@ class MyShipments extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size _size = MediaQuery.of(context).size;
     return Column(
       children: [
         Row(
@@ -59,7 +61,10 @@ class MyShipments extends StatelessWidget {
               },
               style: TextButton.styleFrom(
                 padding: EdgeInsets.symmetric(
-                    horizontal: defaultPadding * 1.5, vertical: defaultPadding),
+                  horizontal: defaultPadding * 1.5,
+                  vertical:
+                      defaultPadding / (Responsive.isMobile(context) ? 2 : 1),
+                ),
               ),
               icon: Icon(Icons.add),
               label: Text("Nouvelle Expédition"),
@@ -67,16 +72,18 @@ class MyShipments extends StatelessWidget {
           ],
         ),
         SizedBox(height: defaultPadding),
-        GridView.builder(
-          itemCount: demoMyPackages.length, //dummy data
-          shrinkWrap: true,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 6,
-            crossAxisSpacing: defaultPadding,
+        Responsive(
+          mobile: PackageStatusInfoCardGridView(
+            demoMyPackages: demoMyPackages,
+            crossAxisCount: _size.width < 650 ? 3 : 6,
+            childAspectRatio: _size.width < 650 ? 0.8 : 0.6,
           ),
-          itemBuilder: (context, index) => HeaderPackageInfoCard(
-            info: demoMyPackages[index],
-            myPackages: demoMyPackages,
+          tablet: PackageStatusInfoCardGridView(
+            demoMyPackages: demoMyPackages,
+          ),
+          desktop: PackageStatusInfoCardGridView(
+            demoMyPackages: demoMyPackages,
+            childAspectRatio: _size.width < 1400 ? 0.7 : 0.9,
           ),
         ),
       ],
@@ -84,3 +91,34 @@ class MyShipments extends StatelessWidget {
   }
 }
 
+class PackageStatusInfoCardGridView extends StatelessWidget {
+  const PackageStatusInfoCardGridView({
+    Key key,
+    @required this.demoMyPackages,
+    this.crossAxisCount = 6,
+    this.childAspectRatio = 1,
+  }) : super(key: key);
+
+  final List<PackagesStatusInfo> demoMyPackages;
+
+  final int crossAxisCount;
+  final double childAspectRatio;
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+      physics: NeverScrollableScrollPhysics(),
+      itemCount: demoMyPackages.length, //dummy data
+      shrinkWrap: true,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: crossAxisCount,
+        crossAxisSpacing: defaultPadding,
+        mainAxisSpacing: defaultPadding,
+        childAspectRatio: childAspectRatio,
+      ),
+      itemBuilder: (context, index) => HeaderPackageInfoCard(
+        info: demoMyPackages[index],
+        myPackages: demoMyPackages,
+      ),
+    );
+  }
+}

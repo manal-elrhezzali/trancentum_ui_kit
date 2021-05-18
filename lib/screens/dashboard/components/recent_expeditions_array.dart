@@ -25,45 +25,48 @@ class RecentExpeditionsArray extends StatelessWidget {
           ),
           SizedBox(
             width: double.infinity,
-            child: DataTable(
-              columnSpacing: defaultPadding,
-              horizontalMargin: 0,
-              columns: [
-                DataColumn(
-                  label: Text(
-                    "Code d\' expédition",
-                    style: TextStyle(color: Colors.white),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: DataTable(
+                columnSpacing: defaultPadding,
+                horizontalMargin: 0,
+                columns: [
+                  DataColumn(
+                    label: Text(
+                      "Code d\' expédition",
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
-                ),
-                DataColumn(
-                  label: Text(
-                    "Date",
-                    style: TextStyle(color: Colors.white),
+                  DataColumn(
+                    label: Text(
+                      "Date",
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
-                ),
-                DataColumn(
-                  label: Text(
-                    "État",
-                    style: TextStyle(color: Colors.white),
+                  DataColumn(
+                    label: Text(
+                      "État",
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
-                ),
-                DataColumn(
-                  label: Text(
-                    "V. Départ",
-                    style: TextStyle(color: Colors.white),
+                  DataColumn(
+                    label: Text(
+                      "V. Départ",
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
-                ),
-                DataColumn(
-                  label: Text(
-                    "V. D'arrivée",
-                    style: TextStyle(color: Colors.white),
+                  DataColumn(
+                    label: Text(
+                      "V. D'arrivée",
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
+                ],
+                rows: List.generate(
+                  demoRecentExpeditions.length,
+                  (index) => buildRecentExpeditionsDataRow(
+                      demoRecentExpeditions[index]),
                 ),
-              ],
-              rows: List.generate(
-                demoRecentExpeditions.length,
-                (index) =>
-                    buildRecentExpeditionsDataRow(demoRecentExpeditions[index]),
               ),
             ),
           ),

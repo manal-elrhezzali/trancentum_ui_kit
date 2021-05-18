@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trancentum_ui_kit/screens/complete_profile/complete_profile_screen.dart';
+import 'package:trancentum_ui_kit/screens/home/home_screen.dart';
 
 import '../../../components/default_button.dart';
 import '../../../size_config.dart';
@@ -29,9 +29,8 @@ class Body extends StatelessWidget {
           child: DefaultButton(
             text: "Back to home",
             pressHandler: () {
-              //......Go to home...........
-              //..........
-              Navigator.of(context).pushNamed(CompleteProfileScreen.routeName);
+              
+              Navigator.of(context).pushNamed(HomeScreen.routeName);
             },
           ),
         ),

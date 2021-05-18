@@ -92,7 +92,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
             text: "Continue",
             pressHandler: () {
               //if all inputs are valide go to OTP screen
-              Navigator.of(context).pushNamed(OtpScreen.routeName);
+              // Navigator.of(context).pushNamed(OtpScreen.routeName);
             },
           ),
         ],

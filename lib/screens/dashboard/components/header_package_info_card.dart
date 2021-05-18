@@ -17,6 +17,8 @@ class HeaderPackageInfoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size _size = MediaQuery.of(context).size;
+
     return Container(
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
@@ -55,7 +57,7 @@ class HeaderPackageInfoCard extends StatelessWidget {
             info: info,
             myPackages: myPackages,
           ),
-          Text(
+          if(!((_size.width > 840)&& (_size.width < 910))) Text(
             info.nbrOfPackages.toString(),
             style: Theme.of(context).textTheme.caption.copyWith(
                   color: Colors.white70,
@@ -66,4 +68,3 @@ class HeaderPackageInfoCard extends StatelessWidget {
     );
   }
 }
-

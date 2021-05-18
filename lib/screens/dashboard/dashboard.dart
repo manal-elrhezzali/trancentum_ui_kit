@@ -1,14 +1,14 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:trancentum_ui_kit/models/RecentExpedition.dart';
 
 import '../../constants.dart';
+import '../../responsive.dart';
 import 'components/header.dart';
 import 'components/all_packages_status.dart';
 import 'components/my_shipments.dart';
 import 'components/recent_expeditions_array.dart';
 
-class DashboardScreen extends StatelessWidget {
+class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<PieChartSectionData> pieChartSectionData = [
@@ -72,15 +72,22 @@ class DashboardScreen extends StatelessWidget {
                       MyShipments(),
                       SizedBox(height: defaultPadding),
                       RecentExpeditionsArray(),
+                      if (Responsive.isMobile(context))
+                        SizedBox(height: defaultPadding),
+                      if (Responsive.isMobile(context))
+                        AllPackagesStatus(
+                            pieChartSectionData: pieChartSectionData),
                     ],
                   ),
                 ),
-                SizedBox(width: defaultPadding),
-                Expanded(
-                  flex: 2,
-                  child: AllPackagesStatus(
-                      pieChartSectionData: pieChartSectionData),
-                ),
+                if (!Responsive.isMobile(context))
+                  SizedBox(width: defaultPadding),
+                if (!Responsive.isMobile(context))
+                  Expanded(
+                    flex: 2,
+                    child: AllPackagesStatus(
+                        pieChartSectionData: pieChartSectionData),
+                  ),
               ],
             ),
           ],
@@ -89,5 +96,3 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 }
-
-

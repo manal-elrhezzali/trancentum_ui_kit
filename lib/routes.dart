@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:trancentum_ui_kit/screens/otp/otp_screen.dart';
 import 'package:trancentum_ui_kit/screens/profile/profile_screen.dart';
 
-import './screens/login_success/login_screen_screen.dart';
+import 'screens/login_success/login_success_screen.dart';
 import './screens/forgot_password/forgot_password_screen.dart';
 import './screens/sign_in/sign_in_screen.dart';
 import './screens/splash/splash_screen.dart';
