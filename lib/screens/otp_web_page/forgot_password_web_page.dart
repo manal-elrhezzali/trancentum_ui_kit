@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:trancentum_ui_kit/screens/sign_in_web/components/body.dart';
+import 'components/body.dart';
 
-class SignInWebPage extends StatelessWidget {
-  static String routeName = "/sign-in-web";
+class ForgotPasswordWebPage extends StatefulWidget {
+  static String routeName = "/forgot-password-web";
+  @override
+  _ForgotPasswordWebPageState createState() => _ForgotPasswordWebPageState();
+}
+
+class _ForgotPasswordWebPageState extends State<ForgotPasswordWebPage> {
   @override
   Widget build(BuildContext context) {
     Size _size = MediaQuery.of(context).size;
     double _widthValue = _size.width >= 1100.0 ? 0.35 : 0.1;
     double _sizeBetween = _size.width >= 1100.0 ? 50.0 : 20.0;
+
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,

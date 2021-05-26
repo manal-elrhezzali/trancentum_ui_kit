@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'components/body.dart';
 
-class ForgotPasswordWebPage extends StatefulWidget {
+class ForgotPasswordWebPage extends StatelessWidget {
   static String routeName = "/forgot-password-web";
-  @override
-  _ForgotPasswordWebPageState createState() => _ForgotPasswordWebPageState();
-}
-
-class _ForgotPasswordWebPageState extends State<ForgotPasswordWebPage> {
+  
   @override
   Widget build(BuildContext context) {
     Size _size = MediaQuery.of(context).size;
