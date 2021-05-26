@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:trancentum_ui_kit/components/custom_textfield_web.dart';
 import 'package:trancentum_ui_kit/components/custom_button_web.dart';
 
-import '../../../constants.dart';
-
 class Body extends StatefulWidget {
   @override
   _BodyState createState() => _BodyState();
