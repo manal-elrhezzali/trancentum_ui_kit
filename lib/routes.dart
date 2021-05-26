@@ -8,6 +8,7 @@ import './screens/sign_in/sign_in_screen.dart';
 import './screens/splash/splash_screen.dart';
 import './screens/complete_profile/complete_profile_screen.dart';
 import 'screens/home/home_screen.dart';
+import 'screens/sign_in_web/sign_in_web_page.dart';
 
 final Map<String, WidgetBuilder> routes = {
   SplashScreen.routeName: (context) => SplashScreen(),
@@ -18,5 +19,5 @@ final Map<String, WidgetBuilder> routes = {
   OtpScreen.routeName: (context) => OtpScreen(),
   ProfileScreen.routeName: (context) => ProfileScreen(),
   HomeScreen.routeName: (context) => HomeScreen(),
-
+  SignInWebPage.routeName: (context) => SignInWebPage(),
 };
