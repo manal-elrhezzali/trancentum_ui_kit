@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:trancentum_ui_kit/components/custom_textfield_web.dart';
-import 'package:trancentum_ui_kit/components/custom_web_button.dart';
+import 'package:trancentum_ui_kit/components/custom_button_web.dart';
+
+import '../../../constants.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -93,6 +95,18 @@ class _BodyState extends State<Body> {
                         SizedBox(
                           height: 28.0,
                         ),
+                        GestureDetector(
+                          onTap: () {
+                            //go to forgotPasswordWebPage
+                          },
+                          child: Text(
+                            "Forgot Password?",
+                            style: TextStyle(
+                                decoration: TextDecoration.underline,
+                                color: Color(0xFF3D45EE)),
+                          ),
+                        ),
+                        SizedBox(height: 10),
                         CustomButtonWeb(
                           text: "Continuer",
                           onPressed: () {
