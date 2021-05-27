@@ -21,7 +21,9 @@ class RetourFonds {
     @required this.etat,
   });
 
-  List<RetourFonds> retoursDeFonds = [
+  
+}
+List<RetourFonds> demoRetoursDeFonds = [
     RetourFonds(
       codeExpedition: "56412",
       retourDeFonds: "C/Chèque",
@@ -53,4 +55,3 @@ class RetourFonds {
       etat: "en attente",
     ),
   ];
-}
