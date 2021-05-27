@@ -89,14 +89,14 @@ class Body extends StatelessWidget {
                                           fontSize: 18,
                                         ),
                                       ),
-                                      // SizedBox(
-                                      //   width: double.infinity,
-                                      //   child: SingleChildScrollView(
-                                      //     scrollDirection: Axis.horizontal,
-                                      //     child:
-                                      //         ExpediteurDestinataireDatatable(),
-                                      //   ),
-                                      // ),
+                                      SizedBox(
+                                        width: double.infinity,
+                                        child: SingleChildScrollView(
+                                          scrollDirection: Axis.horizontal,
+                                          child:
+                                              ExpediteurDestinataireDatatable(),
+                                        ),
+                                      ),
                                     ],
                                   ),
                                 ),
