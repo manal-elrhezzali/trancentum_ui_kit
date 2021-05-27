@@ -12,7 +12,7 @@ class InfoGeneraleDatatable extends StatelessWidget {
     "Agence Départ",
   ];
 
-  List<DataColumn> getInfosGeneralesColumns(List<String> columns) => columns
+  List<DataColumn> getColumns(List<String> columns) => columns
       .map((String column) => DataColumn(
             label: Text(
               column,
@@ -21,7 +21,7 @@ class InfoGeneraleDatatable extends StatelessWidget {
           ))
       .toList();
 
-  List<DataRow> getInfosGeneralesRows(List<Expedition> expeditions) =>
+  List<DataRow> getRows(List<Expedition> expeditions) =>
       expeditions.map((Expedition expedition) {
         final cells = [
           expedition.codeExpedition,
@@ -30,9 +30,9 @@ class InfoGeneraleDatatable extends StatelessWidget {
           expedition.livraison,
           expedition.agenceDepart
         ];
-        return DataRow(cells: getInfosGeneralesCells(cells));
+        return DataRow(cells: getCells(cells));
       }).toList();
-  List<DataCell> getInfosGeneralesCells(List<String> cells) => cells
+  List<DataCell> getCells(List<String> cells) => cells
       .map((data) => DataCell(Text(
             '$data',
             style: TextStyle(color: Colors.white),
@@ -44,8 +44,8 @@ class InfoGeneraleDatatable extends StatelessWidget {
     return DataTable(
       columnSpacing: defaultPadding,
       horizontalMargin: 0,
-      columns: getInfosGeneralesColumns(columns),
-      rows: getInfosGeneralesRows(demoRecentExpeditions),
+      columns: getColumns(columns),
+      rows: getRows(demoRecentExpeditions),
     );
   }
 }

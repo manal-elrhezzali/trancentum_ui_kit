@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:trancentum_ui_kit/screens/expedition_detail/components/infos_generales_datatable.dart';
-import 'package:trancentum_ui_kit/screens/expedition_detail/components/search_field.dart';
+import 'package:trancentum_ui_kit/screens/dashboard/components/search_field.dart';
 import 'package:trancentum_ui_kit/controllers/menu_controller.dart';
 import 'package:trancentum_ui_kit/screens/home/components/side_menu.dart';
 
 import '../../../constants.dart';
 import '../../../responsive.dart';
+import 'expediteur_destinataire_datatable.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -31,7 +32,6 @@ class Body extends StatelessWidget {
                   padding: EdgeInsets.all(defaultPadding),
                   child: Column(
                     children: [
-                      SearchField(),
                       SizedBox(height: defaultPadding),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -70,6 +70,7 @@ class Body extends StatelessWidget {
                                   ),
                                 ),
                                 SizedBox(height: defaultPadding),
+                                //
                                 Container(
                                   padding: EdgeInsets.all(defaultPadding),
                                   decoration: BoxDecoration(
@@ -88,13 +89,45 @@ class Body extends StatelessWidget {
                                           fontSize: 18,
                                         ),
                                       ),
-                                      SizedBox(
-                                        width: double.infinity,
-                                        child: SingleChildScrollView(
-                                          scrollDirection: Axis.horizontal,
-                                          child: InfoGeneraleDatatable(),
+                                      // SizedBox(
+                                      //   width: double.infinity,
+                                      //   child: SingleChildScrollView(
+                                      //     scrollDirection: Axis.horizontal,
+                                      //     child:
+                                      //         ExpediteurDestinataireDatatable(),
+                                      //   ),
+                                      // ),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(height: defaultPadding),
+                                //
+                                Container(
+                                  padding: EdgeInsets.all(defaultPadding),
+                                  decoration: BoxDecoration(
+                                    color: bgColor,
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(10)),
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Retours de fonds",
+                                        style: TextStyle(
+                                          color: primaryColor,
+                                          fontSize: 18,
                                         ),
                                       ),
+                                      // SizedBox(
+                                      //   width: double.infinity,
+                                      //   child: SingleChildScrollView(
+                                      //     scrollDirection: Axis.horizontal,
+                                      //     child:
+                                      //         ExpediteurDestinataireDatatable(),
+                                      //   ),
+                                      // ),
                                     ],
                                   ),
                                 ),

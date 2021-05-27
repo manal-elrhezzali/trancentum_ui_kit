@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:trancentum_ui_kit/screens/dashboard/components/search_field.dart';
 
 import '../../constants.dart';
 import '../../responsive.dart';
@@ -60,6 +61,7 @@ class Dashboard extends StatelessWidget {
         padding: EdgeInsets.all(defaultPadding),
         child: Column(
           children: [
+            SearchField(),
             // Header(),
             SizedBox(height: defaultPadding),
             Row(
