@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:trancentum_ui_kit/screens/home/home_screen.dart';
-import 'package:trancentum_ui_kit/screens/sign_in_web/sign_in_web_page.dart';
 
 import '../../../components/default_button.dart';
 import '../../../size_config.dart';

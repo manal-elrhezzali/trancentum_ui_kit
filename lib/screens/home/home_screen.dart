@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:trancentum_ui_kit/controllers/menu_controller.dart';
 
+import 'package:trancentum_ui_kit/controllers/menu_controller.dart';
 import '../../responsive.dart';
 import '../dashboard/dashboard.dart';
 import './components/side_menu.dart';
@@ -11,7 +11,10 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // key: context.read<MenuController>().scaffoldKey,
+      key: context.read<MenuController>().scaffoldKey,
+      appBar: AppBar(
+        title: Text("Home"),
+      ),
       drawer: SideMenu(),
       backgroundColor: Color(0xFFF2F9FF),
       body: SafeArea(

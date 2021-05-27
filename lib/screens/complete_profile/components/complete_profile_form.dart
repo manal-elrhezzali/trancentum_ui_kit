@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:trancentum_ui_kit/screens/otp/otp_screen.dart';
 
 import '../../../components/default_button.dart';
 import '../../../constants.dart';

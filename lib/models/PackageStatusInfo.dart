@@ -12,8 +12,6 @@ class PackagesStatusInfo {
     this.color,
     this.svgSrc = "assets/icons/Package.svg",
   });
-
   int get nbrOfPackages => numOfPackages;
-
 }
 

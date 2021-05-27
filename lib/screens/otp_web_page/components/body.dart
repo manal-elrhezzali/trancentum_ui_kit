@@ -25,7 +25,7 @@ class Body extends StatelessWidget {
                         buildTimer(),
                         CustomTextFieldWeb(
                           nameController: otpCodeController,
-                          label: "OTP CODE",
+                          label: "4-digit code",
                           icon: Icons.code,
                         ),
                         SizedBox(height: 18.0),
@@ -43,8 +43,8 @@ class Body extends StatelessWidget {
                         CustomButtonWeb(
                           text: "Continuer",
                           onPressed: () {
-                            //check if inputs are valid then navigate user to OtpWebPage
-                            //Navigator.of(context).pushNamed(OtpWebPage.routeName);
+                            //check if input is valid then send password to user and navigate him to SignIn screen 
+                            //Navigator.of(context).pushNamed(SignInWebPage.routeName);
                           },
                         ),
                       ],

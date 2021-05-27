@@ -83,19 +83,6 @@ List demoRecentExpeditions = [
     date: "01-03-2021",
     villeArrivee: "Tanger",
   ),
-  RecentExpedition(
-    codeExpedition: "56412",
-    etat: "Livrée",
-    villeDepart: "Meknes",
-    date: "01-03-2021",
-    villeArrivee: "Tanger",
-  ),
-  RecentExpedition(
-    codeExpedition: "56412",
-    etat: "Livrée",
-    villeDepart: "Meknes",
-    date: "01-03-2021",
-    villeArrivee: "Tanger",
-  ),
+ 
   
 ];
