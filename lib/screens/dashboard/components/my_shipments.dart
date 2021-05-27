@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trancentum_ui_kit/models/PackageStatusInfo.dart';
+import 'package:trancentum_ui_kit/models/package_status_info.dart';
 import 'package:trancentum_ui_kit/responsive.dart';
 
 import '../../../constants.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trancentum_ui_kit/models/RecentExpedition.dart';
+import 'package:trancentum_ui_kit/models/expedition.dart';
 
 import '../../../constants.dart';
 
@@ -75,7 +75,7 @@ class RecentExpeditionsArray extends StatelessWidget {
     );
   }
 
-  DataRow buildRecentExpeditionsDataRow(RecentExpedition expedition) {
+  DataRow buildRecentExpeditionsDataRow(Expedition expedition) {
     return DataRow(
       cells: [
         DataCell(

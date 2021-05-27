@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:trancentum_ui_kit/models/PackageStatusInfo.dart';
+import 'package:trancentum_ui_kit/models/package_status_info.dart';
 import 'package:trancentum_ui_kit/screens/dashboard/components/progress_line.dart';
 
 import '../../../constants.dart';

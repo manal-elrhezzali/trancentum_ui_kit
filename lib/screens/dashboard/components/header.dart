@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:trancentum_ui_kit/components/profile_card.dart';
-import 'package:trancentum_ui_kit/components/search_field.dart';
+import 'package:trancentum_ui_kit/screens/expedition_detail/components/search_field.dart';
 
 import 'package:trancentum_ui_kit/controllers/menu_controller.dart';
 import 'package:trancentum_ui_kit/responsive.dart';
