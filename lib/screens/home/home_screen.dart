@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 
 import 'package:trancentum_ui_kit/controllers/menu_controller.dart';
 import '../../responsive.dart';
-import '../dashboard/dashboard.dart';
-import './components/side_menu.dart';
+import '../../components/side_menu.dart';
+import 'dashboard/dashboard.dart';
 
 class HomeScreen extends StatelessWidget {
   static String routeName = "/home";

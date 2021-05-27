@@ -3,7 +3,7 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../constants.dart';
+import '../constants.dart';
 
 
 class SideMenu extends StatelessWidget {

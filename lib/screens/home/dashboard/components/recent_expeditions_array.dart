@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:trancentum_ui_kit/models/expedition.dart';
 
-import '../../../constants.dart';
+import '../../../../constants.dart';
 
 class RecentExpeditionsArray extends StatelessWidget {
   const RecentExpeditionsArray({

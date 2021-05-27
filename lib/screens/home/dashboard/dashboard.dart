@@ -2,8 +2,8 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:trancentum_ui_kit/screens/expedition_detail/components/search_field.dart';
 
-import '../../constants.dart';
-import '../../responsive.dart';
+import '../../../constants.dart';
+import '../../../responsive.dart';
 import 'components/all_packages_status.dart';
 import 'components/my_shipments.dart';
 import 'components/recent_expeditions_array.dart';

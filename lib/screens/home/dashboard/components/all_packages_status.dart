@@ -1,9 +1,9 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../constants.dart';
 import './chart.dart';
 import './package_status_info_card.dart';
-import '../../../constants.dart';
 
 class AllPackagesStatus extends StatelessWidget {
   const AllPackagesStatus({
