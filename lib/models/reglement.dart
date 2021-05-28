@@ -32,7 +32,7 @@ class Reglement {
   });
 }
 
-List<Reglement> reglements = [
+List<Reglement> demoReglements = [
   Reglement(
     modePaiement: "PPE",
     typeTaxation: "taxation",

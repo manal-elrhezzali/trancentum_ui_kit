@@ -7,6 +7,7 @@ import 'package:trancentum_ui_kit/components/side_menu.dart';
 import '../../../constants.dart';
 import '../../../responsive.dart';
 import 'expediteur_destinataire_datatable.dart';
+import 'reglement_datatable.dart';
 import 'retour_fonds_datatable.dart';
 
 class Body extends StatelessWidget {
@@ -79,7 +80,7 @@ class Body extends StatelessWidget {
                                     RetourFondsDatatable()),
                                 SizedBox(height: defaultPadding),
                                 buildDataTable("Règlements",
-                                    RetourFondsDatatable()),
+                                    ReglementDatatable()),
                               ],
                             ),
                           ),
