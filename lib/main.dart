@@ -23,15 +23,15 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'TranCENTUM',
       theme: theme(),
-      home:  MultiProvider(
-        providers: [
-          ChangeNotifierProvider(
-            create: (context) => MenuController(),
-          ),
-        ],
-        child: ExpeditionDetailScreen(),
-      ),
-      // home: SplashScreen(),
+      // home:  MultiProvider(
+      //   providers: [
+      //     ChangeNotifierProvider(
+      //       create: (context) => MenuController(),
+      //     ),
+      //   ],
+      //   child: HomeScreen(),
+      // ),
+      home: SplashScreen(),
       routes: routes,
     );
   }
