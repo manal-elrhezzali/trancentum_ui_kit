@@ -27,65 +27,17 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
       key: _formKey,
       child: Column(
         children: [
-          TextFormField(
-            decoration: InputDecoration(
-              hintText: "Enter your dummy data1",
-              labelText: "Dummy1",
-              floatingLabelBehavior: FloatingLabelBehavior.always,
-              contentPadding: EdgeInsets.symmetric(
-                horizontal: 42,
-                vertical: 20,
-              ),
-              enabledBorder: outlineInputBorder,
-              focusedBorder: outlineInputBorder,
-              border: outlineInputBorder,
-            ),
-          ),
+          buildTextFormField(
+              outlineInputBorder, "Enter your dummy data1", "Dummy1"),
           SizedBox(height: getProportionateScreenHeight(30)),
-          TextFormField(
-            decoration: InputDecoration(
-              hintText: "Enter your dummy data2",
-              labelText: "Dummy2",
-              floatingLabelBehavior: FloatingLabelBehavior.always,
-              contentPadding: EdgeInsets.symmetric(
-                horizontal: 42,
-                vertical: 20,
-              ),
-              enabledBorder: outlineInputBorder,
-              focusedBorder: outlineInputBorder,
-              border: outlineInputBorder,
-            ),
-          ),
+          buildTextFormField(
+              outlineInputBorder, "Enter your dummy data2", "Dummy2"),
           SizedBox(height: getProportionateScreenHeight(30)),
-          TextFormField(
-            decoration: InputDecoration(
-              hintText: "Enter your dummy data3",
-              labelText: "Dummy3",
-              floatingLabelBehavior: FloatingLabelBehavior.always,
-              contentPadding: EdgeInsets.symmetric(
-                horizontal: 42,
-                vertical: 20,
-              ),
-              enabledBorder: outlineInputBorder,
-              focusedBorder: outlineInputBorder,
-              border: outlineInputBorder,
-            ),
-          ),
+          buildTextFormField(
+              outlineInputBorder, "Enter your dummy data3", "Dummy3"),
           SizedBox(height: getProportionateScreenHeight(30)),
-          TextFormField(
-            decoration: InputDecoration(
-              hintText: "Enter your dummy data3",
-              labelText: "Dummy3",
-              floatingLabelBehavior: FloatingLabelBehavior.always,
-              contentPadding: EdgeInsets.symmetric(
-                horizontal: 42,
-                vertical: 20,
-              ),
-              enabledBorder: outlineInputBorder,
-              focusedBorder: outlineInputBorder,
-              border: outlineInputBorder,
-            ),
-          ),
+          buildTextFormField(
+              outlineInputBorder, "Enter your dummy data4", "Dummy4"),
           SizedBox(height: getProportionateScreenHeight(40)),
           DefaultButton(
             text: "Continue",
@@ -95,6 +47,24 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
             },
           ),
         ],
+      ),
+    );
+  }
+
+  TextFormField buildTextFormField(
+      OutlineInputBorder outlineInputBorder, String hint, String label) {
+    return TextFormField(
+      decoration: InputDecoration(
+        hintText: hint,
+        labelText: label,
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        contentPadding: EdgeInsets.symmetric(
+          horizontal: 42,
+          vertical: 20,
+        ),
+        enabledBorder: outlineInputBorder,
+        focusedBorder: outlineInputBorder,
+        border: outlineInputBorder,
       ),
     );
   }

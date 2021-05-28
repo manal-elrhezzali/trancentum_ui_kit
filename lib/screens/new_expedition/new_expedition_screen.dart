@@ -9,10 +9,9 @@ class NewExpeditionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home"),
+        title: Text("Nouvelle Expedition"),
       ),
       drawer: SideMenu(),
-      backgroundColor: Color(0xFFF2F9FF),
       body: SafeArea(
         child: Body(),
       ),

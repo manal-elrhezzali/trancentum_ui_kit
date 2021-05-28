@@ -4,6 +4,7 @@ import 'package:trancentum_ui_kit/screens/complete_profile/complete_profile_scre
 import 'package:trancentum_ui_kit/screens/expedition_detail/expedition_detail_screen.dart';
 
 import 'package:trancentum_ui_kit/screens/home/home_screen.dart';
+import 'package:trancentum_ui_kit/screens/new_expedition/new_expedition_screen.dart';
 import 'package:trancentum_ui_kit/screens/splash/splash_screen.dart';
 
 import './routes.dart';
@@ -28,10 +29,9 @@ class MyApp extends StatelessWidget {
             create: (context) => MenuController(),
           ),
         ],
-        // child: HomeScreen(),
-        child: ExpeditionDetailScreen(),
+        child: HomeScreen(),
       ),
-      // home: SplashScreen(),
+      // home: CompleteProfileScreen(),
       routes: routes,
     );
   }
