@@ -29,9 +29,9 @@ class MyApp extends StatelessWidget {
             create: (context) => MenuController(),
           ),
         ],
-        child: HomeScreen(),
+        child: ExpeditionDetailScreen(),
       ),
-      // home: CompleteProfileScreen(),
+      // home: SplashScreen(),
       routes: routes,
     );
   }

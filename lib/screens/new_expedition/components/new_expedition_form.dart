@@ -23,82 +23,57 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
       borderSide: BorderSide(color: kTextColor),
       gapPadding: 10,
     );
-    return Container(
+    return Form(
+      key: _formKey,
+      child: 
       
-    ); 
-    // Form(
-    //   key: _formKey,
-    //   child: Column(
-    //     children: [
-    //       TextFormField(
-    //         decoration: InputDecoration(
-    //           hintText: "Enter your dummy data1",
-    //           labelText: "Dummy1",
-    //           floatingLabelBehavior: FloatingLabelBehavior.always,
-    //           contentPadding: EdgeInsets.symmetric(
-    //             horizontal: 42,
-    //             vertical: 20,
-    //           ),
-    //           enabledBorder: outlineInputBorder,
-    //           focusedBorder: outlineInputBorder,
-    //           border: outlineInputBorder,
-    //         ),
-    //       ),
-    //       SizedBox(height: getProportionateScreenHeight(30)),
-    //       TextFormField(
-    //         decoration: InputDecoration(
-    //           hintText: "Enter your dummy data2",
-    //           labelText: "Dummy2",
-    //           floatingLabelBehavior: FloatingLabelBehavior.always,
-    //           contentPadding: EdgeInsets.symmetric(
-    //             horizontal: 42,
-    //             vertical: 20,
-    //           ),
-    //           enabledBorder: outlineInputBorder,
-    //           focusedBorder: outlineInputBorder,
-    //           border: outlineInputBorder,
-    //         ),
-    //       ),
-    //       SizedBox(height: getProportionateScreenHeight(30)),
-    //       TextFormField(
-    //         decoration: InputDecoration(
-    //           hintText: "Enter your dummy data3",
-    //           labelText: "Dummy3",
-    //           floatingLabelBehavior: FloatingLabelBehavior.always,
-    //           contentPadding: EdgeInsets.symmetric(
-    //             horizontal: 42,
-    //             vertical: 20,
-    //           ),
-    //           enabledBorder: outlineInputBorder,
-    //           focusedBorder: outlineInputBorder,
-    //           border: outlineInputBorder,
-    //         ),
-    //       ),
-    //       SizedBox(height: getProportionateScreenHeight(30)),
-    //       TextFormField(
-    //         decoration: InputDecoration(
-    //           hintText: "Enter your dummy data3",
-    //           labelText: "Dummy3",
-    //           floatingLabelBehavior: FloatingLabelBehavior.always,
-    //           contentPadding: EdgeInsets.symmetric(
-    //             horizontal: 42,
-    //             vertical: 20,
-    //           ),
-    //           enabledBorder: outlineInputBorder,
-    //           focusedBorder: outlineInputBorder,
-    //           border: outlineInputBorder,
-    //         ),
-    //       ),
-    //       SizedBox(height: getProportionateScreenHeight(40)),
-    //       DefaultButton(
-    //         text: "Continue",
-    //         pressHandler: () {
-    //           //if all inputs are valide go to OTP screen
-    //           // Navigator.of(context).pushNamed(OtpScreen.routeName);
-    //         },
-    //       ),
-    //     ],
-    //   ),
-    // );
+      
+      
+      
+      
+      
+      
+      Column(
+        children: [
+          buildTextFormField(
+              outlineInputBorder, "Enter your dummy data2", "Dummy2"),
+          SizedBox(height: getProportionateScreenHeight(30)),
+          buildTextFormField(
+              outlineInputBorder, "Enter your dummy data2", "Dummy2"),
+          SizedBox(height: getProportionateScreenHeight(30)),
+          buildTextFormField(
+              outlineInputBorder, "Enter your dummy data2", "Dummy2"),
+          SizedBox(height: getProportionateScreenHeight(30)),
+          buildTextFormField(
+              outlineInputBorder, "Enter your dummy data2", "Dummy2"),
+          SizedBox(height: getProportionateScreenHeight(40)),
+          DefaultButton(
+            text: "Continue",
+            pressHandler: () {
+              //if all inputs are valide go to OTP screen
+              // Navigator.of(context).pushNamed(OtpScreen.routeName);
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
+  TextFormField buildTextFormField(
+      OutlineInputBorder outlineInputBorder, String hint, String label) {
+    return TextFormField(
+      decoration: InputDecoration(
+        hintText: hint,
+        labelText: label,
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        contentPadding: EdgeInsets.symmetric(
+          horizontal: 42,
+          vertical: 20,
+        ),
+        enabledBorder: outlineInputBorder,
+        focusedBorder: outlineInputBorder,
+        border: outlineInputBorder,
+      ),
+    );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trancentum_ui_kit/screens/complete_profile/complete_profile_screen.dart';
+import 'package:trancentum_ui_kit/screens/new_expedition/new_expedition_screen.dart';
 
 import '../../../constants.dart';
 import '../../sign_in/sign_in_screen.dart';
@@ -75,9 +76,9 @@ class _BodyState extends State<Body> {
                     DefaultButton(
                       text: "Continuer",
                       pressHandler: () {
-                        Navigator.of(context).pushNamed(SignInScreen.routeName);
+                        // Navigator.of(context).pushNamed(SignInScreen.routeName);
                         // Navigator.of(context).pushNamed(CompleteProfileScreen.routeName);
-
+                        Navigator.of(context).pushNamed(NewExpeditionScreen.routeName);
                       },
                     ),
                     Spacer(),

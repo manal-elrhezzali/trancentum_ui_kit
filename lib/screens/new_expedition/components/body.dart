@@ -17,7 +17,7 @@ class Body extends StatelessWidget {
             children: [
               SizedBox(height: SizeConfig.screenHeight * 0.02),
               Text(
-                "Déclarer une nouvelle expédition",
+                "Nouvelle Expédition",
                 style: TextStyle(
                   fontSize: getProportionateScreenWidth(28),
                   fontWeight: FontWeight.bold,
@@ -26,7 +26,7 @@ class Body extends StatelessWidget {
                 ),
               ),
               Text(
-                "Complete your profile details",
+                "Déclarer une nouvelle expédition",
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: SizeConfig.screenHeight * 0.05),
