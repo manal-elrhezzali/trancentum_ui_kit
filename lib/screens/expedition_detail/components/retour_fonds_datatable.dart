@@ -18,7 +18,7 @@ class RetourFondsDatatable extends StatelessWidget {
       .map((String column) => DataColumn(
             label: Text(
               column,
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: kPrimaryColor),
             ),
           ))
       .toList();
@@ -40,7 +40,6 @@ class RetourFondsDatatable extends StatelessWidget {
   List<DataCell> getCells(List<String> cells) => cells
       .map((data) => DataCell(Text(
             '$data',
-            style: TextStyle(color: Colors.white),
           )))
       .toList();
 

@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:trancentum_ui_kit/screens/expedition_detail/components/infos_generales_datatable.dart';
-import 'package:trancentum_ui_kit/controllers/menu_controller.dart';
-import 'package:trancentum_ui_kit/components/side_menu.dart';
+
 
 import '../../../constants.dart';
-import '../../../responsive.dart';
 import 'expediteur_destinataire_datatable.dart';
 import 'reglement_datatable.dart';
 import 'retour_fonds_datatable.dart';
@@ -15,7 +12,8 @@ class Body extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(defaultPadding),
       decoration: BoxDecoration(
-        color: bgColor,
+        // color: bgColor,
+        border: Border.all(color: Colors.blueAccent),
         borderRadius: const BorderRadius.all(Radius.circular(10)),
       ),
       child: Column(
@@ -41,15 +39,10 @@ class Body extends StatelessWidget {
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: context.read<MenuController>().scaffoldKey,
-      drawer: SideMenu(),
-      backgroundColor: Color(0xFFF2F9FF),
-      body: SafeArea(
+    return SafeArea(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-        
             Expanded(
               flex: 5, //takes 5/6 of the screen
               child: SafeArea(
@@ -89,7 +82,6 @@ class Body extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
+      );
   }
 }
