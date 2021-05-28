@@ -10,6 +10,34 @@ import 'expediteur_destinataire_datatable.dart';
 import 'retour_fonds_datatable.dart';
 
 class Body extends StatelessWidget {
+  Widget buildDataTable(String title, Widget widget) {
+    return Container(
+      padding: EdgeInsets.all(defaultPadding),
+      decoration: BoxDecoration(
+        color: bgColor,
+        borderRadius: const BorderRadius.all(Radius.circular(10)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+              color: primaryColor,
+              fontSize: 18,
+            ),
+          ),
+          SizedBox(
+            width: double.infinity,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: widget,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,125 +69,17 @@ class Body extends StatelessWidget {
                             child: Column(
                               children: [
                                 SizedBox(height: defaultPadding),
-                                Container(
-                                  padding: EdgeInsets.all(defaultPadding),
-                                  decoration: BoxDecoration(
-                                    color: bgColor,
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(10)),
-                                  ),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Informations Générales",
-                                        style: TextStyle(
-                                          color: primaryColor,
-                                          fontSize: 18,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: double.infinity,
-                                        child: SingleChildScrollView(
-                                          scrollDirection: Axis.horizontal,
-                                          child: InfoGeneraleDatatable(),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
+                                buildDataTable("Informations Générales",
+                                    InfoGeneraleDatatable()),
                                 SizedBox(height: defaultPadding),
-                                //
-                                Container(
-                                  padding: EdgeInsets.all(defaultPadding),
-                                  decoration: BoxDecoration(
-                                    color: bgColor,
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(10)),
-                                  ),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Expediteur / Destinataire",
-                                        style: TextStyle(
-                                          color: primaryColor,
-                                          fontSize: 18,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: double.infinity,
-                                        child: SingleChildScrollView(
-                                          scrollDirection: Axis.horizontal,
-                                          child:
-                                              ExpediteurDestinataireDatatable(),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
+                                buildDataTable("Expediteur / Destinataire",
+                                    ExpediteurDestinataireDatatable()),
                                 SizedBox(height: defaultPadding),
-                                //
-                                Container(
-                                  padding: EdgeInsets.all(defaultPadding),
-                                  decoration: BoxDecoration(
-                                    color: bgColor,
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(10)),
-                                  ),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Retours de fonds",
-                                        style: TextStyle(
-                                          color: primaryColor,
-                                          fontSize: 18,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: double.infinity,
-                                        child: SingleChildScrollView(
-                                          scrollDirection: Axis.horizontal,
-                                          child: RetourFondsDatatable(),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
+                                buildDataTable("Retours de fonds",
+                                    RetourFondsDatatable()),
                                 SizedBox(height: defaultPadding),
-                                //
-                                Container(
-                                  padding: EdgeInsets.all(defaultPadding),
-                                  decoration: BoxDecoration(
-                                    color: bgColor,
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(10)),
-                                  ),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Règlements",
-                                        style: TextStyle(
-                                          color: primaryColor,
-                                          fontSize: 18,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: double.infinity,
-                                        child: SingleChildScrollView(
-                                          scrollDirection: Axis.horizontal,
-                                          child: RetourFondsDatatable(),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
+                                buildDataTable("Règlements",
+                                    RetourFondsDatatable()),
                               ],
                             ),
                           ),
