@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:trancentum_ui_kit/controllers/menu_controller.dart';
 import '../../responsive.dart';
 import '../../components/side_menu.dart';
 import 'dashboard/dashboard.dart';
