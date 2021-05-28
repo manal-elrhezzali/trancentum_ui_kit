@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trancentum_ui_kit/components/side_menu.dart';
 import 'package:trancentum_ui_kit/screens/expedition_detail/components/body.dart';
 
 class ExpeditionDetailScreen extends StatelessWidget {
@@ -10,6 +11,7 @@ class ExpeditionDetailScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Expedition Detail"),
       ),
+      drawer: SideMenu(),
       body: Body(),
     );
   }

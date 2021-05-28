@@ -49,11 +49,7 @@ class Body extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            if (Responsive.isDesktop(context))
-              Expanded(
-                // flex: 1, //by default flex =1
-                child: SideMenu(),
-              ),
+        
             Expanded(
               flex: 5, //takes 5/6 of the screen
               child: SafeArea(
