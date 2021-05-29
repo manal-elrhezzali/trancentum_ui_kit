@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trancentum_ui_kit/models/expedition.dart';
+import 'package:trancentum_ui_kit/screens/expedition_detail/expedition_detail_screen.dart';
 
 import '../../../../constants.dart';
 
@@ -28,6 +29,7 @@ class RecentExpeditionsArray extends StatelessWidget {
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: DataTable(
+                showCheckboxColumn: false,
                 columnSpacing: defaultPadding,
                 horizontalMargin: 0,
                 columns: [
@@ -63,10 +65,9 @@ class RecentExpeditionsArray extends StatelessWidget {
                   ),
                 ],
                 rows: List.generate(
-                  demoRecentExpeditions.length,
-                  (index) => buildRecentExpeditionsDataRow(
-                      demoRecentExpeditions[index]),
-                ),
+                    demoRecentExpeditions.length,
+                    (index) => buildRecentExpeditionsDataRow(
+                        demoRecentExpeditions[index], context)),
               ),
             ),
           ),
@@ -75,8 +76,15 @@ class RecentExpeditionsArray extends StatelessWidget {
     );
   }
 
-  DataRow buildRecentExpeditionsDataRow(Expedition expedition) {
+  DataRow buildRecentExpeditionsDataRow(
+      Expedition expedition, BuildContext context) {
     return DataRow(
+      
+      onSelectChanged: (bool selected) {
+        if (selected) {
+          Navigator.of(context).pushNamed(ExpeditionDetailScreen.routeName);
+        }
+      },
       cells: [
         DataCell(
           Padding(

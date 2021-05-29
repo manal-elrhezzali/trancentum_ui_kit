@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:trancentum_ui_kit/models/package_status_info.dart';
 import 'package:trancentum_ui_kit/responsive.dart';
+import 'package:trancentum_ui_kit/screens/new_expedition/new_expedition_screen.dart';
 
 import '../../../../constants.dart';
 import 'header_package_info_card.dart';
@@ -57,7 +58,7 @@ class MyShipments extends StatelessWidget {
             ),
             ElevatedButton.icon(
               onPressed: () {
-                //navigate to new expedition screen
+                Navigator.of(context).pushNamed(NewExpeditionScreen.routeName);
               },
               style: TextButton.styleFrom(
                 padding: EdgeInsets.symmetric(
