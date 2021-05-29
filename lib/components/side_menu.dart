@@ -1,13 +1,12 @@
-import 'dart:ui' as ui;
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:trancentum_ui_kit/screens/home/home_screen.dart';
-import 'package:trancentum_ui_kit/screens/new_expedition/new_expedition_screen.dart';
-import 'package:trancentum_ui_kit/screens/profile/profile_screen.dart';
-import 'package:trancentum_ui_kit/screens/sign_in/sign_in_screen.dart';
 
-import '../constants.dart';
+import '../screens/home/home_screen.dart';
+import '../screens/new_expedition/new_expedition_screen.dart';
+import '../screens/profile/components/profile_image.dart';
+import '../screens/profile/profile_screen.dart';
+import '../screens/sign_in/sign_in_screen.dart';
+import './side_menu_item.dart';
+
 
 class SideMenu extends StatelessWidget {
   const SideMenu({
@@ -21,42 +20,44 @@ class SideMenu extends StatelessWidget {
         child: Column(
           children: [
             DrawerHeader(
-              child: Image.asset("assets/images/trancentum_logo.png"),
+              child: ProfileImage(),
             ),
-            DrawerListTile(
-              title: 'Accueil',
-              svgSrc: "assets/icons/Menu Dashboard.svg",
+            SideMenuItem(
+              icon: "assets/icons/Menu Dashboard.svg",
+              text: "Dashboard",
               press: () {
                 Navigator.of(context).pushNamed(HomeScreen.routeName);
               },
             ),
-            DrawerListTile(
-              title: 'Profile',
-              svgSrc: "assets/icons/User Icon.svg",
+            SideMenuItem(
+              icon: "assets/icons/User Icon.svg",
+              text: "Profile",
               press: () {
                 Navigator.of(context).pushNamed(ProfileScreen.routeName);
               },
             ),
-            DrawerListTile(
-              title: 'Notifications',
-              svgSrc: "assets/icons/Menu Notification.svg",
+            SideMenuItem(
+              icon: "assets/icons/Bell.svg", // Menu Notification.svg
+              text: "Notifications",
               press: () {},
             ),
-            DrawerListTile(
-              title: 'Nouvelle Expédition',
-              svgSrc: "assets/icons/Package.svg",
+            SideMenuItem(
+              icon: "assets/icons/Package.svg",
+              text: "Nouvelle Expédition",
               press: () {
                 Navigator.of(context).pushNamed(NewExpeditionScreen.routeName);
               },
             ),
-            DrawerListTile(
-              title: 'Help Center',
-              svgSrc: "assets/icons/Question Mark.svg",
-              press: () {},
+            SideMenuItem(
+              icon: "assets/icons/Question Mark.svg",
+              text: "Contact",
+              press: () {
+
+              },
             ),
-            DrawerListTile(
-              title: 'Logout',
-              svgSrc: "assets/icons/Log out.svg",
+            SideMenuItem(
+              icon: "assets/icons/Log out.svg",
+              text: "Déconnexion",
               press: () {
                 Navigator.of(context).pushNamed(SignInScreen.routeName);
               },
@@ -68,33 +69,3 @@ class SideMenu extends StatelessWidget {
   }
 }
 
-class DrawerListTile extends StatelessWidget {
-  const DrawerListTile({
-    Key key,
-    @required this.title,
-    @required this.svgSrc,
-    @required this.press,
-  }) : super(key: key);
-
-  final String title, svgSrc;
-  final ui.VoidCallback press;
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      onTap: press,
-      horizontalTitleGap: 0.0,
-      leading: SvgPicture.asset(
-        svgSrc,
-        color: kPrimaryLightColor,
-        height: 16,
-      ),
-      title: Text(
-        title,
-        style: TextStyle(
-            // color: Colors.white54,
-            ),
-      ),
-    );
-  }
-}

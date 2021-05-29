@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../constants.dart';
+import '../constants.dart';
 
-class ProfileMenu extends StatelessWidget {
-  const ProfileMenu({
+class SideMenuItem extends StatelessWidget {
+  const SideMenuItem({
     Key key,
     @required this.text,
     @required this.icon,

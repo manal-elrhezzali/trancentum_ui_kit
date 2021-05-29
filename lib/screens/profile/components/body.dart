@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../sign_in/sign_in_screen.dart';
-import './profile_menu.dart';
+import '../../../components/side_menu_item.dart';
 import './profile_image.dart';
 
 class Body extends StatelessWidget {
@@ -12,22 +12,22 @@ class Body extends StatelessWidget {
         children: [
           ProfileImage(),
           SizedBox(height: 20),
-          ProfileMenu(
+          SideMenuItem(
             icon: "assets/icons/User Icon.svg",
             text: "My Account",
             press: () {},
           ),
-          ProfileMenu(
+          SideMenuItem(
             icon: "assets/icons/Bell.svg",
             text: "Notifications",
             press: () {},
           ),
-          ProfileMenu(
+          SideMenuItem(
             icon: "assets/icons/Question Mark.svg",
             text: "Help Center",
             press: () {},
           ),
-          ProfileMenu(
+          SideMenuItem(
             icon: "assets/icons/Log out.svg",
             text: "Log Out",
             press: () {
