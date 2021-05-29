@@ -37,7 +37,7 @@ class SideMenu extends StatelessWidget {
               },
             ),
             SideMenuItem(
-              icon: "assets/icons/Bell.svg", // Menu Notification.svg
+              icon: "assets/icons/Menu Notification.svg", 
               text: "Notifications",
               press: () {},
             ),
