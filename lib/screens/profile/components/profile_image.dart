@@ -19,27 +19,6 @@ class ProfileImage extends StatelessWidget {
             backgroundImage:
                 AssetImage("assets/images/profile_image_placeholder.png"),
           ),
-          Positioned(
-            right: -12,
-            bottom: 0,
-            child: SizedBox(
-              height: 46,
-              width: 46,
-              child: FlatButton(
-                padding: EdgeInsets.zero,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(50),
-                  side: BorderSide(color: Colors.white),
-                ),
-                color: Color(0xFFF5F6F9),
-                onPressed: () {
-                  //take user picture and store it locally ?
-                  // + display it instead of the avatar 
-                },
-                child: SvgPicture.asset("assets/icons/Camera Icon.svg"),
-              ),
-            ),
-          ),
         ],
       ),
     );
