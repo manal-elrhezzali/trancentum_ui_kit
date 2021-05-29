@@ -49,10 +49,21 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
     );
 
     String valueChose;
-    List listItems = [
+    List listItemsVilleExpediteurDropDownButton = [
       "Meknes",
       "Casablanca",
       "Fès",
+    ];
+    List listItemsVilleDestinataireDropDownButton = [
+      "Tanger",
+      "Errachidia",
+      "Larache",
+    ];
+    List listItemsRetoursFondsDropDownButton = [
+      "C/Remboursement",
+      "C/chèque",
+      "C/Traite",
+      "C/BL",
     ];
     return Form(
       key: _formKey,
@@ -77,33 +88,50 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
                               "Enter le tel d\'expéditeur", "Tél Expéditeur"),
                           SizedBox(height: getProportionateScreenHeight(20)),
                           //dropDownButton
-                          buildDropDownButton(valueChose, listItems, "Ville Expéditeur"),
+                          buildDropDownButton(
+                            valueChose,
+                            listItemsVilleExpediteurDropDownButton,
+                            "Ville Expéditeur",
+                          ),
                           SizedBox(height: getProportionateScreenHeight(20)),
                           buildTextFormField(outlineInputBorder,
                               "Enter le nom destinataire", "Nom Destinataire"),
-                              SizedBox(height: getProportionateScreenHeight(20)),
+                          SizedBox(height: getProportionateScreenHeight(20)),
                           buildTextFormField(outlineInputBorder,
                               "Enter le tel destinataire", "Tél Destinataire"),
-                              SizedBox(height: getProportionateScreenHeight(20)),
+                          SizedBox(height: getProportionateScreenHeight(20)),
                           //dropDownButton
-                          buildDropDownButton(valueChose, listItems, "Ville Destinataire"),
+                          buildDropDownButton(
+                            valueChose,
+                            listItemsVilleDestinataireDropDownButton,
+                            "Ville Destinataire",
+                          ),
                         ],
                       ),
                       SizedBox(height: getProportionateScreenHeight(30)),
-                      //
                       buildSubForm(
                         "Retours de fonds",
                         [
                           buildTextFormField(outlineInputBorder,
-                              "Enter le nom d\'expéditeur", "Nom expéditeur"),
+                              "Enter le nbr de bons ", "Bons Livraison"),
                           SizedBox(height: getProportionateScreenHeight(20)),
                           buildTextFormField(outlineInputBorder,
-                              "Enter le tel d\'expéditeur", "Tél expéditeur"),
+                              "Enter le nbr de factures", "Nombre de factures"),
                           SizedBox(height: getProportionateScreenHeight(20)),
-                          //dropDownButton
-                          buildDropDownButton(valueChose, listItems, "Ville Expéditeur"),
+                          buildTextFormField(outlineInputBorder,
+                              "Enter le montant", "Montant"),
+                          SizedBox(height: getProportionateScreenHeight(20)),
+                          buildTextFormField(
+                              outlineInputBorder, "Enter le nombre", "Nombre"),
+                          SizedBox(height: getProportionateScreenHeight(20)),
+                          buildDropDownButton(
+                              valueChose,
+                              listItemsRetoursFondsDropDownButton,
+                              "Type de retours"),
                         ],
                       ),
+                      SizedBox(height: getProportionateScreenHeight(30)),
+                      //reglement
                       SizedBox(height: getProportionateScreenHeight(40)),
                       DefaultButton(
                         text: "Confirmer",

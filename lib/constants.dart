@@ -18,7 +18,6 @@ const defaultDuration = Duration(milliseconds: 250);
 
 //Dashbord / HomeScreen
 const primaryColor = Color(0xFF2697FF);
-// const secondaryColor = Color(0xFF8CC8FF);
 const secondaryColor = Color(0xFF73BCFF);
 
 // const bgColor = Color(0xFF212332);
