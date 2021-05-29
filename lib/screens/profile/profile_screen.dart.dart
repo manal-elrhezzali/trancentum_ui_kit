@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trancentum_ui_kit/screens/home/home_screen.dart';
+import 'package:trancentum_ui_kit/components/side_menu.dart';
 
 import '../../constants.dart';
 import '../../size_config.dart';
@@ -31,6 +31,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       gapPadding: 10,
     );
     return Scaffold(
+      drawer: SideMenu(),
       appBar: AppBar(
         title: Text("Compte"),
         actions: [
@@ -84,8 +85,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       SizedBox(height: getProportionateScreenHeight(30)),
                     ],
                   ),
-                  // buildTextFormField(outlineInputBorder,
-                  //     "Enter your dummy data2", "Dummy 2"),
                 ),
               ],
             ),
