@@ -61,6 +61,7 @@ class SideMenu extends StatelessWidget {
               icon: "assets/icons/Log out.svg",
               text: "Déconnexion",
               press: () {
+                Navigator.of(context).popUntil((route) => route.toString() == SignInScreen.routeName);
                 Navigator.of(context).pushNamed(SignInScreen.routeName);
               },
             ),
