@@ -2,9 +2,12 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:trancentum_ui_kit/screens/home/home_screen.dart';
+import 'package:trancentum_ui_kit/screens/new_expedition/new_expedition_screen.dart';
+import 'package:trancentum_ui_kit/screens/profile/profile_screen.dart';
+import 'package:trancentum_ui_kit/screens/sign_in/sign_in_screen.dart';
 
 import '../constants.dart';
-
 
 class SideMenu extends StatelessWidget {
   const SideMenu({
@@ -21,14 +24,18 @@ class SideMenu extends StatelessWidget {
               child: Image.asset("assets/images/trancentum_logo.png"),
             ),
             DrawerListTile(
-              title: 'Dashboard',
+              title: 'Accueil',
               svgSrc: "assets/icons/Menu Dashboard.svg",
-              press: () {},
+              press: () {
+                Navigator.of(context).pushNamed(HomeScreen.routeName);
+              },
             ),
             DrawerListTile(
               title: 'Profile',
               svgSrc: "assets/icons/User Icon.svg",
-              press: () {},
+              press: () {
+                Navigator.of(context).pushNamed(ProfileScreen.routeName);
+              },
             ),
             DrawerListTile(
               title: 'Notifications',
@@ -36,9 +43,11 @@ class SideMenu extends StatelessWidget {
               press: () {},
             ),
             DrawerListTile(
-              title: 'New Shipping',
+              title: 'Nouvelle Expédition',
               svgSrc: "assets/icons/Package.svg",
-              press: () {},
+              press: () {
+                Navigator.of(context).pushNamed(NewExpeditionScreen.routeName);
+              },
             ),
             DrawerListTile(
               title: 'Help Center',
@@ -48,7 +57,9 @@ class SideMenu extends StatelessWidget {
             DrawerListTile(
               title: 'Logout',
               svgSrc: "assets/icons/Log out.svg",
-              press: () {},
+              press: () {
+                Navigator.of(context).pushNamed(SignInScreen.routeName);
+              },
             ),
           ],
         ),
@@ -56,7 +67,6 @@ class SideMenu extends StatelessWidget {
     );
   }
 }
-
 
 class DrawerListTile extends StatelessWidget {
   const DrawerListTile({
