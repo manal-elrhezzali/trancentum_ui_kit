@@ -86,13 +86,7 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
                           SizedBox(height: getProportionateScreenHeight(20)),
                           buildTextFormField(outlineInputBorder,
                               "Enter le tel d\'expéditeur", "Tél Expéditeur"),
-                          SizedBox(height: getProportionateScreenHeight(20)),
-                          //dropDownButton
-                          buildDropDownButton(
-                            valueChose,
-                            listItemsVilleExpediteurDropDownButton,
-                            "Ville Expéditeur",
-                          ),
+
                           SizedBox(height: getProportionateScreenHeight(20)),
                           buildTextFormField(outlineInputBorder,
                               "Enter le nom destinataire", "Nom Destinataire"),
@@ -100,7 +94,12 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
                           buildTextFormField(outlineInputBorder,
                               "Enter le tel destinataire", "Tél Destinataire"),
                           SizedBox(height: getProportionateScreenHeight(20)),
-                          //dropDownButton
+                          buildDropDownButton(
+                            valueChose,
+                            listItemsVilleExpediteurDropDownButton,
+                            "Ville Expéditeur",
+                          ),
+                          SizedBox(height: getProportionateScreenHeight(20)),
                           buildDropDownButton(
                             valueChose,
                             listItemsVilleDestinataireDropDownButton,
