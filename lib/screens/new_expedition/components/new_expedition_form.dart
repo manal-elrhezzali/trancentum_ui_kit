@@ -65,6 +65,21 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
       "C/Traite",
       "C/BL",
     ];
+    List listItemsTypeMarchandiseDropDownButton = [
+      "marchandise 1",
+      "marchandise 2",
+    ];
+    List listItemsModePaiementDropDownButton = [
+      "PP",
+      "PPE",
+      "PD",
+      "PDE",
+    ];
+     List listItemsTypeTaxationDropDownButton = [
+      "Forfait",
+      "Taxation",
+      "Service",
+    ];
     return Form(
       key: _formKey,
       child: SafeArea(
@@ -86,7 +101,6 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
                           SizedBox(height: getProportionateScreenHeight(20)),
                           buildTextFormField(outlineInputBorder,
                               "Enter le tel d\'expéditeur", "Tél Expéditeur"),
-
                           SizedBox(height: getProportionateScreenHeight(20)),
                           buildTextFormField(outlineInputBorder,
                               "Enter le nom destinataire", "Nom Destinataire"),
@@ -130,7 +144,28 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
                         ],
                       ),
                       SizedBox(height: getProportionateScreenHeight(30)),
-                      //reglement
+                      buildSubForm(
+                        "Règlement",
+                        [
+                          buildTextFormField(outlineInputBorder,
+                              "Enter le nbr de colis ", "Nombre de Colis"),
+                          SizedBox(height: getProportionateScreenHeight(20)),
+                          buildDropDownButton(
+                              valueChose,
+                              listItemsTypeMarchandiseDropDownButton,
+                              "Type de Marchandise"),
+                          SizedBox(height: getProportionateScreenHeight(20)),
+                          buildDropDownButton(
+                              valueChose,
+                              listItemsModePaiementDropDownButton,
+                              "Mode Paiement"),
+                          SizedBox(height: getProportionateScreenHeight(20)),
+                          buildDropDownButton(
+                              valueChose,
+                               listItemsTypeTaxationDropDownButton,
+                              "Type de Taxation"),
+                        ],
+                      ),
                       SizedBox(height: getProportionateScreenHeight(40)),
                       DefaultButton(
                         text: "Confirmer",
