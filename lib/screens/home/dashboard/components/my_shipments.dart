@@ -56,20 +56,22 @@ class MyShipments extends StatelessWidget {
               "Mes Expéditions",
               style: Theme.of(context).textTheme.subtitle1,
             ),
-            ElevatedButton.icon(
-              onPressed: () {
-                Navigator.of(context).pushNamed(NewExpeditionScreen.routeName);
-              },
-              style: TextButton.styleFrom(
-                padding: EdgeInsets.symmetric(
-                  horizontal: defaultPadding * 1.5,
-                  vertical:
-                      defaultPadding / (Responsive.isMobile(context) ? 2 : 1),
+            if (_size.width > 360)
+              ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.of(context)
+                      .pushNamed(NewExpeditionScreen.routeName);
+                },
+                style: TextButton.styleFrom(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: defaultPadding * 1.5,
+                    vertical:
+                        defaultPadding / (Responsive.isMobile(context) ? 2 : 1),
+                  ),
                 ),
+                icon: Icon(Icons.add),
+                label: Text("Nouvelle Expédition"),
               ),
-              icon: Icon(Icons.add),
-              label: Text("Nouvelle Expédition"),
-            ),
           ],
         ),
         SizedBox(height: defaultPadding),

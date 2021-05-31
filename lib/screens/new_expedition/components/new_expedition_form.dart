@@ -223,7 +223,6 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
       ),
     );
   }
-
   TextFormField buildTextFormField(
       OutlineInputBorder outlineInputBorder, String hint, String label) {
     return TextFormField(
