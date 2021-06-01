@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 
+import 'screens/notifications/notifications_screen.dart';
 import 'screens/expedition_detail/expedition_detail_screen.dart';
 import 'screens/help_center/help_center_screen.dart';
 import 'screens/new_expedition/new_expedition_screen.dart';
@@ -24,4 +25,5 @@ final Map<String, WidgetBuilder> routes = {
   ExpeditionDetailScreen.routeName: (context) => ExpeditionDetailScreen(),
   NewExpeditionScreen.routeName: (context) => NewExpeditionScreen(),
   HelpCenterScreen.routeName: (context) => HelpCenterScreen(),
+  NotificationsScreen.routeName: (context) => NotificationsScreen(),
 };
