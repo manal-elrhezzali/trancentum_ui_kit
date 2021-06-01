@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:trancentum_ui_kit/screens/complete_profile/complete_profile_screen.dart';
-import 'package:trancentum_ui_kit/screens/new_expedition/new_expedition_screen.dart';
 
 import '../../../constants.dart';
 import '../../sign_in/sign_in_screen.dart';

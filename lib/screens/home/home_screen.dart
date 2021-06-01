@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:trancentum_ui_kit/components/custom_back_button.dart';
 
 import '../../responsive.dart';
 import '../../components/side_menu.dart';
