@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:trancentum_ui_kit/constants.dart';
 import 'package:trancentum_ui_kit/screens/notifications/notifications_screen.dart';
 
 import '../screens/home/home_screen.dart';
 import '../screens/new_expedition/new_expedition_screen.dart';
-import '../screens/profile/components/profile_image.dart';
 import '../screens/sign_in/sign_in_screen.dart';
 import '../screens/help_center/help_center_screen.dart';
 import '../screens/profile/profile_screen.dart.dart';
@@ -21,7 +21,11 @@ class SideMenu extends StatelessWidget {
         child: Column(
           children: [
             DrawerHeader(
-              child: ProfileImage(),
+              child: Container(
+                padding: EdgeInsets.all(defaultPadding),
+                child: Image.asset("assets/images/trancentum_logo.png"),
+              ),
+              // child: ProfileImage(),
             ),
             SideMenuItem(
               icon: "assets/icons/Menu Dashboard.svg",
