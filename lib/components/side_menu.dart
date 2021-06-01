@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trancentum_ui_kit/screens/notifications/notifications_screen.dart';
 
 import '../screens/home/home_screen.dart';
 import '../screens/new_expedition/new_expedition_screen.dart';
@@ -26,7 +27,6 @@ class SideMenu extends StatelessWidget {
               icon: "assets/icons/Menu Dashboard.svg",
               text: "Dashboard",
               press: () {
-                Navigator.of(context).pop();
                 Navigator.of(context).pushNamed(HomeScreen.routeName);
               },
             ),
@@ -34,20 +34,20 @@ class SideMenu extends StatelessWidget {
               icon: "assets/icons/User Icon.svg",
               text: "Compte",
               press: () {
-                Navigator.of(context).pop();
                 Navigator.of(context).pushNamed(ProfileScreen.routeName);
               },
             ),
             SideMenuItem(
               icon: "assets/icons/Menu Notification.svg",
               text: "Notifications",
-              press: () {},
+              press: () {
+                Navigator.of(context).pushNamed(NotificationsScreen.routeName);
+              },
             ),
             SideMenuItem(
               icon: "assets/icons/Package.svg",
               text: "Nouvelle Expédition",
               press: () {
-                Navigator.of(context).pop();
                 Navigator.of(context).pushNamed(NewExpeditionScreen.routeName);
               },
             ),
@@ -55,7 +55,6 @@ class SideMenu extends StatelessWidget {
               icon: "assets/icons/Question Mark.svg",
               text: "Aide",
               press: () {
-                Navigator.of(context).pop();
                 Navigator.of(context).pushNamed(HelpCenterScreen.routeName);
               },
             ),
@@ -64,7 +63,6 @@ class SideMenu extends StatelessWidget {
               text: "Déconnexion",
               press: () {
                 // Navigator.of(context).popUntil((route) => route.toString() == SignInScreen.routeName);
-                Navigator.of(context).pop();
                 Navigator.of(context).pushNamed(SignInScreen.routeName);
               },
             ),
