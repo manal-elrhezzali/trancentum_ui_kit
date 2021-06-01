@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trancentum_ui_kit/screens/sign_in/sign_in_screen.dart';
 
 import '../../../components/default_button.dart';
 import '../../../constants.dart';
@@ -108,6 +109,9 @@ class _OtpFormState extends State<OtpForm> {
           DefaultButton(
             text: "Continue",
             pressHandler: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).pop();
+              Navigator.of(context).pushNamed(SignInScreen.routeName);
             },
           ),
         ],

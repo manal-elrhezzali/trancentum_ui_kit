@@ -76,9 +76,9 @@ class _BodyState extends State<Body> {
                     DefaultButton(
                       text: "Continuer",
                       pressHandler: () {
-                        // Navigator.of(context).pushNamed(SignInScreen.routeName);
+                        Navigator.of(context).pushNamed(SignInScreen.routeName);
                         // Navigator.of(context).pushNamed(CompleteProfileScreen.routeName);
-                        Navigator.of(context).pushNamed(NewExpeditionScreen.routeName);
+                        // Navigator.of(context).pushNamed(NewExpeditionScreen.routeName);
                       },
                     ),
                     Spacer(),

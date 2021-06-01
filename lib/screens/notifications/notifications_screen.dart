@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:trancentum_ui_kit/components/custom_back_button.dart';
 import 'package:trancentum_ui_kit/components/side_menu.dart';
-import 'package:trancentum_ui_kit/screens/expedition_detail/components/body.dart';
 
-class ExpeditionDetailScreen extends StatelessWidget {
-  static String routeName = "/expedition_detail_screen";
+import 'components/body.dart';
 
+class NotificationsScreen extends StatelessWidget {
+   static String routeName = "/notifications";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Expedition Detail"),
+        title: Text("Notifications"),
+        automaticallyImplyLeading: false,
+        leading: CustomBackButton(),
       ),
       drawer: SideMenu(),
-      body: Body(),
+      body: SafeArea(
+        child: Body(),
+      ),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trancentum_ui_kit/components/custom_back_button.dart';
 
 import '../../responsive.dart';
 import '../../components/side_menu.dart';
@@ -11,6 +12,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Home"),
+
       ),
       drawer: SideMenu(),
       backgroundColor: Color(0xFFF2F9FF),
