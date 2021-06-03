@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../responsive.dart';
+import '../../responsive_widget.dart';
 import '../../components/side_menu.dart';
 import 'dashboard/dashboard.dart';
 
@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            if (Responsive.isDesktop(context))
+            if (ResponsiveWidget.isDesktop(context))
               Expanded(
                 // flex: 1, //by default flex =1
                 child: SideMenu(),

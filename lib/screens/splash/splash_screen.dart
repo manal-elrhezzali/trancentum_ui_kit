@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trancentum_ui_kit/responsive.dart';
+import 'package:trancentum_ui_kit/responsive_widget.dart';
 import 'package:trancentum_ui_kit/screens/sign_in/sign_in_screen.dart';
 
 import './components/body.dart';
@@ -11,7 +11,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    if (Responsive.isMobile(context)) {
+    if (ResponsiveWidget.isMobile(context)) {
       return Scaffold(
         body: Body(),
       );

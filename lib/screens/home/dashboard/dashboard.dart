@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:trancentum_ui_kit/screens/expedition_detail/components/search_field.dart';
 
 import '../../../constants.dart';
-import '../../../responsive.dart';
+import '../../../responsive_widget.dart';
 import 'components/all_packages_status.dart';
 import 'components/my_shipments.dart';
 import 'components/recent_expeditions_array.dart';
@@ -73,17 +73,17 @@ class Dashboard extends StatelessWidget {
                       MyShipments(),
                       SizedBox(height: defaultPadding),
                       RecentExpeditionsArray(),
-                      if (Responsive.isMobile(context))
+                      if (ResponsiveWidget.isMobile(context))
                         SizedBox(height: defaultPadding),
-                      if (Responsive.isMobile(context))
+                      if (ResponsiveWidget.isMobile(context))
                         AllPackagesStatus(
                             pieChartSectionData: pieChartSectionData),
                     ],
                   ),
                 ),
-                if (!Responsive.isMobile(context))
+                if (!ResponsiveWidget.isMobile(context))
                   SizedBox(width: defaultPadding),
-                if (!Responsive.isMobile(context))
+                if (!ResponsiveWidget.isMobile(context))
                   Expanded(
                     flex: 2,
                     child: AllPackagesStatus(

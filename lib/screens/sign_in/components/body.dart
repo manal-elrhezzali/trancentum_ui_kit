@@ -7,7 +7,6 @@ import '../../../size_config.dart';
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return SafeArea(
       child: Center(
         child: SizedBox(

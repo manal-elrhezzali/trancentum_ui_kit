@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trancentum_ui_kit/models/package_status_info.dart';
-import 'package:trancentum_ui_kit/responsive.dart';
+import 'package:trancentum_ui_kit/responsive_widget.dart';
 import 'package:trancentum_ui_kit/screens/new_expedition/new_expedition_screen.dart';
 
 import '../../../../constants.dart';
@@ -66,7 +66,7 @@ class MyShipments extends StatelessWidget {
                   padding: EdgeInsets.symmetric(
                     horizontal: defaultPadding * 1.5,
                     vertical:
-                        defaultPadding / (Responsive.isMobile(context) ? 2 : 1),
+                        defaultPadding / (ResponsiveWidget.isMobile(context) ? 2 : 1),
                   ),
                 ),
                 icon: Icon(Icons.add),
@@ -75,7 +75,7 @@ class MyShipments extends StatelessWidget {
           ],
         ),
         SizedBox(height: defaultPadding),
-        Responsive(
+        ResponsiveWidget(
           mobile: PackageStatusInfoCardGridView(
             demoMyPackages: demoMyPackages,
             crossAxisCount: _size.width < 650 ? 3 : 6,
