@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trancentum_ui_kit/screens/profile/profile_screen.dart.dart';
 
 import '../../../components/default_button.dart';
 import '../../../constants.dart';
@@ -42,8 +43,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
           DefaultButton(
             text: "Continue",
             pressHandler: () {
-              //if all inputs are valide go to OTP screen
-              // Navigator.of(context).pushNamed(OtpScreen.routeName);
+              Navigator.of(context).pushNamed(ProfileScreen.routeName);
             },
           ),
         ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trancentum_ui_kit/constants.dart';
+import 'package:trancentum_ui_kit/screens/complete_profile/complete_profile_screen.dart';
 import 'package:trancentum_ui_kit/screens/notifications/notifications_screen.dart';
 
 import '../screens/home/home_screen.dart';
@@ -38,7 +39,7 @@ class SideMenu extends StatelessWidget {
               icon: "assets/icons/User Icon.svg",
               text: "Compte",
               press: () {
-                Navigator.of(context).pushNamed(ProfileScreen.routeName);
+                Navigator.of(context).pushNamed(CompleteProfileScreen.routeName);
               },
             ),
             SideMenuItem(
