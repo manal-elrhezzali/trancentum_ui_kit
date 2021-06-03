@@ -6,59 +6,62 @@ import '../../../size_config.dart';
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: getProportionateScreenWidth(20),
-        ),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(height: SizeConfig.screenHeight * 0.02),
-              Text(
-                "Aide",
-                style: TextStyle(
-                  fontSize: getProportionateScreenWidth(28),
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                  height: 1.5,
+    return Center(
+      child: SizedBox(
+        width: double.infinity,
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: getProportionateScreenWidth(20),
+          ),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(height: SizeConfig.screenHeight * 0.02),
+                Text(
+                  "Aide",
+                  style: TextStyle(
+                    fontSize: getProportionateScreenWidth(28),
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                    height: 1.5,
+                  ),
                 ),
-              ),
-              Text(
-                "Contactez-nous",
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: SizeConfig.screenHeight * 0.05),
-             buildContactItem(
-                context,
-                () {},
-                Icons.location_on,
-                "Meet Us",
-                "Twin Center, Angle Bd Zerktouni et Al Massira5ème étages 20100",
-              ),
-              SizedBox(height: getProportionateScreenHeight(30)),
-              buildContactItem(
-                context,
-                () {},
-                Icons.phone,
-                "Call Us",
-                "+212 707-090303",
-              ),
-              SizedBox(height: getProportionateScreenHeight(30)),
-              buildContactItem(
-                context,
-                () {},
-                Icons.location_on,
-                "Email Us",
-                "contact@trancentum.com",
-              ),
-            ],
+                Text(
+                  "Contactez-nous",
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: SizeConfig.screenHeight * 0.05),
+                buildContactItem(
+                  context,
+                  () {},
+                  Icons.location_on,
+                  "Meet Us",
+                  "Twin Center, Angle Bd Zerktouni et Al Massira5ème étages 20100",
+                ),
+                SizedBox(height: getProportionateScreenHeight(30)),
+                buildContactItem(
+                  context,
+                  () {},
+                  Icons.phone,
+                  "Call Us",
+                  "+212 707-090303",
+                ),
+                SizedBox(height: getProportionateScreenHeight(30)),
+                buildContactItem(
+                  context,
+                  () {},
+                  Icons.location_on,
+                  "Email Us",
+                  "contact@trancentum.com",
+                ),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
+
   Padding buildContactItem(BuildContext context, Function press, IconData icon,
       String contactTypetext, String contactTypeInfo) {
     return Padding(

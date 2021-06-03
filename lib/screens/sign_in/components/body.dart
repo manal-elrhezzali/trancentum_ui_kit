@@ -9,33 +9,35 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return SafeArea(
-      child: SizedBox(
-        width: double.infinity,
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: getProportionateScreenWidth(20),
-          ),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                SizedBox(height: SizeConfig.screenHeight * 0.04),
-                Text(
-                  "Welcome back",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: getProportionateScreenWidth(28),
-                    fontWeight: FontWeight.bold,
+      child: Center(
+        child: SizedBox(
+          width: double.infinity,
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: getProportionateScreenWidth(20),
+            ),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  SizedBox(height: SizeConfig.screenHeight * 0.04),
+                  Text(
+                    "Welcome back",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: getProportionateScreenWidth(28),
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                Text(
-                  "Sign in with your ICE and password",
-                  textAlign: TextAlign.center,
-                ),
-                SizedBox(height: SizeConfig.screenHeight * 0.08),
-                SignForm(),
-                SizedBox(height: getProportionateScreenHeight(20)),
-                NoAccountText(),
-              ],
+                  Text(
+                    "Sign in with your ICE and password",
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: SizeConfig.screenHeight * 0.08),
+                  SignForm(),
+                  SizedBox(height: getProportionateScreenHeight(20)),
+                  NoAccountText(),
+                ],
+              ),
             ),
           ),
         ),

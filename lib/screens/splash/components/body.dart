@@ -33,58 +33,60 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: SizedBox(
-        width: double.infinity,
-        child: Column(
-          children: [
-            Expanded(
-              flex: 3,
-              child: PageView.builder(
-                onPageChanged: (value) {
-                  setState(() {
-                    currentPage = value;
-                  });
-                },
-                itemCount: splashInfo.length,
-                itemBuilder: (context, index) => SplashContent(
-                  text: splashInfo[index]["text"],
-                  image: splashInfo[index]["image"],
+      child: Center(
+        child: SizedBox(
+          width: double.infinity,
+          child: Column(
+            children: [
+              Expanded(
+                flex: 3,
+                child: PageView.builder(
+                  onPageChanged: (value) {
+                    setState(() {
+                      currentPage = value;
+                    });
+                  },
+                  itemCount: splashInfo.length,
+                  itemBuilder: (context, index) => SplashContent(
+                    text: splashInfo[index]["text"],
+                    image: splashInfo[index]["image"],
+                  ),
                 ),
               ),
-            ),
-            Expanded(
-              flex: 2,
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: getProportionateScreenWidth(20),
-                ),
-                child: Column(
-                  children: [
-                    Spacer(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        ...List.generate(
-                          splashInfo.length,
-                          (index) => buildDot(index: index),
-                        ),
-                      ],
-                    ),
-                    Spacer(flex: 3),
-                    DefaultButton(
-                      text: "Continuer",
-                      pressHandler: () {
-                        Navigator.of(context).pushNamed(SignInScreen.routeName);
-                        // Navigator.of(context).pushNamed(CompleteProfileScreen.routeName);
-                        // Navigator.of(context).pushNamed(NewExpeditionScreen.routeName);
-                      },
-                    ),
-                    Spacer(),
-                  ],
+              Expanded(
+                flex: 2,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: getProportionateScreenWidth(20),
+                  ),
+                  child: Column(
+                    children: [
+                      Spacer(),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ...List.generate(
+                            splashInfo.length,
+                            (index) => buildDot(index: index),
+                          ),
+                        ],
+                      ),
+                      Spacer(flex: 3),
+                      DefaultButton(
+                        text: "Continuer",
+                        pressHandler: () {
+                          Navigator.of(context).pushNamed(SignInScreen.routeName);
+                          // Navigator.of(context).pushNamed(CompleteProfileScreen.routeName);
+                          // Navigator.of(context).pushNamed(NewExpeditionScreen.routeName);
+                        },
+                      ),
+                      Spacer(),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

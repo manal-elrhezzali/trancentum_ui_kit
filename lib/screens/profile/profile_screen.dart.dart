@@ -48,45 +48,49 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
         ],
       ),
-      body: SizedBox(
-        width: double.infinity,
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: getProportionateScreenWidth(20),
-          ),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                SizedBox(height: SizeConfig.screenHeight * 0.02),
-                ProfileImage(),
-                SizedBox(height: SizeConfig.screenHeight * 0.05),
-                Form(
-                  key: _form,
-                  child: Column(
-                    children: [
-                      buildTextFormField(
-                          editButtonClicked,
-                          _initValues["adresse"],
-                          outlineInputBorder,
-                          "",
-                          "Addresse"),
-                      SizedBox(height: getProportionateScreenHeight(30)),
-                      buildTextFormField(editButtonClicked, _initValues["tel"],
-                          outlineInputBorder, "", "Tel"),
-                      SizedBox(height: getProportionateScreenHeight(30)),
-                      buildTextFormField(editButtonClicked, _initValues["fixe"],
-                          outlineInputBorder, "", "Fixe"),
-                      SizedBox(height: getProportionateScreenHeight(30)),
-                      buildTextFormField(editButtonClicked, _initValues["fax"],
-                          outlineInputBorder, "", "Fax"),
-                      SizedBox(height: getProportionateScreenHeight(30)),
-                      buildTextFormField(editButtonClicked, _initValues["mdp"],
-                          outlineInputBorder, "", "Mot De Passe"),
-                      SizedBox(height: getProportionateScreenHeight(30)),
-                    ],
-                  ),
+      body: SafeArea(
+        child: Center(
+          child: SizedBox(
+            width: double.infinity,
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: getProportionateScreenWidth(20),
+              ),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    SizedBox(height: SizeConfig.screenHeight * 0.02),
+                    ProfileImage(),
+                    SizedBox(height: SizeConfig.screenHeight * 0.05),
+                    Form(
+                      key: _form,
+                      child: Column(
+                        children: [
+                          buildTextFormField(
+                              editButtonClicked,
+                              _initValues["adresse"],
+                              outlineInputBorder,
+                              "",
+                              "Addresse"),
+                          SizedBox(height: getProportionateScreenHeight(30)),
+                          buildTextFormField(editButtonClicked, _initValues["tel"],
+                              outlineInputBorder, "", "Tel"),
+                          SizedBox(height: getProportionateScreenHeight(30)),
+                          buildTextFormField(editButtonClicked, _initValues["fixe"],
+                              outlineInputBorder, "", "Fixe"),
+                          SizedBox(height: getProportionateScreenHeight(30)),
+                          buildTextFormField(editButtonClicked, _initValues["fax"],
+                              outlineInputBorder, "", "Fax"),
+                          SizedBox(height: getProportionateScreenHeight(30)),
+                          buildTextFormField(editButtonClicked, _initValues["mdp"],
+                              outlineInputBorder, "", "Mot De Passe"),
+                          SizedBox(height: getProportionateScreenHeight(30)),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
         ),

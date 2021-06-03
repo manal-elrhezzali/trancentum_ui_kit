@@ -16,7 +16,7 @@ class CustomIcon extends StatefulWidget {
 
 class _CustomIconState extends State<CustomIcon> {
   bool visibility = false;
-
+  
   @override
   Widget build(BuildContext context) {
     return Padding(

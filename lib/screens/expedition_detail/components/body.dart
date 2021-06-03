@@ -39,33 +39,35 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(
-            flex: 5, //takes 5/6 of the screen
-            child: SafeArea(
-              child: SingleChildScrollView(
-                padding: EdgeInsets.all(defaultPadding),
-                child: Column(
-                  children: [
-                    // SizedBox(height: defaultPadding),
-                    SizedBox(height: defaultPadding),
-                    buildDataTable(
-                        "Informations Générales", InfoGeneraleDatatable()),
-                    SizedBox(height: defaultPadding),
-                    buildDataTable("Expediteur / Destinataire",
-                        ExpediteurDestinataireDatatable()),
-                    SizedBox(height: defaultPadding),
-                    buildDataTable("Retours de fonds", RetourFondsDatatable()),
-                    SizedBox(height: defaultPadding),
-                    buildDataTable("Règlements", ReglementDatatable()),
-                  ],
+      child: Center(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              flex: 5, //takes 5/6 of the screen
+              child: SafeArea(
+                child: SingleChildScrollView(
+                  padding: EdgeInsets.all(defaultPadding),
+                  child: Column(
+                    children: [
+                      // SizedBox(height: defaultPadding),
+                      SizedBox(height: defaultPadding),
+                      buildDataTable(
+                          "Informations Générales", InfoGeneraleDatatable()),
+                      SizedBox(height: defaultPadding),
+                      buildDataTable("Expediteur / Destinataire",
+                          ExpediteurDestinataireDatatable()),
+                      SizedBox(height: defaultPadding),
+                      buildDataTable("Retours de fonds", RetourFondsDatatable()),
+                      SizedBox(height: defaultPadding),
+                      buildDataTable("Règlements", ReglementDatatable()),
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

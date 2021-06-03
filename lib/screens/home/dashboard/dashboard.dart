@@ -55,7 +55,7 @@ class Dashboard extends StatelessWidget {
         radius: 10,
       ),
     ];
-    return SafeArea(
+    return Center(
       child: SingleChildScrollView(
         padding: EdgeInsets.all(defaultPadding),
         child: Column(
