@@ -40,6 +40,7 @@ class _SignInFormState extends State<SignInForm> {
     return Container(
       width: 500,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TextFormField(
             style: TextStyle(color: Colors.white),
@@ -104,25 +105,36 @@ class _SignInFormState extends State<SignInForm> {
                 ),
               ),
               Spacer(),
-              SizedBox(
-                height: 50,
-                width: 200,
-                child: FlatButton(
-                  onPressed: () {},
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                  color: redColor,
-                  child: Text(
-                    "Se connecter",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
+              InkWell(
+                onTap: () {},
+                child: Text(
+                  "Mot de passe oublié ?",
+                  style: TextStyle(
+                    decoration: TextDecoration.underline,
+                    color: redColor,
                   ),
                 ),
               ),
             ],
+          ),
+          SizedBox(height: 2 * defaultPadding),
+          SizedBox(
+            height: 50,
+            width: double.infinity,
+            child: FlatButton(
+              onPressed: () {},
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              color: redColor,
+              child: Text(
+                "Se connecter",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
           ),
         ],
       ),
@@ -136,7 +148,12 @@ class Header extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        // add  trancentum logo
+        Image.asset(
+          "assets/images/logo_trancentum_without_bg.png",
+          width: 150,
+          height: 150,
+        ),
+        SizedBox(width: 2 * defaultPadding),
         Text(
           "Se connecter à TranCENTUM",
           style: TextStyle(
