@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trancentum_ui_kit/constants.dart';
+import 'package:trancentum_ui_kit/responsive_widget.dart';
 
 class Body extends StatelessWidget {
   const Body({Key key}) : super(key: key);
@@ -8,13 +9,31 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(2 * defaultPadding),
-      child: Column(
-        children: [
-          Header(),
-          Spacer(),
-          SignInForm(),
-          Spacer(),
-        ],
+      child: ResponsiveWidget(
+        mobile: Container(
+          child: Center(
+            child: Column(
+              children: [
+                Image.asset(
+                  "assets/images/logo_trancentum_without_bg.png",
+                  width: 150,
+                  height: 150,
+                ),
+                SizedBox(height: defaultPadding * 3),
+                SignInForm(),
+                Spacer(),
+              ],
+            ),
+          ),
+        ),
+        desktop: Column(
+          children: [
+            Header(),
+            Spacer(),
+            SignInForm(),
+            Spacer(),
+          ],
+        ),
       ),
     );
   }
@@ -32,6 +51,8 @@ class _SignInFormState extends State<SignInForm> {
 
   @override
   Widget build(BuildContext context) {
+    Size _size = MediaQuery.of(context).size;
+
     var underlineInputBorder = UnderlineInputBorder(
       borderSide: BorderSide(
         color: bgColor,
@@ -40,7 +61,6 @@ class _SignInFormState extends State<SignInForm> {
     return Container(
       width: 500,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TextFormField(
             style: TextStyle(color: Colors.white),
@@ -105,16 +125,17 @@ class _SignInFormState extends State<SignInForm> {
                 ),
               ),
               Spacer(),
-              InkWell(
-                onTap: () {},
-                child: Text(
-                  "Mot de passe oublié ?",
-                  style: TextStyle(
-                    decoration: TextDecoration.underline,
-                    color: redColor,
+              if (_size.width >= 350)
+                InkWell(
+                  onTap: () {},
+                  child: Text(
+                    "Mot de passe oublié ?",
+                    style: TextStyle(
+                      decoration: TextDecoration.underline,
+                      color: redColor,
+                    ),
                   ),
                 ),
-              ),
             ],
           ),
           SizedBox(height: 2 * defaultPadding),
@@ -136,6 +157,18 @@ class _SignInFormState extends State<SignInForm> {
               ),
             ),
           ),
+          if (_size.width < 350) SizedBox(height: defaultPadding),
+          if (_size.width < 350)
+            InkWell(
+              onTap: () {},
+              child: Text(
+                "Mot de passe oublié ?",
+                style: TextStyle(
+                  decoration: TextDecoration.underline,
+                  color: redColor,
+                ),
+              ),
+            ),
         ],
       ),
     );

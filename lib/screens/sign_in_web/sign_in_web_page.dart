@@ -12,7 +12,7 @@ class SignInWebPage extends StatelessWidget {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          Image.asset(
+          Image.asset( 
             "assets/images/main_bg.jpg",
             fit: BoxFit.cover,
           ),

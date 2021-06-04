@@ -1,5 +1,4 @@
 import 'package:flutter/widgets.dart';
-import 'package:trancentum_ui_kit/screens/web_layouts/Sign_in_web_layout.dart';
 
 import 'screens/notifications/notifications_screen.dart';
 import 'screens/expedition_detail/expedition_detail_screen.dart';
@@ -13,6 +12,7 @@ import 'screens/sign_in/sign_in_screen.dart';
 import 'screens/splash/splash_screen.dart';
 import 'screens/complete_profile/complete_profile_screen.dart';
 import 'screens/home/home_screen.dart';
+import 'screens/web_layouts/sign_in_layout/sign_in_web_layout.dart';
 
 final Map<String, WidgetBuilder> routes = {
   SplashScreen.routeName: (context) => SplashScreen(),

@@ -10,11 +10,9 @@ class SignInWebLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: bgColor,
-      body: SafeArea(
-        child: Center(
-          child: Body(),
-        ),
+      backgroundColor: darkBgColor,
+      body: Center(
+        child: Body(),
       ),
     );
   }
