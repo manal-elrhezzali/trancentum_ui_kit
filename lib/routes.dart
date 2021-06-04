@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:trancentum_ui_kit/screens/web_layouts/Sign_in_web_layout.dart';
 
 import 'screens/notifications/notifications_screen.dart';
 import 'screens/expedition_detail/expedition_detail_screen.dart';
@@ -26,4 +27,8 @@ final Map<String, WidgetBuilder> routes = {
   NewExpeditionScreen.routeName: (context) => NewExpeditionScreen(),
   HelpCenterScreen.routeName: (context) => HelpCenterScreen(),
   NotificationsScreen.routeName: (context) => NotificationsScreen(),
+
+  //layouts routes
+  SignInWebLayout.routeName: (context) => SignInWebLayout(),
+
 };
