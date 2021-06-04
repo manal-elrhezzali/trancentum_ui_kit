@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:trancentum_ui_kit/screens/sign_in/sign_in_screen.dart';
-import 'package:trancentum_ui_kit/screens/sign_in_web/sign_in_web_page.dart';
 
 import './screens/splash/splash_screen.dart';
 import './routes.dart';
