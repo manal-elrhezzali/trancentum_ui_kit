@@ -7,11 +7,13 @@ class DefaultButton extends StatelessWidget {
   const DefaultButton({
     Key key,
     this.text,
+    this.backgroundColor: primaryColor,
     this.pressHandler,
   }) : super(key: key);
 
   final String text;
   final Function pressHandler;
+  final Color backgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,7 @@ class DefaultButton extends StatelessWidget {
       child: FlatButton(
         onPressed: pressHandler,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        color: kPrimaryColor,
+        color: backgroundColor,
         child: Text(
           text,
           style: TextStyle(
@@ -33,3 +35,4 @@ class DefaultButton extends StatelessWidget {
     );
   }
 }
+
