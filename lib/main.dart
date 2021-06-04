@@ -8,7 +8,6 @@ import 'package:trancentum_ui_kit/screens/sign_in_web/sign_in_web_page.dart';
 import './screens/splash/splash_screen.dart';
 import './routes.dart';
 import './theme.dart';
-import 'screens/web_layouts/sign_in_layout/sign_in_web_layout.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,7 +32,7 @@ class MyApp extends StatelessWidget {
       //   ],
       //   child: HomeScreen(),
       // ),
-      home: SignInWebLayout(),
+      home: SplashScreen(),
       routes: routes,
     );
   }

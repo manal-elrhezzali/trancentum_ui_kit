@@ -7,7 +7,7 @@ class DefaultButton extends StatelessWidget {
   const DefaultButton({
     Key key,
     this.text,
-    this.backgroundColor: primaryColor,
+    this.backgroundColor: kPrimaryColor,
     this.pressHandler,
   }) : super(key: key);
 
@@ -35,4 +35,3 @@ class DefaultButton extends StatelessWidget {
     );
   }
 }
-
