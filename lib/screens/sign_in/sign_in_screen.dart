@@ -10,8 +10,7 @@ class SignInScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Sign in"),
-        // automaticallyImplyLeading: false,
-        // leading: CustomBackButton(),
+        automaticallyImplyLeading: false,
       ),
       body: Body(),
     );

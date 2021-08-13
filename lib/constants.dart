@@ -27,7 +27,7 @@ const redColor = Color(0xFFFF6859);
 
 // Form Error
 //add ICE RegExp
-const String kIceNullError = "Please Enter your ICE";
+const String kEmailNullError = "Please Enter your Email";
 const String kInvalidIceError = "Please Enter Valid Ice";
 const String kPasswordNullError = "Please Enter your password";
 const String kPhoneNumberNullError = "Please Enter your phone number";

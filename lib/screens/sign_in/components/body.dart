@@ -28,7 +28,7 @@ class Body extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "Sign in with your ICE and password",
+                    "Sign in with your E-mail and password",
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: SizeConfig.screenHeight * 0.08),
