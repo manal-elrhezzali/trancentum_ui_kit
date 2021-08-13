@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:trancentum_ui_kit/components/profile_card.dart';
 import 'package:trancentum_ui_kit/controllers/menu_controller.dart';
 import 'package:trancentum_ui_kit/responsive_widget.dart';
-import 'package:trancentum_ui_kit/screens/expedition_detail/components/search_field.dart';
+import 'package:trancentum_ui_kit/screens/home/dashboard/components/search_field.dart';
 
 class Header extends StatelessWidget {
   const Header({

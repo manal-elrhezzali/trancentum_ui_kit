@@ -1,6 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:trancentum_ui_kit/screens/expedition_detail/components/search_field.dart';
+import 'package:trancentum_ui_kit/screens/home/dashboard/components/search_field.dart';
 
 import '../../../constants.dart';
 import '../../../responsive_widget.dart';
@@ -17,35 +17,35 @@ class Dashboard extends StatelessWidget {
         value: 25,
         color: primaryColor,
         showTitle: false,
-        radius: 25,
+        radius: 10,
       ),
       PieChartSectionData(
         //chargee
         value: 20,
         color: kPrimaryColor,
         showTitle: false,
-        radius: 22,
+        radius: 10,
       ),
       PieChartSectionData(
         //recue
         value: 10,
         color: Colors.green,
         showTitle: false,
-        radius: 19,
+        radius: 10,
       ),
       PieChartSectionData(
         //livree
         value: 20,
         color: Colors.brown,
         showTitle: false,
-        radius: 16,
+        radius: 10,
       ),
       PieChartSectionData(
         //retour
         value: 15,
         color: Colors.red,
         showTitle: false,
-        radius: 13,
+        radius: 10,
       ),
       PieChartSectionData(
         //cloturee

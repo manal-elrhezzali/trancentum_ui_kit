@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:trancentum_ui_kit/data/expeditions.dart';
+import 'package:trancentum_ui_kit/models/expedition.dart';
 import 'package:trancentum_ui_kit/models/package_status_info.dart';
 import 'package:trancentum_ui_kit/responsive_widget.dart';
 import 'package:trancentum_ui_kit/screens/new_expedition/new_expedition_screen.dart';
@@ -6,46 +8,85 @@ import 'package:trancentum_ui_kit/screens/new_expedition/new_expedition_screen.d
 import '../../../../constants.dart';
 import 'header_package_info_card.dart';
 
-class MyShipments extends StatelessWidget {
+class MyShipments extends StatefulWidget {
   MyShipments({
     Key key,
   }) : super(key: key);
 
-  final List<PackagesStatusInfo> demoMyPackages = [
+  @override
+  State<MyShipments> createState() => _MyShipmentsState();
+}
+
+class _MyShipmentsState extends State<MyShipments> {
+  int expeditionEnregistreeCount = 0;
+
+  int expeditionRecueCount = 0;
+
+  int expeditionChargeeCount = 0;
+
+  int expeditionLivreeCount = 0;
+
+  int expeditionRetourCount = 0;
+
+  int expeditionClotureeCount = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    
+    demoExpeditions.forEach((element) {
+      if (element.etat == Etat.Chargee) {
+        expeditionChargeeCount++;
+      }
+      if (element.etat == Etat.Enregistree) {
+        expeditionEnregistreeCount++;
+      }
+      if (element.etat == Etat.Recue) {
+        expeditionRecueCount++;
+      }
+       if (element.etat == Etat.Livree) {
+        expeditionLivreeCount++;
+      }
+      if (element.etat == Etat.Retour) {
+        expeditionRetourCount++;
+      }
+      if (element.etat == Etat.Cloturee) {
+        expeditionClotureeCount++;
+      }
+
+
+    });
+    List<PackagesStatusInfo> demoMyPackages = [
     PackagesStatusInfo(
       title: "Enregistrée",
-      numOfPackages: 4,
+      numOfPackages: expeditionEnregistreeCount,
       color: primaryColor,
     ),
     PackagesStatusInfo(
       title: "Chargée",
-      numOfPackages: 8,
+      numOfPackages: expeditionChargeeCount,
       color: kPrimaryColor,
     ),
     PackagesStatusInfo(
       title: "Reçue",
-      numOfPackages: 22,
+      numOfPackages: expeditionRecueCount,
       color: Colors.green,
     ),
     PackagesStatusInfo(
       title: "Livrée",
-      numOfPackages: 7,
+      numOfPackages: expeditionLivreeCount,
       color: Colors.brown,
     ),
     PackagesStatusInfo(
       title: "Retour",
-      numOfPackages: 10,
+      numOfPackages: expeditionRetourCount,
       color: Colors.red,
     ),
     PackagesStatusInfo(
       title: "Clôturée",
-      numOfPackages: 2,
+      numOfPackages: expeditionClotureeCount,
       color: Colors.orange,
     ),
   ];
-
-  @override
-  Widget build(BuildContext context) {
     final Size _size = MediaQuery.of(context).size;
     return Column(
       children: [

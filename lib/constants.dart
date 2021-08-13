@@ -21,17 +21,16 @@ const whiteColor = Colors.white70;
 const greenColor = Color(0xFF1EB980);
 const defaultPadding = 16.0;
 
-//web
 
 const redColor = Color(0xFFFF6859);
 
-// Form Error
-//add ICE RegExp
-const String kEmailNullError = "Please Enter your Email";
-const String kInvalidIceError = "Please Enter Valid Ice";
-const String kPasswordNullError = "Please Enter your password";
-const String kPhoneNumberNullError = "Please Enter your phone number";
-//add validation of complete profile
+// // Form Error
+// //add ICE RegExp
+// const String kEmailNullError = "Please Enter your Email";
+// const String kInvalidIceError = "Please Enter Valid Ice";
+// const String kPasswordNullError = "Please Enter your password";
+// const String kPhoneNumberNullError = "Please Enter your phone number";
+// //add validation of complete profile
 
 final otpInputDecoration = InputDecoration(
   contentPadding: EdgeInsets.symmetric(

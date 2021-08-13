@@ -92,19 +92,19 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
       keyboardType: TextInputType.phone,
       onSaved: (newValue) => phoneNumber = newValue,
       onChanged: (value) {
-        if (value.isNotEmpty && errors.contains(kPhoneNumberNullError)) {
-          setState(() {
-            errors.remove(kPhoneNumberNullError);
-          });
-        }
+        // if (value.isNotEmpty && errors.contains(kPhoneNumberNullError)) {
+        //   setState(() {
+        //     errors.remove(kPhoneNumberNullError);
+        //   });
+        // }
       },
       validator: (value) {
-        if (value.isEmpty && !errors.contains(kPhoneNumberNullError)) {
-          setState(() {
-            errors.add(kPhoneNumberNullError);
-          });
-        }
-        return null;
+        // if (value.isEmpty && !errors.contains(kPhoneNumberNullError)) {
+        //   setState(() {
+        //     errors.add(kPhoneNumberNullError);
+        //   });
+        // }
+        // return null;
       },
       decoration: InputDecoration(
         hintText: "Enter your phone number",

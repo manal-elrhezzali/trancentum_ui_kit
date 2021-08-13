@@ -1,123 +1,68 @@
 import 'package:flutter/material.dart';
 
-class Expedition {
-  final String livraison,
-      agenceDepart,
-      expediteur,
-      destinataire,
-      villeExpediteur,
-      villeDestinataire,
-      codeExpedition,
-      date,
-      etat,
-      villeDepart,
-      villeArrivee;
-
-  Expedition({
-    @required this.agenceDepart,
-    @required this.expediteur,
-    @required this.destinataire,
-    @required this.villeExpediteur,
-    @required this.villeDestinataire,
-    @required this.villeDepart,
-    @required this.villeArrivee,
-    @required this.codeExpedition,
-    @required this.date,
-    @required this.etat,
-    @required this.livraison,
-  });
+enum Etat {
+  Enregistree,
+  Chargee,
+  Recue,
+  Livree,
+  Retour,
+  Cloturee,
 }
 
-List<Expedition> demoRecentExpeditions = [
-  Expedition(
-    codeExpedition: "56412",
-    etat: "Livrée",
-    villeDepart: "Meknes",
-    date: "01-03-2021",
-    villeArrivee: "Tanger",
-    livraison: "A domicile",
-    agenceDepart: "Casablanca",
-    expediteur: "Zineb",
-    destinataire: "fatin",
-    villeExpediteur: "CASABLANCA",
-    villeDestinataire: "MEKNES",
-  ),
-  //  Expedition(
-  //   codeExpedition: "56412",
-  //   etat: "Livrée",
-  //   villeDepart: "Meknes",
-  //   date: "01-03-2021",
-  //   villeArrivee: "Tanger",
-  //   livraison: "A domicile",
-  //   agenceDepart: "Casablanca",
-  //   expediteur: "Zineb",
-  //   destinataire: "fatin",
-  //   villeExpediteur: "CASABLANCA",
-  //   villeDestinataire: "MEKNES",
-  // ),
-  //  Expedition(
-  //   codeExpedition: "56412",
-  //   etat: "Livrée",
-  //   villeDepart: "Meknes",
-  //   date: "01-03-2021",
-  //   villeArrivee: "Tanger",
-  //   livraison: "A domicile",
-  //   agenceDepart: "Casablanca",
-  //   expediteur: "Zineb",
-  //   destinataire: "fatin",
-  //   villeExpediteur: "CASABLANCA",
-  //   villeDestinataire: "MEKNES",
-  // ),
-  //  Expedition(
-  //   codeExpedition: "56412",
-  //   etat: "Livrée",
-  //   villeDepart: "Meknes",
-  //   date: "01-03-2021",
-  //   villeArrivee: "Tanger",
-  //   livraison: "A domicile",
-  //   agenceDepart: "Casablanca",
-  //   expediteur: "Zineb",
-  //   destinataire: "fatin",
-  //   villeExpediteur: "CASABLANCA",
-  //   villeDestinataire: "MEKNES",
-  // ),
-  //  Expedition(
-  //   codeExpedition: "56412",
-  //   etat: "Livrée",
-  //   villeDepart: "Meknes",
-  //   date: "01-03-2021",
-  //   villeArrivee: "Tanger",
-  //   livraison: "A domicile",
-  //   agenceDepart: "Casablanca",
-  //   expediteur: "Zineb",
-  //   destinataire: "fatin",
-  //   villeExpediteur: "CASABLANCA",
-  //   villeDestinataire: "MEKNES",
-  // ),
-  //  Expedition(
-  //   codeExpedition: "56412",
-  //   etat: "Livrée",
-  //   villeDepart: "Meknes",
-  //   date: "01-03-2021",
-  //   villeArrivee: "Tanger",
-  //   livraison: "A domicile",
-  //   agenceDepart: "Casablanca",
-  //   expediteur: "Zineb",
-  //   destinataire: "fatin",
-  //   villeExpediteur: "CASABLANCA",
-  //   villeDestinataire: "MEKNES",
-  // ),
-  //  Expedition(
-  //   codeExpedition: "56412",
-  //   etat: "Livrée",
-  //   villeDepart: "Meknes",
-  //   date: "01-03-2021",
-  //   villeArrivee: "Tanger",
-  //   livraison: "A domicile",
-  //   agenceDepart: "Casablanca",
-  //   expediteur: "Zineb",
-  //   destinataire: "fatin",
-  //   villeExpediteur: "CASABLANCA",
-  //   villeDestinataire: "MEKNES",
-  // ),
-];
+class Expedition {
+  String clientDestinataireId;
+  String clientExpediteurId;
+  String codeABarre;
+  String codeExpedition;
+  String codeGenere;
+  DateTime dCloturation;
+  DateTime dLivraison;
+  DateTime dcreation;
+  Etat etat;
+  String modePaiement;
+  int nbrColis;
+  int nbrFactures;
+  num pht;
+  double premise;
+  double ptaxe1;
+  double ptaxe2;
+  double ptaxe3;
+  double ptaxe4;
+  double pttc;
+  double ptva;
+  String taxation;
+  double ttlPoids;
+  double ttlValDeclaree;
+  String typeLivraison;
+  String villeDestinataireId;
+  String villeExpediteurId;
+
+  Expedition({
+    @required this.clientDestinataireId,
+    @required this.clientExpediteurId,
+   this.codeABarre = "",
+    @required this.codeExpedition,
+    this.codeGenere= "",
+    @required this.dCloturation,
+    @required this.dLivraison,
+    @required this.dcreation,
+    @required this.etat,
+    @required this.modePaiement,
+    @required this.nbrColis,
+    @required this.nbrFactures,
+    @required this.pht,
+    @required this.premise,
+    @required this.ptaxe1,
+    @required this.ptaxe2,
+    @required this.ptaxe3,
+    @required this.ptaxe4,
+    @required this.pttc,
+    @required this.ptva,
+    @required this.taxation,
+    @required this.ttlPoids,
+    @required this.ttlValDeclaree,
+    @required this.typeLivraison,
+    @required this.villeDestinataireId,
+    @required this.villeExpediteurId,
+  });
+}

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trancentum_ui_kit/data/expeditions.dart';
 import 'package:trancentum_ui_kit/models/expedition.dart';
 
 import '../../../constants.dart';
@@ -23,10 +24,10 @@ class ExpediteurDestinataireDatatable extends StatelessWidget {
   List<DataRow> getRows(List<Expedition> expeditions) =>
       expeditions.map((Expedition expedition) {
         final cells = [
-          expedition.expediteur,
-          expedition.destinataire,
-          expedition.villeExpediteur,
-          expedition.villeDestinataire,
+          expedition.clientExpediteurId,// replace with expediteur name
+          expedition.clientDestinataireId,// replace with destinateur name
+          expedition.villeExpediteurId,
+          expedition.villeDestinataireId,
         ];
         return DataRow(cells: getCells(cells));
       }).toList();
@@ -42,7 +43,7 @@ class ExpediteurDestinataireDatatable extends StatelessWidget {
       columnSpacing: defaultPadding,
       horizontalMargin: 0,
       columns: getColumns(columns),
-      rows: getRows(demoRecentExpeditions),
+      rows: getRows(demoExpeditions),
     );
   }
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:trancentum_ui_kit/data/expeditions.dart';
 import 'package:trancentum_ui_kit/models/expedition.dart';
 import 'package:trancentum_ui_kit/screens/expedition_detail/expedition_detail_screen.dart';
 
@@ -65,9 +67,9 @@ class RecentExpeditionsArray extends StatelessWidget {
                   ),
                 ],
                 rows: List.generate(
-                    demoRecentExpeditions.length,
+                    demoExpeditions.length,
                     (index) => buildRecentExpeditionsDataRow(
-                        demoRecentExpeditions[index], context)),
+                        demoExpeditions[index], context)),
               ),
             ),
           ),
@@ -79,7 +81,6 @@ class RecentExpeditionsArray extends StatelessWidget {
   DataRow buildRecentExpeditionsDataRow(
       Expedition expedition, BuildContext context) {
     return DataRow(
-      
       onSelectChanged: (bool selected) {
         if (selected) {
           Navigator.of(context).pushNamed(ExpeditionDetailScreen.routeName);
@@ -97,25 +98,25 @@ class RecentExpeditionsArray extends StatelessWidget {
         ),
         DataCell(
           Text(
-            expedition.date,
+            DateFormat.yMMMd().format(expedition.dcreation),
             style: TextStyle(color: Colors.white),
           ),
         ),
         DataCell(
           Text(
-            expedition.etat,
+            expedition.etat.toString().split('.').last,
             style: TextStyle(color: Colors.white),
           ),
         ),
         DataCell(
           Text(
-            expedition.villeDepart,
+            expedition.villeExpediteurId,
             style: TextStyle(color: Colors.white),
           ),
         ),
         DataCell(
           Text(
-            expedition.villeArrivee,
+            expedition.villeDestinataireId,
             style: TextStyle(color: Colors.white),
           ),
         ),
