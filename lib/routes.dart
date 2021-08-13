@@ -12,20 +12,22 @@ import 'screens/sign_in/sign_in_screen.dart';
 import 'screens/splash/splash_screen.dart';
 import 'screens/complete_profile/complete_profile_screen.dart';
 import 'screens/home/home_screen.dart';
+import 'screens/unknown_route/unknown_route_screen.dart';
 
 final Map<String, WidgetBuilder> routes = {
   SplashScreen.routeName: (context) => SplashScreen(),
-  SignInScreen.routeName: (context) => SignInScreen(),
+  SignInScreen.routeName: (context) => SignInScreen(),//after http course
   ForgotPasswordScreen.routeName: (context) => ForgotPasswordScreen(),
   LoginSuccessScreen.routeName: (context) => LoginSuccessScreen(),
   CompleteProfileScreen.routeName: (context) => CompleteProfileScreen(),
-  OtpScreen.routeName: (context) => OtpScreen(),
+  OtpScreen.routeName: (context) => OtpScreen(),//can be removed and replaced by sending the mdp in email
   ProfileScreen.routeName: (context) => ProfileScreen(),
   HomeScreen.routeName: (context) => HomeScreen(),
   ExpeditionDetailScreen.routeName: (context) => ExpeditionDetailScreen(),
   NewExpeditionScreen.routeName: (context) => NewExpeditionScreen(),
-  HelpCenterScreen.routeName: (context) => HelpCenterScreen(),
-  NotificationsScreen.routeName: (context) => NotificationsScreen(),
+  HelpCenterScreen.routeName: (context) => HelpCenterScreen(),//after native device features course
+  NotificationsScreen.routeName: (context) => NotificationsScreen(),//after push notif course
+  UnknownRouteScreen.routeName: (context) => UnknownRouteScreen(),
 
   
 

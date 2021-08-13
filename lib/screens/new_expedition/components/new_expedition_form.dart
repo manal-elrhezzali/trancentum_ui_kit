@@ -15,6 +15,7 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
   String dummyDetail1;
   String dummyDetail2;
   String dummyDetail3;
+  String valueChose;
 
   Widget buildSubForm(String title, List<Widget> widgets) {
     return Container(
@@ -75,7 +76,7 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
       "PD",
       "PDE",
     ];
-     List listItemsTypeTaxationDropDownButton = [
+    List listItemsTypeTaxationDropDownButton = [
       "Forfait",
       "Taxation",
       "Service",
@@ -162,7 +163,7 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
                           SizedBox(height: getProportionateScreenHeight(20)),
                           buildDropDownButton(
                               valueChose,
-                               listItemsTypeTaxationDropDownButton,
+                              listItemsTypeTaxationDropDownButton,
                               "Type de Taxation"),
                         ],
                       ),
@@ -223,6 +224,7 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
       ),
     );
   }
+
   TextFormField buildTextFormField(
       OutlineInputBorder outlineInputBorder, String hint, String label) {
     return TextFormField(

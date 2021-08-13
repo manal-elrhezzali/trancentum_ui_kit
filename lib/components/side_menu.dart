@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:trancentum_ui_kit/constants.dart';
-import 'package:trancentum_ui_kit/screens/complete_profile/complete_profile_screen.dart';
 import 'package:trancentum_ui_kit/screens/notifications/notifications_screen.dart';
 
 import '../screens/home/home_screen.dart';
@@ -26,41 +25,40 @@ class SideMenu extends StatelessWidget {
                 padding: EdgeInsets.all(defaultPadding),
                 child: Image.asset("assets/images/trancentum_logo.png"),
               ),
-              // child: ProfileImage(),
             ),
             SideMenuItem(
               icon: "assets/icons/Menu Dashboard.svg",
               text: "Dashboard",
               press: () {
-                Navigator.of(context).pushNamed(HomeScreen.routeName);
+                Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
               },
             ),
             SideMenuItem(
               icon: "assets/icons/User Icon.svg",
               text: "Compte",
               press: () {
-                Navigator.of(context).pushNamed(CompleteProfileScreen.routeName);
+                Navigator.of(context).pushReplacementNamed(ProfileScreen.routeName);
               },
             ),
             SideMenuItem(
               icon: "assets/icons/Menu Notification.svg",
               text: "Notifications",
               press: () {
-                Navigator.of(context).pushNamed(NotificationsScreen.routeName);
+                Navigator.of(context).pushReplacementNamed(NotificationsScreen.routeName);
               },
             ),
             SideMenuItem(
               icon: "assets/icons/Package.svg",
               text: "Nouvelle Expédition",
               press: () {
-                Navigator.of(context).pushNamed(NewExpeditionScreen.routeName);
+                Navigator.of(context).pushReplacementNamed(NewExpeditionScreen.routeName);
               },
             ),
             SideMenuItem(
               icon: "assets/icons/Question Mark.svg",
               text: "Aide",
               press: () {
-                Navigator.of(context).pushNamed(HelpCenterScreen.routeName);
+                Navigator.of(context).pushReplacementNamed(HelpCenterScreen.routeName);
               },
             ),
             SideMenuItem(
@@ -68,7 +66,7 @@ class SideMenu extends StatelessWidget {
               text: "Déconnexion",
               press: () {
                 // Navigator.of(context).popUntil((route) => route.toString() == SignInScreen.routeName);
-                Navigator.of(context).pushNamed(SignInScreen.routeName);
+                Navigator.of(context).pushReplacementNamed(SignInScreen.routeName);
               },
             ),
           ],

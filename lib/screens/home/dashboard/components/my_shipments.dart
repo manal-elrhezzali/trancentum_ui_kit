@@ -56,7 +56,7 @@ class MyShipments extends StatelessWidget {
               "Mes Expéditions",
               style: Theme.of(context).textTheme.subtitle1,
             ),
-            if (_size.width > 360)
+            if (_size.width > 390)
               ElevatedButton.icon(
                 onPressed: () {
                   Navigator.of(context)
@@ -65,8 +65,8 @@ class MyShipments extends StatelessWidget {
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.symmetric(
                     horizontal: defaultPadding * 1.5,
-                    vertical:
-                        defaultPadding / (ResponsiveWidget.isMobile(context) ? 2 : 1),
+                    vertical: defaultPadding /
+                        (ResponsiveWidget.isMobile(context) ? 2 : 1),
                   ),
                 ),
                 icon: Icon(Icons.add),

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:trancentum_ui_kit/screens/sign_in/sign_in_screen.dart';
+import 'package:trancentum_ui_kit/screens/unknown_route/unknown_route_screen.dart';
 
 import './screens/splash/splash_screen.dart';
 import './routes.dart';
@@ -33,6 +34,9 @@ class MyApp extends StatelessWidget {
       // ),
       home: SplashScreen(),
       routes: routes,
+      onUnknownRoute: (settings) {
+        return MaterialPageRoute(builder: (ctx) => UnknownRouteScreen());
+      },
     );
   }
 }
