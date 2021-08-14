@@ -48,19 +48,40 @@ class ContactInfoBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
-        Row(
-          children: [
-            Text("Phone Number"),
-            Text("0676175459"),
-          ],
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        ListTile(
+          leading: new Icon(
+            Icons.phone_android_outlined,
+            color: kPrimaryColor,
+          ),
+          title: new Text('Tel'),
+          subtitle: Text("+212676175413"),
+          onTap: () {
+            Navigator.pop(context);
+          },
         ),
-        SizedBox(height: defaultPadding),
-        Row(
-          children: [
-            Text("Phone Number"),
-            Text("0676175459"),
-          ],
+        ListTile(
+          leading: new Icon(
+            Icons.place_outlined,
+            color: kPrimaryColor,
+          ),
+          title: new Text('Adresse'),
+          subtitle: Text("in ninininiinininininiininiin"),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
+        ListTile(
+          leading: new Icon(
+            Icons.email_outlined,
+            color: kPrimaryColor,
+          ),
+          title: new Text('E-mail'),
+          subtitle: Text("email email email email"),
+          onTap: () {
+            Navigator.pop(context);
+          },
         ),
       ],
     );
