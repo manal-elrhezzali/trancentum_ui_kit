@@ -67,7 +67,8 @@ class ContactInfoBottomSheet extends StatelessWidget {
             color: kPrimaryColor,
           ),
           title: new Text('Adresse'),
-          subtitle: Text("in ninininiinininininiininiin"),
+          subtitle: Text(
+              "Hauptstraße 5: 01234 Musterstadt. Australie"),
           onTap: () {
             Navigator.pop(context);
           },
@@ -78,7 +79,7 @@ class ContactInfoBottomSheet extends StatelessWidget {
             color: kPrimaryColor,
           ),
           title: new Text('E-mail'),
-          subtitle: Text("email email email email"),
+          subtitle: Text("qqqqwww@gmail.com"),
           onTap: () {
             Navigator.pop(context);
           },

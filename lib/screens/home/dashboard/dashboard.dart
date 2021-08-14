@@ -40,35 +40,36 @@ class Dashboard extends StatelessWidget {
         expeditionClotureeCount++;
       }
     });
-    return Center(
-      child: SingleChildScrollView(
-        padding: EdgeInsets.all(defaultPadding),
-        child: demoExpeditions.isEmpty
-            ? Column(
+    return demoExpeditions.isEmpty
+        ? LayoutBuilder(builder: (ctx, constraints) {
+            return SingleChildScrollView(
+              padding: EdgeInsets.all(defaultPadding),
+              child: Column(
                 children: [
                   SearchField(),
                   SizedBox(height: defaultPadding),
-                  Text("demoExpeditions is empty"),
-                  //change this button style
-                  ElevatedButton.icon(
-                    onPressed: () {
-                      Navigator.of(context)
-                          .pushNamed(NewExpeditionScreen.routeName);
-                    },
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: defaultPadding * 1.5,
-                        vertical: defaultPadding /
-                            (ResponsiveWidget.isMobile(context) ? 2 : 1),
-                      ),
+                  Text(
+                    "No shippments added yet!",
+                    style: Theme.of(context).textTheme.title,
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Container(
+                    height: constraints.maxHeight * 0.6,
+                    child: Image.asset(
+                      "assets/images/waiting.png",
+                      fit: BoxFit.cover,
                     ),
-                    icon: Icon(Icons.add),
-                    label: Text("Nouvelle Expédition"),
-                  ), // replace it with the zzzz image
-                  // and add a new expedition button
+                  ),
                 ],
-              )
-            : Column(
+              ),
+            );
+          })
+        : Center(
+            child: SingleChildScrollView(
+              padding: EdgeInsets.all(defaultPadding),
+              child: Column(
                 children: [
                   SearchField(),
                   // Header(),
@@ -139,7 +140,7 @@ class Dashboard extends StatelessWidget {
                   ),
                 ],
               ),
-      ),
-    );
+            ),
+          );
   }
 }
