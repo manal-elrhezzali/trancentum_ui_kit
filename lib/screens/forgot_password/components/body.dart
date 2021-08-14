@@ -98,14 +98,14 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
         //   });
         // }
       },
-      validator: (value) {
-        // if (value.isEmpty && !errors.contains(kPhoneNumberNullError)) {
-        //   setState(() {
-        //     errors.add(kPhoneNumberNullError);
-        //   });
-        // }
-        // return null;
-      },
+      // validator: (value) {
+      //   // if (value.isEmpty && !errors.contains(kPhoneNumberNullError)) {
+      //   //   setState(() {
+      //   //     errors.add(kPhoneNumberNullError);
+      //   //   });
+      //   // }
+      //   // return null;
+      // },
       decoration: InputDecoration(
         hintText: "Enter your phone number",
         labelText: "Phone Number",

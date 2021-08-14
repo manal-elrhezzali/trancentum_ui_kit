@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:trancentum_ui_kit/data/expeditions.dart';
 import 'package:trancentum_ui_kit/models/expedition.dart';
 
 import '../../../constants.dart';
@@ -39,7 +38,7 @@ class InfoGeneraleDatatable extends StatelessWidget {
         ];
         return DataRow(cells: getCells(cells));
       }).toList();
-      
+
   List<DataCell> getCells(List<Object> cells) => cells
       .map(
         (data) => DataCell(

@@ -8,6 +8,14 @@ class NoAccountText extends StatelessWidget {
     Key key,
   }) : super(key: key);
 
+  void _showBottomSheet(BuildContext ctx) {
+    showModalBottomSheet(
+        context: ctx,
+        builder: (bctx) {
+          return ContactInfoBottomSheet();
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -19,14 +27,40 @@ class NoAccountText extends StatelessWidget {
             fontSize: getProportionateScreenWidth(14),
           ),
         ),
-        //wrap this with a gesture detector to dial 
+        //wrap this with a gesture detector to dial
         //tranCENTUM phone number if storactive agrees
-        Text(
-          "Contact us",
-          style: TextStyle(
-            fontSize: getProportionateScreenWidth(14),
-            color: kPrimaryColor,
+        GestureDetector(
+          child: Text(
+            "Contact us",
+            style: TextStyle(
+              fontSize: getProportionateScreenWidth(14),
+              color: kPrimaryColor,
+            ),
           ),
+          onTap: () => _showBottomSheet(context),
+        ),
+      ],
+    );
+  }
+}
+
+class ContactInfoBottomSheet extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          children: [
+            Text("Phone Number"),
+            Text("0676175459"),
+          ],
+        ),
+        SizedBox(height: defaultPadding),
+        Row(
+          children: [
+            Text("Phone Number"),
+            Text("0676175459"),
+          ],
         ),
       ],
     );

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:trancentum_ui_kit/data/expeditions.dart';
 import 'package:trancentum_ui_kit/models/expedition.dart';
 import 'package:trancentum_ui_kit/screens/expedition_detail/components/infos_generales_datatable.dart';
+import 'package:trancentum_ui_kit/screens/no_result_found/no_result_found_screen.dart';
 
 import '../../../constants.dart';
 import 'expediteur_destinataire_datatable.dart';
@@ -47,21 +48,20 @@ class Body extends StatelessWidget {
         (element) => element.codeExpedition == expeditionCode,
         orElse: () => null);
     return SafeArea(
-      child: Center(
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              flex: 5, //takes 5/6 of the screen
-              child: SafeArea(
-                child: SingleChildScrollView(
-                  padding: EdgeInsets.all(defaultPadding),
-                  child: expedition == null
-                      ? Text("expedition not found") // replace this with a good design
-                      : Column(
+      child: expedition == null
+          ? NoResultFoundScreen()
+          : Center(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    flex: 5, //takes 5/6 of the screen
+                    child: SafeArea(
+                      child: SingleChildScrollView(
+                        padding: EdgeInsets.all(defaultPadding),
+                        child: Column(
                           children: [
                             SizedBox(height: defaultPadding),
-                            
                             buildDataTable(
                                 "Informations Générales",
                                 InfoGeneraleDatatable(
@@ -77,12 +77,12 @@ class Body extends StatelessWidget {
                             buildDataTable("Règlements", ReglementDatatable()),
                           ],
                         ),
-                ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
-      ),
     );
   }
 }

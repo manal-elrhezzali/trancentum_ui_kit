@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-import '../../responsive_widget.dart';
 import '../../components/side_menu.dart';
 import 'dashboard/dashboard.dart';
 

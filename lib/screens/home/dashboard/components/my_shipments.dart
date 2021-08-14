@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:trancentum_ui_kit/data/expeditions.dart';
-import 'package:trancentum_ui_kit/models/expedition.dart';
 import 'package:trancentum_ui_kit/models/package_status_info.dart';
 import 'package:trancentum_ui_kit/responsive_widget.dart';
 import 'package:trancentum_ui_kit/screens/new_expedition/new_expedition_screen.dart';
