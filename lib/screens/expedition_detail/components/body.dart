@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:trancentum_ui_kit/data/expeditions.dart';
+import 'package:trancentum_ui_kit/models/expedition.dart';
 import 'package:trancentum_ui_kit/screens/expedition_detail/components/infos_generales_datatable.dart';
 
 import '../../../constants.dart';
@@ -38,8 +40,12 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final expeditionCode = ModalRoute.of(context).settings.arguments as String;
-    // print(expeditionCode);
+    final expeditionCode = ModalRoute.of(context).settings.arguments as String;
+    print(expeditionCode);
+
+    Expedition expedition = demoExpeditions.firstWhere(
+        (element) => element.codeExpedition == expeditionCode,
+        orElse: () => null);
     return SafeArea(
       child: Center(
         child: Row(
@@ -50,24 +56,27 @@ class Body extends StatelessWidget {
               child: SafeArea(
                 child: SingleChildScrollView(
                   padding: EdgeInsets.all(defaultPadding),
-                  child: Column(
-                    children: [
-                      // SizedBox(height: defaultPadding),
-                      SizedBox(height: defaultPadding),
-                      // buildDataTable(
-                      //     "Informations Générales", InfoGeneraleDatatable(expeditionCode)),
-                       buildDataTable(
-                          "Informations Générales", InfoGeneraleDatatable()),
-                      SizedBox(height: defaultPadding),
-                      buildDataTable("Expediteur / Destinataire",
-                          ExpediteurDestinataireDatatable()),
-                      SizedBox(height: defaultPadding),
-                      buildDataTable(
-                          "Retours de fonds", RetourFondsDatatable()),
-                      SizedBox(height: defaultPadding),
-                      buildDataTable("Règlements", ReglementDatatable()),
-                    ],
-                  ),
+                  child: expedition == null
+                      ? Text("expedition not found") // replace this with a good design
+                      : Column(
+                          children: [
+                            SizedBox(height: defaultPadding),
+                            
+                            buildDataTable(
+                                "Informations Générales",
+                                InfoGeneraleDatatable(
+                                  expeditionTrouvee: expedition,
+                                )),
+                            SizedBox(height: defaultPadding),
+                            buildDataTable("Expediteur / Destinataire",
+                                ExpediteurDestinataireDatatable()),
+                            SizedBox(height: defaultPadding),
+                            buildDataTable(
+                                "Retours de fonds", RetourFondsDatatable()),
+                            SizedBox(height: defaultPadding),
+                            buildDataTable("Règlements", ReglementDatatable()),
+                          ],
+                        ),
                 ),
               ),
             ),

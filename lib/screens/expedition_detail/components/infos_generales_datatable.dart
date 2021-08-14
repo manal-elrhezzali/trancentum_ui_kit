@@ -13,8 +13,9 @@ class InfoGeneraleDatatable extends StatelessWidget {
     "Livraison",
     "Ville Départ",
   ];
+  final Expedition expeditionTrouvee;
 
-  final String expeditionCode = "";
+  InfoGeneraleDatatable({@required this.expeditionTrouvee});
 
   final List<Expedition> expeditionList = [];
 
@@ -38,6 +39,7 @@ class InfoGeneraleDatatable extends StatelessWidget {
         ];
         return DataRow(cells: getCells(cells));
       }).toList();
+      
   List<DataCell> getCells(List<Object> cells) => cells
       .map(
         (data) => DataCell(
@@ -50,12 +52,8 @@ class InfoGeneraleDatatable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final expeditionCode = ModalRoute.of(context).settings.arguments as String;
-    print(expeditionCode);
 
-    Expedition expedition = demoExpeditions
-        .firstWhere((element) => element.codeExpedition == expeditionCode);
-    expeditionList.add(expedition);
+    expeditionList.add(expeditionTrouvee);
     return DataTable(
       columnSpacing: defaultPadding,
       horizontalMargin: 0,
