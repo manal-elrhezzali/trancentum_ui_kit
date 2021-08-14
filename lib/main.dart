@@ -8,6 +8,7 @@ import 'package:trancentum_ui_kit/screens/unknown_route/unknown_route_screen.dar
 import './screens/splash/splash_screen.dart';
 import './routes.dart';
 import './theme.dart';
+import 'screens/home/home_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
       //   ],
       //   child: HomeScreen(),
       // ),
-      home: SplashScreen(),
+      home: HomeScreen(),
       routes: routes,
       onUnknownRoute: (settings) {
         return MaterialPageRoute(builder: (ctx) => UnknownRouteScreen());

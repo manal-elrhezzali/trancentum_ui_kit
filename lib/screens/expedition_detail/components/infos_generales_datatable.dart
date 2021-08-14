@@ -6,7 +6,6 @@ import 'package:trancentum_ui_kit/models/expedition.dart';
 import '../../../constants.dart';
 
 class InfoGeneraleDatatable extends StatelessWidget {
-  InfoGeneraleDatatable(int indexOfExpedition);
   final columns = [
     "Déclaration",
     "Date creation",
@@ -14,9 +13,10 @@ class InfoGeneraleDatatable extends StatelessWidget {
     "Livraison",
     "Ville Départ",
   ];
-  final int indexOfExpedition = -1;
 
-  final expeditionList = [];
+  final String expeditionCode = "";
+
+  final List<Expedition> expeditionList = [];
 
   List<DataColumn> getColumns(List<String> columns) => columns
       .map((String column) => DataColumn(
@@ -50,18 +50,17 @@ class InfoGeneraleDatatable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (indexOfExpedition > -1) {
-      expeditionList.add(demoExpeditions[indexOfExpedition]);
-      return DataTable(
-        columnSpacing: defaultPadding,
-        horizontalMargin: 0,
-        columns: getColumns(columns),
-        rows: getRows(expeditionList),
-      );
-    } else {
-      //return element not found
-      print(indexOfExpedition);
-      return null;
-    }
+    final expeditionCode = ModalRoute.of(context).settings.arguments as String;
+    print(expeditionCode);
+
+    Expedition expedition = demoExpeditions
+        .firstWhere((element) => element.codeExpedition == expeditionCode);
+    expeditionList.add(expedition);
+    return DataTable(
+      columnSpacing: defaultPadding,
+      horizontalMargin: 0,
+      columns: getColumns(columns),
+      rows: getRows(expeditionList),
+    );
   }
 }

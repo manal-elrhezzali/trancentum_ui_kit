@@ -8,53 +8,20 @@ import 'package:trancentum_ui_kit/screens/new_expedition/new_expedition_screen.d
 import '../../../../constants.dart';
 import 'header_package_info_card.dart';
 
-class MyShipments extends StatefulWidget {
-  MyShipments({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  State<MyShipments> createState() => _MyShipmentsState();
-}
-
-class _MyShipmentsState extends State<MyShipments> {
-  int expeditionEnregistreeCount = 0;
-
-  int expeditionRecueCount = 0;
-
-  int expeditionChargeeCount = 0;
-
-  int expeditionLivreeCount = 0;
-
-  int expeditionRetourCount = 0;
-
-  int expeditionClotureeCount = 0;
-
+class MyShipments extends StatelessWidget{
+  final int expeditionEnregistreeCount;
+  final int expeditionChargeeCount;
+  final int expeditionRecueCount;
+  final int expeditionLivreeCount;
+  final int expeditionRetourCount;
+  final int expeditionClotureeCount; 
+    
+  MyShipments({@required this.expeditionEnregistreeCount, @required this.expeditionChargeeCount , @required this.expeditionClotureeCount , @required this.expeditionLivreeCount, @required this.expeditionRecueCount , @required this.expeditionRetourCount,});
+  
   @override
   Widget build(BuildContext context) {
     
-    demoExpeditions.forEach((element) {
-      if (element.etat == Etat.Chargee) {
-        expeditionChargeeCount++;
-      }
-      if (element.etat == Etat.Enregistree) {
-        expeditionEnregistreeCount++;
-      }
-      if (element.etat == Etat.Recue) {
-        expeditionRecueCount++;
-      }
-       if (element.etat == Etat.Livree) {
-        expeditionLivreeCount++;
-      }
-      if (element.etat == Etat.Retour) {
-        expeditionRetourCount++;
-      }
-      if (element.etat == Etat.Cloturee) {
-        expeditionClotureeCount++;
-      }
-
-
-    });
+    
     List<PackagesStatusInfo> demoMyPackages = [
     PackagesStatusInfo(
       title: "Enregistrée",
@@ -166,3 +133,9 @@ class PackageStatusInfoCardGridView extends StatelessWidget {
     );
   }
 }
+
+
+  
+
+
+ 

@@ -38,8 +38,8 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final expeditionIndex = ModalRoute.of(context).settings.arguments as int;
-    print(expeditionIndex);
+    // final expeditionCode = ModalRoute.of(context).settings.arguments as String;
+    // print(expeditionCode);
     return SafeArea(
       child: Center(
         child: Row(
@@ -54,8 +54,10 @@ class Body extends StatelessWidget {
                     children: [
                       // SizedBox(height: defaultPadding),
                       SizedBox(height: defaultPadding),
-                      buildDataTable(
-                          "Informations Générales", InfoGeneraleDatatable(expeditionIndex)),
+                      // buildDataTable(
+                      //     "Informations Générales", InfoGeneraleDatatable(expeditionCode)),
+                       buildDataTable(
+                          "Informations Générales", InfoGeneraleDatatable()),
                       SizedBox(height: defaultPadding),
                       buildDataTable("Expediteur / Destinataire",
                           ExpediteurDestinataireDatatable()),

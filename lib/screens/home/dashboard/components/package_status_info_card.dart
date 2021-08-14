@@ -12,7 +12,8 @@ class PackageStatusInfoCard extends StatelessWidget {
     @required this.color,
   }) : super(key: key);
 
-  final String title, amountOfPackages;
+  final String title;
+  final int amountOfPackages;
   final Color color;
 
   @override
@@ -48,7 +49,7 @@ class PackageStatusInfoCard extends StatelessWidget {
                     style: TextStyle(color: Colors.white),
                   ),
                   Text(
-                    amountOfPackages,
+                    amountOfPackages.toString(),
                     style: Theme.of(context)
                         .textTheme
                         .caption

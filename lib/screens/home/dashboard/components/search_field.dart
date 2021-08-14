@@ -6,12 +6,17 @@ import 'package:trancentum_ui_kit/screens/expedition_detail/expedition_detail_sc
 
 import '../../../../constants.dart';
 
-class SearchField extends StatelessWidget {
-  SearchField({
-    Key key,
-  }) : super(key: key);
+class SearchField extends StatefulWidget {
+  
+  @override
+  State<SearchField> createState() => _SearchFieldState();
+}
+
+class _SearchFieldState extends State<SearchField> {
   var searchFieldController = TextEditingController();
+
   String searchFieldValue = "";
+
   @override
   Widget build(BuildContext context) {
     return TextField(
@@ -30,21 +35,9 @@ class SearchField extends StatelessWidget {
             searchFieldValue = searchFieldController.text;
             if (searchFieldValue.isNotEmpty) {
               print(searchFieldValue);
-              int expeditionFoundIndex = demoExpeditions.indexWhere(
-                  (element) => element.codeExpedition == searchFieldValue);
-              if (expeditionFoundIndex == -1) {
-                //show a snackbar of expedition not found
-              } else {
-                //pass the object to the expedition details screen
-                print(demoExpeditions[expeditionFoundIndex]
-                    .etat
-                    .toString()
-                    .split('.')
-                    .last);
-                Navigator.of(context).pushNamed(
+              Navigator.of(context).pushNamed(
                     ExpeditionDetailScreen.routeName,
-                    arguments: expeditionFoundIndex);
-              }
+                    arguments: searchFieldValue);
             } else {
               //search field vaLUE IS EMPTY
               //show snackbar enter  a valid code expedition

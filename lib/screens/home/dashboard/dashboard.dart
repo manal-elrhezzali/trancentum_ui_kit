@@ -1,5 +1,6 @@
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:trancentum_ui_kit/data/expeditions.dart';
+import 'package:trancentum_ui_kit/models/expedition.dart';
 import 'package:trancentum_ui_kit/screens/home/dashboard/components/search_field.dart';
 
 import '../../../constants.dart';
@@ -9,52 +10,36 @@ import 'components/my_shipments.dart';
 import 'components/recent_expeditions_array.dart';
 
 class Dashboard extends StatelessWidget {
+  
+
   @override
   Widget build(BuildContext context) {
-    List<PieChartSectionData> pieChartSectionData = [
-      PieChartSectionData(
-        //enregistree
-        value: 25,
-        color: primaryColor,
-        showTitle: false,
-        radius: 10,
-      ),
-      PieChartSectionData(
-        //chargee
-        value: 20,
-        color: kPrimaryColor,
-        showTitle: false,
-        radius: 10,
-      ),
-      PieChartSectionData(
-        //recue
-        value: 10,
-        color: Colors.green,
-        showTitle: false,
-        radius: 10,
-      ),
-      PieChartSectionData(
-        //livree
-        value: 20,
-        color: Colors.brown,
-        showTitle: false,
-        radius: 10,
-      ),
-      PieChartSectionData(
-        //retour
-        value: 15,
-        color: Colors.red,
-        showTitle: false,
-        radius: 10,
-      ),
-      PieChartSectionData(
-        //cloturee
-        value: 18,
-        color: Colors.orange,
-        showTitle: false,
-        radius: 10,
-      ),
-    ];
+  int expeditionEnregistreeCount = 0;
+  int expeditionRecueCount = 0;
+  int expeditionChargeeCount = 0;
+  int expeditionLivreeCount = 0;
+  int expeditionRetourCount = 0;
+  int expeditionClotureeCount = 0;
+
+  demoExpeditions.forEach((element) {
+      if (element.etat == Etat.Chargee) {
+        expeditionChargeeCount++;
+      }
+      if (element.etat == Etat.Enregistree) {
+        expeditionEnregistreeCount++;
+      }
+      if (element.etat == Etat.Recue) {
+        expeditionRecueCount++;
+      }
+      if (element.etat == Etat.Livree) {
+        expeditionLivreeCount++;
+      }
+      if (element.etat == Etat.Retour) {
+        expeditionRetourCount++;
+      }
+      if (element.etat == Etat.Cloturee) {
+        expeditionClotureeCount++;
+      }});
     return Center(
       child: SingleChildScrollView(
         padding: EdgeInsets.all(defaultPadding),
@@ -70,14 +55,13 @@ class Dashboard extends StatelessWidget {
                   flex: 5,
                   child: Column(
                     children: [
-                      MyShipments(),
+                      MyShipments(expeditionChargeeCount: expeditionChargeeCount, expeditionClotureeCount: expeditionClotureeCount, expeditionEnregistreeCount: expeditionEnregistreeCount, expeditionLivreeCount: expeditionLivreeCount, expeditionRecueCount: expeditionRecueCount, expeditionRetourCount: expeditionRetourCount,),
                       SizedBox(height: defaultPadding),
                       RecentExpeditionsArray(),
                       if (ResponsiveWidget.isMobile(context))
                         SizedBox(height: defaultPadding),
                       if (ResponsiveWidget.isMobile(context))
-                        AllPackagesStatus(
-                            pieChartSectionData: pieChartSectionData),
+                        AllPackagesStatus(expeditionChargeeCount: expeditionChargeeCount, expeditionClotureeCount: expeditionClotureeCount, expeditionEnregistreeCount: expeditionEnregistreeCount, expeditionLivreeCount: expeditionLivreeCount, expeditionRecueCount: expeditionRecueCount, expeditionRetourCount: expeditionRetourCount,),
                     ],
                   ),
                 ),
@@ -86,8 +70,7 @@ class Dashboard extends StatelessWidget {
                 if (!ResponsiveWidget.isMobile(context))
                   Expanded(
                     flex: 2,
-                    child: AllPackagesStatus(
-                        pieChartSectionData: pieChartSectionData),
+                    child: AllPackagesStatus(expeditionChargeeCount: expeditionChargeeCount, expeditionClotureeCount: expeditionClotureeCount, expeditionEnregistreeCount: expeditionEnregistreeCount, expeditionLivreeCount: expeditionLivreeCount, expeditionRecueCount: expeditionRecueCount, expeditionRetourCount: expeditionRetourCount,),
                   ),
               ],
             ),

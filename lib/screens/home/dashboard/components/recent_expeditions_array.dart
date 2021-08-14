@@ -83,7 +83,7 @@ class RecentExpeditionsArray extends StatelessWidget {
     return DataRow(
       onSelectChanged: (bool selected) {
         if (selected) {
-          Navigator.of(context).pushNamed(ExpeditionDetailScreen.routeName);
+          Navigator.of(context).pushNamed(ExpeditionDetailScreen.routeName, arguments: expedition.codeExpedition);
         }
       },
       cells: [
