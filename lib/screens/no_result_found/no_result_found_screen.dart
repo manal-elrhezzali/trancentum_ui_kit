@@ -7,7 +7,7 @@ class NoResultFoundScreen extends StatelessWidget {
       fit: StackFit.expand,
       children: [
         Image.asset(
-          "assets/images/14_No Search Results.png",
+          "assets/images/no_search_results.png",
           fit: BoxFit.cover,
         ),
         Positioned(

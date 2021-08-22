@@ -11,44 +11,54 @@ class SearchField extends StatefulWidget {
 }
 
 class _SearchFieldState extends State<SearchField> {
-  var searchFieldController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
 
   String searchFieldValue = "";
-
+void _saveForm() {
+    final isValid = _formKey.currentState.validate();
+    if (!isValid) {
+      return;
+    }
+    _formKey.currentState.save();
+    /////remove these prints
+    print(searchFieldValue);
+  
+    Navigator.of(context).pushNamed(
+                      ExpeditionDetailScreen.routeName,
+                      arguments: searchFieldValue);
+   
+  }
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      //add a controller
-      controller: searchFieldController,
-      decoration: InputDecoration(
-        hintText: "Code d\'expédition",
-        filled: true,
-        border: OutlineInputBorder(
-          borderSide: BorderSide.none,
-          borderRadius: const BorderRadius.all(Radius.circular(10)),
-        ),
-        suffixIcon: InkWell(
-          onTap: () {
-            //search for the codeExpedition in expeditions
-            searchFieldValue = searchFieldController.text;
-            if (searchFieldValue.isNotEmpty) {
-              print(searchFieldValue);
-              Navigator.of(context).pushNamed(
-                    ExpeditionDetailScreen.routeName,
-                    arguments: searchFieldValue);
-            } else {
-              //search field vaLUE IS EMPTY
-              //show snackbar enter  a valid code expedition
-            }
-          },
-          child: Container(
-            margin: EdgeInsets.symmetric(horizontal: defaultPadding / 2),
-            padding: EdgeInsets.all(defaultPadding * 0.75),
-            decoration: BoxDecoration(
-              color: primaryColor,
-              borderRadius: const BorderRadius.all(Radius.circular(10)),
+    return Form(
+      key: _formKey,
+      
+      child: TextFormField(
+        onSaved: (newValue) => searchFieldValue = newValue,
+        validator: (value) {
+                if (value.isEmpty) {
+                  return "Please provide an expedition code";
+                }
+                return null; //means there is no error
+              },
+        decoration: InputDecoration(
+          hintText: "Code d\'expédition",
+          filled: true,
+          border: OutlineInputBorder(
+            borderSide: BorderSide.none,
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
+          ),
+          suffixIcon: InkWell(
+            onTap: _saveForm,
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: defaultPadding / 2),
+              padding: EdgeInsets.all(defaultPadding * 0.75),
+              decoration: BoxDecoration(
+                color: primaryColor,
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
+              ),
+              child: SvgPicture.asset("assets/icons/Search.svg"),
             ),
-            child: SvgPicture.asset("assets/icons/Search.svg"),
           ),
         ),
       ),

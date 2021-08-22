@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 
+import 'screens/error/error_screen.dart';
 import 'screens/notifications/notifications_screen.dart';
 import 'screens/expedition_detail/expedition_detail_screen.dart';
 import 'screens/help_center/help_center_screen.dart';
@@ -29,6 +30,7 @@ final Map<String, WidgetBuilder> routes = {
   HelpCenterScreen.routeName: (context) => HelpCenterScreen(),//after native device features course
   NotificationsScreen.routeName: (context) => NotificationsScreen(),//after push notif course
   UnknownRouteScreen.routeName: (context) => UnknownRouteScreen(),
+  ErrorScreen.routeName: (context) => ErrorScreen(),
 
   
 

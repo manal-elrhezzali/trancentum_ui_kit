@@ -34,9 +34,10 @@ class _SignFormState extends State<SignForm> {
     }
     _formKey.currentState.save();
     /////remove these prints
-    print(user.email);
-    print(user.password);
+    // print(user.email);
+    // print(user.password);
     Navigator.of(context).pushNamed(HomeScreen.routeName);
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(
@@ -62,7 +63,6 @@ class _SignFormState extends State<SignForm> {
             SizedBox(height: getProportionateScreenHeight(30)),
             TextFormField(
               onSaved: (newValue) => user.email = newValue,
-           
               onFieldSubmitted: (value) {
                 FocusScope.of(context).requestFocus(_passwordFocusNode);
               },

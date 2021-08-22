@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mailer/mailer.dart';
 import 'package:mailer/smtp_server.dart';
 
+import 'package:trancentum_ui_kit/screens/error/error_screen.dart';
 import '../../../components/default_button.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
@@ -57,7 +58,6 @@ class _OtpFormState extends State<OtpForm> {
         ),
       );
       _sendPasswordToUser(email);
-    
     } else {
       print("Invalid OTP");
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
@@ -72,11 +72,11 @@ class _OtpFormState extends State<OtpForm> {
   }
 
   void _sendPasswordToUser(String email) async {
-    String username = 'testtestrzzl99@gmail.com';
+    String username = 'testtestrzzl@gmail.com';
     String password = 'poiuytrewq97531@';
 
     final smtpServer = gmail(username, password);
- 
+
     // Create our message.
     final message = Message()
       ..from = Address(username)
@@ -85,7 +85,8 @@ class _OtpFormState extends State<OtpForm> {
       // ..bccRecipients.add(Address('bccAddress@example.com'))
       ..subject = 'Your TranCENTUM account Password :: 😀 :: ${DateTime.now()}'
       ..text = 'This is the plain text.\nThis is line 2 of the text part.'
-      ..html = "<h1>Your Password</h1>\n<p>Here add the password test test test</p>";
+      ..html =
+          "<h1>Your Password</h1>\n<p>Here add the password test test test</p>";
 
     try {
       final sendReport = await send(message, smtpServer);
@@ -100,14 +101,8 @@ class _OtpFormState extends State<OtpForm> {
       );
     } on MailerException catch (e) {
       print('Message not sent.');
-      ScaffoldMessenger.of(context).hideCurrentSnackBar();
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            "Message not sent. An error occured.",
-          ),
-        ),
-      );
+                      Navigator.of(context).pushReplacementNamed(ErrorScreen.routeName);
+
       for (var p in e.problems) {
         print('Problem: ${p.code}: ${p.msg}');
       }

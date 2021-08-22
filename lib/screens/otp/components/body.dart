@@ -32,15 +32,6 @@ class Body extends StatelessWidget {
                   SizedBox(height: SizeConfig.screenHeight * 0.15),
                   OtpForm(),
                   SizedBox(height: SizeConfig.screenHeight * 0.1),
-                  // InkWell(
-                  //   onTap: () {
-                  //     //resend the OTP code
-                  //   },
-                  //   child: Text(
-                  //     "Resend OTP Code",
-                  //     style: TextStyle(decoration: TextDecoration.underline),
-                  //   ),
-                  // ),
                 ],
               ),
             ),

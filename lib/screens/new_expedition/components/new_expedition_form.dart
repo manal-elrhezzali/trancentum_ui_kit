@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:trancentum_ui_kit/components/default_button.dart';
 import 'package:trancentum_ui_kit/data/dummyVilles.dart';
 import 'package:trancentum_ui_kit/models/expedition.dart';
+import 'package:trancentum_ui_kit/models/ville.dart';
 import 'package:trancentum_ui_kit/screens/home/home_screen.dart';
 
 import '../../../constants.dart';
@@ -73,8 +74,6 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
   String modePaiement = "";
   String typeTaxation = "";
 
-  // List villesDestinataire = [];
-
   @override
   void dispose() {
     _telExpediteurFocusNode.dispose();
@@ -122,6 +121,7 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
             label: "UNDO",
             onPressed: () {
               //undo the  addition
+              //show dilaog to confirm with user
             }),
       ),
     );
@@ -234,8 +234,7 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
                                   .requestFocus(_nomDestinataireFocusNode);
                             },
                             textInputAction: TextInputAction.next,
-                                                       keyboardType: TextInputType.phone,
-
+                            keyboardType: TextInputType.phone,
                             validator: (value) {
                               if (value.isEmpty) {
                                 return "Veuillez saisir un tel";
@@ -366,9 +365,9 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
                                 return DropdownMenuItem(
                                   value: ville,
                                   child: Text(
-                                    ville.nom,
-                                    style: TextStyle(color: Colors.white),
-                                  ),
+                                          ville.nom, // the prob is here
+                                          style: TextStyle(color: Colors.white),
+                                        ),
                                 );
                               }).toList(),
                             ),
