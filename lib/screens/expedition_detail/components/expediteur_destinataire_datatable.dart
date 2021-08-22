@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trancentum_ui_kit/data/expeditions.dart';
+import 'package:trancentum_ui_kit/data/dummyExpeditions.dart';
 import 'package:trancentum_ui_kit/models/expedition.dart';
 
 import '../../../constants.dart';

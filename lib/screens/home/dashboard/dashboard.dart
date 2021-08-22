@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:trancentum_ui_kit/data/expeditions.dart';
+import 'package:trancentum_ui_kit/data/dummyExpeditions.dart';
 import 'package:trancentum_ui_kit/models/expedition.dart';
 import 'package:trancentum_ui_kit/screens/home/dashboard/components/search_field.dart';
-import 'package:trancentum_ui_kit/screens/new_expedition/new_expedition_screen.dart';
 
 import '../../../constants.dart';
 import '../../../responsive_widget.dart';

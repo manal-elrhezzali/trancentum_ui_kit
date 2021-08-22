@@ -11,7 +11,7 @@ class Body extends StatelessWidget {
         width: double.infinity,
         child: Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: getProportionateScreenWidth(20),
+            horizontal: getProportionateScreenWidth(20.0),
           ),
           child: SingleChildScrollView(
             child: Column(
@@ -20,7 +20,7 @@ class Body extends StatelessWidget {
                 Text(
                   "Nouvelle Expédition",
                   style: TextStyle(
-                    fontSize: getProportionateScreenWidth(28),
+                    fontSize: getProportionateScreenWidth(28.0),
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
                     height: 1.5,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trancentum_ui_kit/data/expeditions.dart';
+import 'package:trancentum_ui_kit/data/dummyExpeditions.dart';
 import 'package:trancentum_ui_kit/models/expedition.dart';
 import 'package:trancentum_ui_kit/screens/expedition_detail/components/infos_generales_datatable.dart';
 import 'package:trancentum_ui_kit/screens/no_result_found/no_result_found_screen.dart';

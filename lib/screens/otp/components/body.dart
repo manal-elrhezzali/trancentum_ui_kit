@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trancentum_ui_kit/screens/sign_in/sign_in_screen.dart';
 
 import '../../../size_config.dart';
 import './otp_form.dart';
@@ -11,8 +12,8 @@ class Body extends StatelessWidget {
         child: SizedBox(
           width: double.infinity,
           child: Padding(
-            padding:
-                EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+            padding: EdgeInsets.symmetric(
+                horizontal: getProportionateScreenWidth(20)),
             child: SingleChildScrollView(
               child: Column(
                 children: [
@@ -26,20 +27,20 @@ class Body extends StatelessWidget {
                       height: 1.5,
                     ),
                   ),
-                  Text("We sent your code to +212 676 175 ***"),
-                  buildTimer(),
+                  Text("We sent your code to your Email"),
+                  buildTimer(context),
                   SizedBox(height: SizeConfig.screenHeight * 0.15),
                   OtpForm(),
                   SizedBox(height: SizeConfig.screenHeight * 0.1),
-                  InkWell(
-                    onTap: () {
-                      //resend the OTP code
-                    },
-                    child: Text(
-                      "Resend OTP Code",
-                      style: TextStyle(decoration: TextDecoration.underline),
-                    ),
-                  ),
+                  // InkWell(
+                  //   onTap: () {
+                  //     //resend the OTP code
+                  //   },
+                  //   child: Text(
+                  //     "Resend OTP Code",
+                  //     style: TextStyle(decoration: TextDecoration.underline),
+                  //   ),
+                  // ),
                 ],
               ),
             ),
@@ -49,25 +50,26 @@ class Body extends StatelessWidget {
     );
   }
 
-  Row buildTimer() {
+  Row buildTimer(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text("This code will expire in "),
         TweenAnimationBuilder(
           tween: Tween(
-            begin: 30.0,
+            begin: 50.0,
             end: 0,
           ),
           duration: Duration(
-            seconds: 30,
+            seconds: 50,
           ),
           builder: (context, value, child) => Text(
             "00:${value.toInt()}",
             style: TextStyle(color: Colors.red),
           ),
-          //what to do when the timer ends
-          onEnd: () {},
+          onEnd: () {
+            Navigator.of(context).pushNamed(SignInScreen.routeName);
+          },
         ),
       ],
     );

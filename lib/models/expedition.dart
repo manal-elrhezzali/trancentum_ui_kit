@@ -7,6 +7,20 @@ enum Etat {
   Livree,
   Retour,
   Cloturee,
+  Brouillon,
+}
+
+enum TypeTaxation {
+  Forfait,
+  Taxation,
+  Service,
+}
+
+enum ModePaiement {
+  PP,
+  PPE,
+  PD,
+  PDE
 }
 
 class Expedition {
@@ -19,7 +33,7 @@ class Expedition {
   DateTime dLivraison;
   DateTime dcreation;
   Etat etat;
-  String modePaiement;
+  ModePaiement modePaiement;
   int nbrColis;
   int nbrFactures;
   num pht;
@@ -30,7 +44,7 @@ class Expedition {
   double ptaxe4;
   double pttc;
   double ptva;
-  String taxation;
+  TypeTaxation taxation;
   double ttlPoids;
   double ttlValDeclaree;
   String typeLivraison;
@@ -43,8 +57,8 @@ class Expedition {
    this.codeABarre = "",
     @required this.codeExpedition,
     this.codeGenere= "",
-    @required this.dCloturation,
-    @required this.dLivraison,
+    this.dCloturation,
+    this.dLivraison,
     @required this.dcreation,
     @required this.etat,
     @required this.modePaiement,

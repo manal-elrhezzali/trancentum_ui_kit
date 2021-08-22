@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:trancentum_ui_kit/models/client.dart';
+import 'package:trancentum_ui_kit/screens/home/home_screen.dart';
 
-import '../../login_success/login_success_screen.dart';
 import '../../forgot_password/forgot_password_screen.dart';
 import '../../../components/default_button.dart';
 import '../../../constants.dart';
@@ -15,10 +15,9 @@ class SignForm extends StatefulWidget {
 class _SignFormState extends State<SignForm> {
   bool visibility = false;
   final _formKey = GlobalKey<FormState>();
-  Client user = new Client(email: "", password: "");
+  Client user = new Client(email: "", password: "", id: "c4");
 
   bool rememberMeIsChecked = false;
-  // final List<String> errors = [];
   final _passwordFocusNode = FocusNode();
   var emailPattern =
       r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
@@ -34,9 +33,17 @@ class _SignFormState extends State<SignForm> {
       return;
     }
     _formKey.currentState.save();
+    /////remove these prints
     print(user.email);
     print(user.password);
-    Navigator.of(context).pushNamed(LoginSuccessScreen.routeName);
+    Navigator.of(context).pushNamed(HomeScreen.routeName);
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          "Logged In",
+        ),
+      ),
+    );
   }
 
   @override
@@ -55,26 +62,11 @@ class _SignFormState extends State<SignForm> {
             SizedBox(height: getProportionateScreenHeight(30)),
             TextFormField(
               onSaved: (newValue) => user.email = newValue,
-              // onChanged: (value) {
-              //   if (value.isNotEmpty && errors.contains(kEmailNullError)) {
-              //     setState(() {
-              //       errors.remove(kEmailNullError);
-              //     });
-              //   }
-              // },
+           
               onFieldSubmitted: (value) {
                 FocusScope.of(context).requestFocus(_passwordFocusNode);
               },
               textInputAction: TextInputAction.next,
-              // validator: (value) {
-              //   if (value.isEmpty && !errors.contains(kEmailNullError)) {
-              //     setState(() {
-              //       errors.add(kEmailNullError);
-              //     });
-              //     return "";
-              //   }
-              //   return null;
-              // },
               validator: (value) {
                 if (value.isEmpty) {
                   return "Please provide an Email";
@@ -180,112 +172,4 @@ class _SignFormState extends State<SignForm> {
       ),
     );
   }
-
-  // TextFormField buildPasswordFormField(OutlineInputBorder outlineInputBorder) {
-  //   return TextFormField(
-  //     onSaved: (newValue) => password = newValue,
-  //     onChanged: (value) {
-  //       if (value.isNotEmpty && errors.contains(kEmailNullError)) {
-  //         setState(() {
-  //           errors.remove(kPasswordNullError);
-  //         });
-  //       }
-  //     },
-  //     validator: (value) {
-  //       if (value.isEmpty && !errors.contains(kPasswordNullError)) {
-  //         setState(() {
-  //           errors.add(kPasswordNullError);
-  //         });
-  //         return "";
-  //       }
-  //       return null;
-  //     },
-  //     obscureText: visibility == false ? true : false,
-  //     decoration: InputDecoration(
-  //       hintText: "Enter your password",
-  //       labelText: "Password",
-  //       floatingLabelBehavior: FloatingLabelBehavior.always,
-  //       contentPadding: EdgeInsets.symmetric(
-  //         horizontal: 42,
-  //         vertical: 20,
-  //       ),
-  //       enabledBorder: outlineInputBorder,
-  //       focusedBorder: outlineInputBorder,
-  //       border: outlineInputBorder,
-  //       suffixIcon: Padding(
-  //         padding: EdgeInsets.fromLTRB(
-  //           0,
-  //           getProportionateScreenWidth(20),
-  //           getProportionateScreenWidth(20),
-  //           getProportionateScreenWidth(20),
-  //         ),
-  //         child: IconButton(
-  //           icon: visibility == false
-  //               ? Icon(Icons.visibility_off)
-  //               : Icon(Icons.visibility),
-  //           onPressed: () {
-  //             setState(() {
-  //               visibility = !visibility;
-  //             });
-  //           },
-  //         ),
-  //       ),
-  //     ),
-  //   );
-  // }
-
-  // TextFormField buildEmailFormField(OutlineInputBorder outlineInputBorder) {
-  //   return TextFormField(
-  //     onSaved: (newValue) => email = newValue,
-  //     onChanged: (value) {
-  //       if (value.isNotEmpty && errors.contains(kEmailNullError)) {
-  //         setState(() {
-  //           errors.remove(kEmailNullError);
-  //         });
-  //       }
-  //     },
-  //     textInputAction: TextInputAction.next,
-  //     validator: (value) {
-  //       if (value.isEmpty && !errors.contains(kEmailNullError)) {
-  //         setState(() {
-  //           errors.add(kEmailNullError);
-  //         });
-  //         return "";
-  //       }
-  //       return null;
-  //     },
-  //     decoration: InputDecoration(
-  //       hintText: "Enter your Email",
-  //       labelText: "Email",
-  //       floatingLabelBehavior: FloatingLabelBehavior.always,
-  //       contentPadding: EdgeInsets.symmetric(
-  //         horizontal: 42,
-  //         vertical: 20,
-  //       ),
-  //       enabledBorder: outlineInputBorder,
-  //       focusedBorder: outlineInputBorder,
-  //       border: outlineInputBorder,
-  //     ),
-  //   );
-  // }
-
-//   InputDecoration buildInputDecoration(String hintText, String labelText) {
-//     var outlineInputBorder = OutlineInputBorder(
-//       borderRadius: BorderRadius.circular(28),
-//       borderSide: BorderSide(color: kTextColor),
-//       gapPadding: 10,
-//     );
-//     return InputDecoration(
-//       hintText: hintText,
-//       labelText: labelText,
-//       floatingLabelBehavior: FloatingLabelBehavior.always,
-//       contentPadding: EdgeInsets.symmetric(
-//         horizontal: 42,
-//         vertical: 20,
-//       ),
-//       enabledBorder: outlineInputBorder,
-//       focusedBorder: outlineInputBorder,
-//       border: outlineInputBorder,
-//     );
-//   }
 }

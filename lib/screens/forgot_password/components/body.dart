@@ -1,8 +1,8 @@
+import 'package:email_auth/email_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:trancentum_ui_kit/screens/otp/otp_screen.dart';
 
 import '../../../components/default_button.dart';
-import '../../../components/form_error.dart';
 import '../../../components/no_account_text.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
@@ -30,7 +30,7 @@ class Body extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "Please enter your phone number and we will \n send you your password by message ",
+                    "Please enter your Email and we will \n send you an OTP verification code ",
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: SizeConfig.screenHeight * 0.1),
@@ -52,8 +52,40 @@ class ForgotPasswordForm extends StatefulWidget {
 
 class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
   final _formKey = GlobalKey<FormState>();
-  final List<String> errors = [];
-  String phoneNumber;
+  String email = "";
+  var emailPattern =
+      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+
+  void _sendOTP() async {
+    EmailAuth.sessionName = "Test Session";
+    var response = await EmailAuth.sendOtp(receiverMail: email);
+    if (response) {
+      print("OTP SENT SUCCESSFULLY");
+    } else {
+      print("we could not send the OTP code");
+    }
+  }
+//after user enters OTP Code
+  // void verifyOTP() {
+  //   var result = EmailAuth.validate(receiverMail: email, userOTP: userOTP);
+  //    if (result) {
+  //     print("OTP Verified");
+  //   } else {
+  //     print("Invalid OTP");
+  //   }
+  // }
+
+  void _saveForm() {
+    final isValid = _formKey.currentState.validate();
+    if (!isValid) {
+      return;
+    }
+    _formKey.currentState.save();
+    /////remove these prints
+    print(email);
+    _sendOTP();
+    Navigator.of(context).pushNamed(OtpScreen.routeName, arguments: email);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,17 +99,12 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
       key: _formKey,
       child: Column(
         children: [
-          buildPhoneNumberFormField(outlineInputBorder),
+          buildEmailFormField(outlineInputBorder),
           SizedBox(height: getProportionateScreenHeight(30)),
-          FormError(errors: errors),
           SizedBox(height: SizeConfig.screenHeight * 0.1),
           DefaultButton(
             text: "Continue",
-            pressHandler: () {
-              if (_formKey.currentState.validate()) {
-                Navigator.of(context).pushNamed(OtpScreen.routeName);
-              }
-            },
+            pressHandler: _saveForm,
           ),
           SizedBox(height: SizeConfig.screenHeight * 0.04),
           NoAccountText(),
@@ -86,29 +113,24 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
     );
   }
 
-  TextFormField buildPhoneNumberFormField(
-      OutlineInputBorder outlineInputBorder) {
+  TextFormField buildEmailFormField(OutlineInputBorder outlineInputBorder) {
     return TextFormField(
-      keyboardType: TextInputType.phone,
-      onSaved: (newValue) => phoneNumber = newValue,
-      onChanged: (value) {
-        // if (value.isNotEmpty && errors.contains(kPhoneNumberNullError)) {
-        //   setState(() {
-        //     errors.remove(kPhoneNumberNullError);
-        //   });
-        // }
+      keyboardType: TextInputType.emailAddress,
+      onSaved: (newValue) => email = newValue,
+      validator: (value) {
+        if (value.isEmpty) {
+          return "Please provide an Email";
+        }
+        var result =
+            new RegExp(emailPattern, caseSensitive: false).hasMatch(value);
+        if (!result) {
+          return "Please provide a valid email";
+        }
+        return null; //means there is no error
       },
-      // validator: (value) {
-      //   // if (value.isEmpty && !errors.contains(kPhoneNumberNullError)) {
-      //   //   setState(() {
-      //   //     errors.add(kPhoneNumberNullError);
-      //   //   });
-      //   // }
-      //   // return null;
-      // },
       decoration: InputDecoration(
-        hintText: "Enter your phone number",
-        labelText: "Phone Number",
+        hintText: "Enter your email",
+        labelText: "Email",
         floatingLabelBehavior: FloatingLabelBehavior.always,
         contentPadding: EdgeInsets.symmetric(
           horizontal: 42,

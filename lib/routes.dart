@@ -18,6 +18,7 @@ final Map<String, WidgetBuilder> routes = {
   SplashScreen.routeName: (context) => SplashScreen(),
   SignInScreen.routeName: (context) => SignInScreen(),//after http course
   ForgotPasswordScreen.routeName: (context) => ForgotPasswordScreen(),
+  //CAN DELETE THIS CUZ I REPLACED IT WITH A SNACKBAR
   LoginSuccessScreen.routeName: (context) => LoginSuccessScreen(),
   CompleteProfileScreen.routeName: (context) => CompleteProfileScreen(),
   OtpScreen.routeName: (context) => OtpScreen(),//can be removed and replaced by sending the mdp in email
