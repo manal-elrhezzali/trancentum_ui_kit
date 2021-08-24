@@ -16,14 +16,9 @@ enum TypeTaxation {
   Service,
 }
 
-enum ModePaiement {
-  PP,
-  PPE,
-  PD,
-  PDE
-}
+enum ModePaiement { PP, PPE, PD, PDE }
 
-class Expedition {
+class Expedition with ChangeNotifier{
   String clientDestinataireId;
   String clientExpediteurId;
   String codeABarre;
@@ -54,29 +49,30 @@ class Expedition {
   Expedition({
     @required this.clientDestinataireId,
     @required this.clientExpediteurId,
-   this.codeABarre = "",
+    this.codeABarre = "",
     @required this.codeExpedition,
-    this.codeGenere= "",
+    this.codeGenere = "",
     this.dCloturation,
     this.dLivraison,
     @required this.dcreation,
-    @required this.etat,
+    this.etat = Etat.Brouillon,
     @required this.modePaiement,
     @required this.nbrColis,
     @required this.nbrFactures,
-    @required this.pht,
-    @required this.premise,
-    @required this.ptaxe1,
-    @required this.ptaxe2,
-    @required this.ptaxe3,
-    @required this.ptaxe4,
-    @required this.pttc,
-    @required this.ptva,
+    this.pht = 0,
+    this.premise = 0,
+    this.ptaxe1 = 0,
+    this.ptaxe2 = 0,
+    this.ptaxe3 = 0,
+    this.ptaxe4 = 0,
+    this.pttc = 0,
+    this.ptva = 0,
     @required this.taxation,
-    @required this.ttlPoids,
-    @required this.ttlValDeclaree,
+    this.ttlPoids = 0,
+    this.ttlValDeclaree = 0,
     @required this.typeLivraison,
     @required this.villeDestinataireId,
     @required this.villeExpediteurId,
   });
+
 }

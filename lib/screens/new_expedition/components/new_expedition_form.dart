@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trancentum_ui_kit/components/default_button.dart';
-import 'package:trancentum_ui_kit/data/dummyVilles.dart';
-import 'package:trancentum_ui_kit/models/expedition.dart';
-import 'package:trancentum_ui_kit/models/ville.dart';
+import 'package:trancentum_ui_kit/providers/expedition.dart';
 import 'package:trancentum_ui_kit/screens/home/home_screen.dart';
 
 import '../../../constants.dart';
@@ -89,7 +87,7 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
   //----->dropDown
   var _initialValueTypeMarchandise;
   var _initialValueModePaiement;
-  var _initialValueTypeTaxation;
+  var _initialValueTypeTaxation = "Forfait";
 
   @override
   void dispose() {
@@ -153,23 +151,23 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
     }
     _formKey.currentState.save();
     /////remove these prints
-    print(nomExpediteur);
-    print(telExpediteur);
-    print(nomDestinataire);
-    print(telDestinataire);
-    print(_initialValueVilleExpediteur);
-    print(_initialValueVilleDestinataire);
-    //
-    print(nbrDeBonsLivraison);
-    print(nbrFactures);
-    print(montant);
-    print(nombre);
-    print(_initialValueTypeDeRetours);
-    //
-    print(nombreDeColis);
-    print(_initialValueTypeMarchandise);
-    print(_initialValueModePaiement);
-    print(_initialValueTypeTaxation);
+    // print(nomExpediteur);
+    // print(telExpediteur);
+    // print(nomDestinataire);
+    // print(telDestinataire);
+    // print(_initialValueVilleExpediteur);
+    // print(_initialValueVilleDestinataire);
+    // //
+    // print(nbrDeBonsLivraison);
+    // print(nbrFactures);
+    // print(montant);
+    // print(nombre);
+    // print(_initialValueTypeDeRetours);
+    // //
+    // print(nombreDeColis);
+    // print(_initialValueTypeMarchandise);
+    // print(_initialValueModePaiement);
+    // print(_initialValueTypeTaxation);
 
     Navigator.of(context).pushNamed(HomeScreen.routeName);
     ScaffoldMessenger.of(context).showSnackBar(
@@ -460,7 +458,7 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
                               icon: Icon(Icons.keyboard_arrow_down_rounded),
                               isExpanded: true,
                               underline: SizedBox(),
-                              // value: _i/nitialValueVilleDestinataire,
+                              // value: _initialValueVilleDestinataire,
                               value: _initialValueVilleDestinataire,
                               onChanged: (newValue) {
                                 setState(() {
@@ -612,10 +610,46 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
                           //     outlineInputBorder, "Enter le nombre", "Nombre"),
                           SizedBox(height: getProportionateScreenHeight(20)),
 
-                          buildDropDownButton(
-                              _initialValueTypeDeRetours,
-                              listItemsRetoursFondsDropDownButton,
-                              "Type de retours"),
+                          Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 42,
+                              vertical: 8,
+                            ),
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: kTextColor,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(28),
+                            ),
+                            child: DropdownButton(
+                              hint: Text("Type de retours"),
+                              dropdownColor: kPrimaryColor,
+                              icon: Icon(Icons.keyboard_arrow_down_rounded),
+                              isExpanded: true,
+                              underline: SizedBox(),
+                              value: _initialValueTypeDeRetours,
+                              onChanged: (newValue) {
+                                setState(() {
+                                  _initialValueTypeDeRetours = newValue;
+                                });
+                              },
+                              items: listItemsRetoursFondsDropDownButton
+                                  .map((valueItem) {
+                                return DropdownMenuItem(
+                                  value: valueItem,
+                                  child: Text(
+                                    valueItem,
+                                    style: TextStyle(color: greenColor),
+                                  ),
+                                );
+                              }).toList(),
+                            ),
+                          ),
+                          // buildDropDownButton(
+                          //     _initialValueTypeDeRetours,
+                          //     listItemsRetoursFondsDropDownButton,
+                          //     "Type de retours"),
                         ],
                       ),
                       SizedBox(height: getProportionateScreenHeight(30)),
@@ -648,20 +682,129 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
                           // buildTextFormField(outlineInputBorder,
                           //     "Enter le nbr de colis ", "Nombre de Colis"),
                           SizedBox(height: getProportionateScreenHeight(20)),
-                          buildDropDownButton(
-                              _initialValueTypeMarchandise,
-                              listItemsTypeMarchandiseDropDownButton,
-                              "Type de Marchandise"),
+                          Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 42,
+                              vertical: 8,
+                            ),
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: kTextColor,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(28),
+                            ),
+                            child: DropdownButton(
+                              hint: Text("Type de Marchandise"),
+                              dropdownColor: kPrimaryColor,
+                              icon: Icon(Icons.keyboard_arrow_down_rounded),
+                              isExpanded: true,
+                              underline: SizedBox(),
+                              value: _initialValueTypeMarchandise,
+                              onChanged: (newValue) {
+                                setState(() {
+                                  _initialValueTypeMarchandise = newValue;
+                                });
+                              },
+                              items: listItemsTypeMarchandiseDropDownButton
+                                  .map((valueItem) {
+                                return DropdownMenuItem(
+                                  value: valueItem,
+                                  child: Text(
+                                    valueItem,
+                                    style: TextStyle(color: greenColor),
+                                  ),
+                                );
+                              }).toList(),
+                            ),
+                          ),
+                          // buildDropDownButton(
+                          //     _initialValueTypeMarchandise,
+                          //     listItemsTypeMarchandiseDropDownButton,
+                          //     "Type de Marchandise"),
                           SizedBox(height: getProportionateScreenHeight(20)),
-                          buildDropDownButton(
-                              _initialValueModePaiement,
-                              listItemsModePaiementDropDownButton,
-                              "Mode Paiement"),
+                          Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 42,
+                              vertical: 8,
+                            ),
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: kTextColor,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(28),
+                            ),
+                            child: DropdownButton(
+                              hint: Text("Mode Paiement"),
+                              dropdownColor: kPrimaryColor,
+                              icon: Icon(Icons.keyboard_arrow_down_rounded),
+                              isExpanded: true,
+                              underline: SizedBox(),
+                              value: _initialValueModePaiement,
+                              onChanged: (newValue) {
+                                setState(() {
+                                  _initialValueModePaiement = newValue;
+                                });
+                              },
+                              items: listItemsModePaiementDropDownButton
+                                  .map((valueItem) {
+                                return DropdownMenuItem(
+                                  value: valueItem,
+                                  child: Text(
+                                    valueItem,
+                                    style: TextStyle(color: greenColor),
+                                  ),
+                                );
+                              }).toList(),
+                            ),
+                          ),
+
+                          // buildDropDownButton(
+                          //     _initialValueModePaiement,
+                          //     listItemsModePaiementDropDownButton,
+                          //     "Mode Paiement"),
                           SizedBox(height: getProportionateScreenHeight(20)),
-                          buildDropDownButton(
-                              _initialValueTypeTaxation,
-                              listItemsTypeTaxationDropDownButton,
-                              "Type de Taxation"),
+                          Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 42,
+                              vertical: 8,
+                            ),
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: kTextColor,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(28),
+                            ),
+                            child: DropdownButton(
+                              hint: Text("Type de Taxation"),
+                              dropdownColor: kPrimaryColor,
+                              icon: Icon(Icons.keyboard_arrow_down_rounded),
+                              isExpanded: true,
+                              underline: SizedBox(),
+                              value: _initialValueTypeTaxation,
+                              onChanged: (newValue) {
+                                setState(() {
+                                  _initialValueTypeTaxation = newValue;
+                                });
+                              },
+                              items: listItemsTypeTaxationDropDownButton
+                                  .map((valueItem) {
+                                return DropdownMenuItem(
+                                  value: valueItem,
+                                  child: Text(
+                                    valueItem,
+                                    style: TextStyle(color: greenColor),
+                                  ),
+                                );
+                              }).toList(),
+                            ),
+                          ),
+                          // buildDropDownButton(
+                          //     _initialValueTypeTaxation,
+                          //     listItemsTypeTaxationDropDownButton,
+                          //     "Type de Taxation"),
                         ],
                       ),
                       SizedBox(height: getProportionateScreenHeight(40)),
@@ -677,47 +820,43 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
     );
   }
 
-  Container buildDropDownButton(var valueChose, List listItems, String hint) {
-    return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: 42,
-        vertical: 8,
-      ),
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: kTextColor,
-          width: 1,
-        ),
-        borderRadius: BorderRadius.circular(28),
-      ),
-      child: DropdownButton(
-        hint: Text(hint),
-        dropdownColor: kPrimaryColor,
-        icon: Icon(Icons.keyboard_arrow_down_rounded),
-        isExpanded: true,
-        underline: SizedBox(),
-        value: valueChose,
-        onChanged: (newValue) {
-          setState(() {
-            if (newValue == null && listItems.isNotEmpty) {
-              valueChose = listItems[0];
-            } else {
-              valueChose = newValue;
-            }
-          });
-        },
-        items: listItems.map((valueItem) {
-          return DropdownMenuItem(
-            value: valueItem,
-            child: Text(
-              valueItem,
-              style: TextStyle(color: greenColor),
-            ),
-          );
-        }).toList(),
-      ),
-    );
-  }
+  // Container buildDropDownButton(var valueChose, List listItems, String hint) {
+  //   return Container(
+  //     padding: EdgeInsets.symmetric(
+  //       horizontal: 42,
+  //       vertical: 8,
+  //     ),
+  //     decoration: BoxDecoration(
+  //       border: Border.all(
+  //         color: kTextColor,
+  //         width: 1,
+  //       ),
+  //       borderRadius: BorderRadius.circular(28),
+  //     ),
+  //     child: DropdownButton(
+  //       hint: Text(hint),
+  //       dropdownColor: kPrimaryColor,
+  //       icon: Icon(Icons.keyboard_arrow_down_rounded),
+  //       isExpanded: true,
+  //       underline: SizedBox(),
+  //       value: valueChose,
+  //       onChanged: (newValue) {
+  //         setState(() {
+  //           valueChose = newValue;
+  //         });
+  //       },
+  //       items: listItems.map((valueItem) {
+  //         return DropdownMenuItem(
+  //           value: valueItem,
+  //           child: Text(
+  //             valueItem,
+  //             style: TextStyle(color: greenColor),
+  //           ),
+  //         );
+  //       }).toList(),
+  //     ),
+  //   );
+  // }
 
   // TextFormField buildTextFormField(
   //     OutlineInputBorder outlineInputBorder, String hint, String label) {

@@ -1,46 +1,48 @@
 import 'package:flutter/material.dart';
-import 'package:trancentum_ui_kit/data/dummyExpeditions.dart';
-import 'package:trancentum_ui_kit/models/expedition.dart';
+import 'package:provider/provider.dart';
+
+import 'package:trancentum_ui_kit/providers/expeditions.dart';
 import 'package:trancentum_ui_kit/screens/home/dashboard/components/search_field.dart';
 
 import '../../../constants.dart';
 import '../../../responsive_widget.dart';
 import 'components/all_packages_status.dart';
-import 'components/header.dart';
 import 'components/my_shipments.dart';
 import 'components/recent_expeditions_array.dart';
 
 class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    int expeditionEnregistreeCount = 0;
-    int expeditionRecueCount = 0;
-    int expeditionChargeeCount = 0;
-    int expeditionLivreeCount = 0;
-    int expeditionRetourCount = 0;
-    int expeditionClotureeCount = 0;
+    final expeditionsData = Provider.of<Expeditions>(context);
+    final expeditions = expeditionsData.items;
+    int expeditionEnregistreeCount = expeditionsData.nbrOfExpeditionsEnregistree;
+    int expeditionRecueCount = expeditionsData.nbrOfExpeditionsRecue;
+    int expeditionChargeeCount = expeditionsData.nbrOfExpeditionsChargee;
+    int expeditionLivreeCount = expeditionsData.nbrOfExpeditionsLivree;
+    int expeditionRetourCount = expeditionsData.nbrOfExpeditionsRetour;
+    int expeditionClotureeCount = expeditionsData.nbrOfExpeditionsCloturee;
 
-    demoExpeditions.forEach((element) {
-      if (element.etat == Etat.Chargee) {
-        expeditionChargeeCount++;
-      }
-      if (element.etat == Etat.Enregistree) {
-        expeditionEnregistreeCount++;
-      }
-      if (element.etat == Etat.Recue) {
-        expeditionRecueCount++;
-      }
-      if (element.etat == Etat.Livree) {
-        expeditionLivreeCount++;
-      }
-      if (element.etat == Etat.Retour) {
-        expeditionRetourCount++;
-      }
-      if (element.etat == Etat.Cloturee) {
-        expeditionClotureeCount++;
-      }
-    });
-    return demoExpeditions.isEmpty
+    // demoExpeditions.forEach((element) {
+    //   if (element.etat == Etat.Chargee) {
+    //     expeditionChargeeCount++;
+    //   }
+    //   if (element.etat == Etat.Enregistree) {
+    //     expeditionEnregistreeCount++;
+    //   }
+    //   if (element.etat == Etat.Recue) {
+    //     expeditionRecueCount++;
+    //   }
+    //   if (element.etat == Etat.Livree) {
+    //     expeditionLivreeCount++;
+    //   }
+    //   if (element.etat == Etat.Retour) {
+    //     expeditionRetourCount++;
+    //   }
+    //   if (element.etat == Etat.Cloturee) {
+    //     expeditionClotureeCount++;
+    //   }
+    // });
+    return expeditions.isEmpty
         ? LayoutBuilder(builder: (ctx, constraints) {
             return SingleChildScrollView(
               padding: EdgeInsets.all(defaultPadding),

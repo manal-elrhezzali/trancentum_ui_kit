@@ -1,4 +1,4 @@
-import 'package:trancentum_ui_kit/models/expedition.dart';
+import 'package:trancentum_ui_kit/providers/expedition.dart';
 
 List<Expedition> demoExpeditions = [
   Expedition(
