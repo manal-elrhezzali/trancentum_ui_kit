@@ -72,7 +72,7 @@ class _OtpFormState extends State<OtpForm> {
   }
 
   void _sendPasswordToUser(String email) async {
-    String username = 'testtestrzzl@gmail.com';
+    String username = 'testtestrzzl99@gmail.com';
     String password = 'poiuytrewq97531@';
 
     final smtpServer = gmail(username, password);
@@ -101,7 +101,7 @@ class _OtpFormState extends State<OtpForm> {
       );
     } on MailerException catch (e) {
       print('Message not sent.');
-                      Navigator.of(context).pushReplacementNamed(ErrorScreen.routeName);
+      Navigator.of(context).pushReplacementNamed(ErrorScreen.routeName);
 
       for (var p in e.problems) {
         print('Problem: ${p.code}: ${p.msg}');

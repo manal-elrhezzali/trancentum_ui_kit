@@ -6,6 +6,7 @@ import 'package:trancentum_ui_kit/screens/home/dashboard/components/search_field
 import '../../../constants.dart';
 import '../../../responsive_widget.dart';
 import 'components/all_packages_status.dart';
+import 'components/header.dart';
 import 'components/my_shipments.dart';
 import 'components/recent_expeditions_array.dart';
 
@@ -71,7 +72,6 @@ class Dashboard extends StatelessWidget {
               child: Column(
                 children: [
                   SearchField(),
-                  // Header(),
                   SizedBox(height: defaultPadding),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,

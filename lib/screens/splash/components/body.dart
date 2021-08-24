@@ -6,7 +6,6 @@ import '../../../size_config.dart';
 import '../../../components/default_button.dart';
 import './splash_content.dart';
 
-
 class Body extends StatefulWidget {
   @override
   _BodyState createState() => _BodyState();
@@ -15,10 +14,7 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   int currentPage = 0;
   List<Map<String, String>> splashInfo = [
-    {
-      "text": "Bienvenue sur TranCENTUM",
-      "image": "assets/images/splash_1.png"
-    },
+    {"text": "Bienvenue sur TranCENTUM", "image": "assets/images/splash_1.png"},
     {
       "text":
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
@@ -73,13 +69,11 @@ class _BodyState extends State<Body> {
                       ),
                       Spacer(flex: 3),
                       DefaultButton(
-                        text: "Continuer",
-                        pressHandler: () {
-                          Navigator.of(context).pushNamed(SignInScreen.routeName);
-                          // Navigator.of(context).pushNamed(CompleteProfileScreen.routeName);
-                          // Navigator.of(context).pushNamed(NewExpeditionScreen.routeName);
-                        },
-                      ),
+                          text: "Continuer",
+                          pressHandler: () {
+                            Navigator.of(context)
+                                .pushNamed(SignInScreen.routeName);
+                          },),
                       Spacer(),
                     ],
                   ),
@@ -105,4 +99,3 @@ class _BodyState extends State<Body> {
     );
   }
 }
-

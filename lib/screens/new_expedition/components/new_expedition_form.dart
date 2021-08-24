@@ -21,8 +21,12 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
   final _nbrFacturesFocusNode = FocusNode();
   final _montantRetoursDeFondsFocusNode = FocusNode();
   final _nbrRetoursDeFondsFocusNode = FocusNode();
+  List villes = <Map>[];
 
-  var telPattern = r'ˆ[0][0-9]{9}$';
+  // var telPattern = r'ˆ[0][0-9]{9}$'; //review this
+  // var fixePattern = r'ˆ[0][0-9]{9}$'; //review this
+  // var faxPattern = r'ˆ[0][0-9]{9}$'; //review this
+
   Expedition expedition = Expedition(
     etat: Etat.Brouillon,
     ptaxe1: 0.0,
@@ -56,8 +60,9 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
   String nomDestinataire = "";
   String telDestinataire = "";
   //----->dropDown
-  String villeExpediteur = "";
-  String villeDestinataire = "";
+// String _initialValueVilleExpediteur = "Fes";
+  Ville _initialValueVilleExpediteur;
+  Ville _initialValueVilleDestinataire;
 
   //// Retours de fonds form
   String nbrDeBonsLivraison = "";
@@ -65,14 +70,14 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
   String montant = "";
   String nombre = "";
   //----->dropDown
-  String typeDeRetours = "";
+  String _initialValueTypeDeRetours = "C/Remboursement";
 
   //// Reglements form
   String nombreDeColis = "";
   //----->dropDown
-  String typeMarchandise = "";
-  String modePaiement = "";
-  String typeTaxation = "";
+  String _initialValueTypeMarchandise = "Marchandise 1";
+  String _initialValueModePaiement = "PP";
+  String _initialValueTypeTaxation = "Forfait";
 
   @override
   void dispose() {
@@ -86,6 +91,25 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
     super.dispose();
   }
 
+  @override
+  void initState() {
+    super.initState();
+    //get json Map from Back-End
+    villes = [{
+      'id': 'c1',
+      'nom': 'Fes',
+    },
+    {
+      'id': 'c2',
+      'nom': 'Meknes',
+    },
+    {
+      'id': 'c3',
+      'nom': 'Tanjer',
+    },];
+   
+  }
+
   void _saveForm() {
     final isValid = _formKey.currentState.validate();
     if (!isValid) {
@@ -97,19 +121,19 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
     print(telExpediteur);
     print(nomDestinataire);
     print(telDestinataire);
-    print(villeExpediteur);
-    print(villeDestinataire);
+    print(_initialValueVilleExpediteur);
+    print(_initialValueVilleDestinataire);
     //
     print(nbrDeBonsLivraison);
     print(nbrFactures);
     print(montant);
     print(nombre);
-    print(typeDeRetours);
+    print(_initialValueTypeDeRetours);
     //
     print(nombreDeColis);
-    print(typeMarchandise);
-    print(modePaiement);
-    print(typeTaxation);
+    print(_initialValueTypeMarchandise);
+    print(_initialValueModePaiement);
+    print(_initialValueTypeTaxation);
 
     Navigator.of(context).pushNamed(HomeScreen.routeName);
     ScaffoldMessenger.of(context).showSnackBar(
@@ -153,6 +177,12 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
 
   @override
   Widget build(BuildContext context) {
+    // List villes = [
+    //   "Fes",
+    //   "Meknes",
+    //   "Tanjer",
+    // ];
+    print(villes);
     var outlineInputBorder = OutlineInputBorder(
       borderRadius: BorderRadius.circular(28),
       borderSide: BorderSide(color: kTextColor),
@@ -166,8 +196,8 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
       "C/BL",
     ];
     List listItemsTypeMarchandiseDropDownButton = [
-      "marchandise 1",
-      "marchandise 2",
+      "Marchandise 1",
+      "Marchandise 2",
     ];
     List listItemsModePaiementDropDownButton = [
       "PP",
@@ -239,12 +269,12 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
                               if (value.isEmpty) {
                                 return "Veuillez saisir un tel";
                               }
-                              var result =
-                                  new RegExp(telPattern, caseSensitive: false)
-                                      .hasMatch(value);
-                              if (!result) {
-                                return "Veuillez saisir un tel valid";
-                              }
+                              // var result =
+                              //     new RegExp(telPattern, caseSensitive: false)
+                              //         .hasMatch(value);
+                              // if (!result) {
+                              //   return "Veuillez saisir un tel valid";
+                              // }
                               return null; //means there is no error
                             },
                             decoration: InputDecoration(
@@ -307,12 +337,12 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
                               if (value.isEmpty) {
                                 return "Veuillez saisir un tel";
                               }
-                              var result =
-                                  new RegExp(telPattern, caseSensitive: false)
-                                      .hasMatch(value);
-                              if (!result) {
-                                return "Veuillez saisir un tel valid";
-                              }
+                              // var result =
+                              //     new RegExp(telPattern, caseSensitive: false)
+                              //         .hasMatch(value);
+                              // if (!result) {
+                              //   return "Veuillez saisir un tel valid";
+                              // }
                               return null;
                             },
                             decoration: InputDecoration(
@@ -350,24 +380,21 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
                               icon: Icon(Icons.keyboard_arrow_down_rounded),
                               isExpanded: true,
                               underline: SizedBox(),
-                              value: villeExpediteur,
+                              // value: _initialValueVilleExpediteur,
+
+                              value: null,
                               onChanged: (newValue) {
                                 setState(() {
-                                  if (newValue == null &&
-                                      dummyVilles.isNotEmpty) {
-                                    villeExpediteur = dummyVilles[0].nom;
-                                  } else {
-                                    villeExpediteur = newValue;
-                                  }
+                                  _initialValueVilleExpediteur = newValue;
                                 });
                               },
-                              items: dummyVilles.map((ville) {
+                              items: villes.map((ville) {
                                 return DropdownMenuItem(
-                                  value: ville,
+                                  value: ville["id"],
                                   child: Text(
-                                          ville.nom, // the prob is here
-                                          style: TextStyle(color: Colors.white),
-                                        ),
+                                    ville["nom"], // the prob is here
+                                    style: TextStyle(color: greenColor),
+                                  ),
                                 );
                               }).toList(),
                             ),
@@ -397,33 +424,24 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
                               icon: Icon(Icons.keyboard_arrow_down_rounded),
                               isExpanded: true,
                               underline: SizedBox(),
-                              value: villeDestinataire,
+                              // value: _i/nitialValueVilleDestinataire,
+                              value: null,
                               onChanged: (newValue) {
                                 setState(() {
-                                  if (newValue == null &&
-                                      dummyVilles.isNotEmpty) {
-                                    villeDestinataire = dummyVilles[0].nom;
-                                  } else {
-                                    villeDestinataire = newValue;
-                                  }
+                                  _initialValueVilleDestinataire = newValue;
                                 });
                               },
-                              items: dummyVilles.map((ville) {
+                              items: villes.map((ville) {
                                 return DropdownMenuItem(
-                                  value: ville,
+                                  value: ville["id"],
                                   child: Text(
-                                    ville.nom,
-                                    style: TextStyle(color: Colors.white),
+                                    ville["nom"],
+                                    style: TextStyle(color: greenColor),
                                   ),
                                 );
                               }).toList(),
                             ),
                           ),
-                          // buildDropDownButton(
-                          //   villeDestinataire,
-                          //   villesExped,
-                          //   "Ville Destinataire",
-                          // ),
                         ],
                       ),
                       SizedBox(height: getProportionateScreenHeight(30)),
@@ -528,7 +546,7 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
                           SizedBox(height: getProportionateScreenHeight(20)),
                           TextFormField(
                             focusNode: _nbrRetoursDeFondsFocusNode,
-                            onSaved: (newValue) => montant = newValue,
+                            onSaved: (newValue) => nombre = newValue,
                             textInputAction: TextInputAction.next,
                             keyboardType: TextInputType.number,
                             validator: (value) {
@@ -555,7 +573,7 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
                           //     outlineInputBorder, "Enter le nombre", "Nombre"),
                           SizedBox(height: getProportionateScreenHeight(20)),
                           buildDropDownButton(
-                              typeDeRetours,
+                              _initialValueTypeDeRetours,
                               listItemsRetoursFondsDropDownButton,
                               "Type de retours"),
                         ],
@@ -591,17 +609,17 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
                           //     "Enter le nbr de colis ", "Nombre de Colis"),
                           SizedBox(height: getProportionateScreenHeight(20)),
                           buildDropDownButton(
-                              typeMarchandise,
+                              _initialValueTypeMarchandise,
                               listItemsTypeMarchandiseDropDownButton,
                               "Type de Marchandise"),
                           SizedBox(height: getProportionateScreenHeight(20)),
                           buildDropDownButton(
-                              modePaiement,
+                              _initialValueModePaiement,
                               listItemsModePaiementDropDownButton,
                               "Mode Paiement"),
                           SizedBox(height: getProportionateScreenHeight(20)),
                           buildDropDownButton(
-                              typeTaxation,
+                              _initialValueTypeTaxation,
                               listItemsTypeTaxationDropDownButton,
                               "Type de Taxation"),
                         ],
@@ -654,7 +672,7 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
             value: valueItem,
             child: Text(
               valueItem,
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: greenColor),
             ),
           );
         }).toList(),
