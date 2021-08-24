@@ -18,23 +18,32 @@ class SplashContent extends StatelessWidget {
     return Column(
       children: [
         Spacer(),
-        Text(
-          "TranCENTUM",
-          style: TextStyle(
-            fontSize: getProportionateScreenWidth(36),
-            color: kPrimaryColor,
-            fontWeight: FontWeight.bold,
+        Expanded(
+          flex: 2,
+          child: Text(
+            "TranCENTUM",
+            style: TextStyle(
+              fontSize: getProportionateScreenWidth(36),
+              color: kPrimaryColor,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
-        Text(
-          text,
-          textAlign: TextAlign.center,
+        Expanded(
+          flex: 1,
+          child: Text(
+            text,
+            textAlign: TextAlign.center,
+          ),
         ),
         Spacer(flex: 2),
-        Image.asset(
-          image,
-          height: getProportionateScreenHeight(265),
-          width: getProportionateScreenWidth(235),
+        Expanded(
+          flex: 6,
+          child: Image.asset(
+            image,
+            height: getProportionateScreenHeight(265),
+            width: getProportionateScreenWidth(235),
+          ),
         ),
       ],
     );

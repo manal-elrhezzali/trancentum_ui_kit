@@ -15,13 +15,25 @@ class NewExpeditionForm extends StatefulWidget {
 
 class _NewExpeditionFormState extends State<NewExpeditionForm> {
   final _formKey = GlobalKey<FormState>();
+  //exepediteur/destinataire subform focus nodes
   final _telExpediteurFocusNode = FocusNode();
   final _nomDestinataireFocusNode = FocusNode();
   final _telDestinataireFocusNode = FocusNode();
+
+  //Retours de fonds subForm focus noddes
+  final _nbrDeBonsFocusNode = FocusNode();
   final _nbrFacturesFocusNode = FocusNode();
   final _montantRetoursDeFondsFocusNode = FocusNode();
   final _nbrRetoursDeFondsFocusNode = FocusNode();
+
+  //Reglement focus noddes
+  final _nbrColisFocusNode = FocusNode();
+
   List villes = <Map>[];
+  List listItemsRetoursFondsDropDownButton = [];
+  List listItemsTypeMarchandiseDropDownButton = [];
+  List listItemsModePaiementDropDownButton = [];
+  List listItemsTypeTaxationDropDownButton = [];
 
   // var telPattern = r'ˆ[0][0-9]{9}$'; //review this
   // var fixePattern = r'ˆ[0][0-9]{9}$'; //review this
@@ -61,8 +73,8 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
   String telDestinataire = "";
   //----->dropDown
 // String _initialValueVilleExpediteur = "Fes";
-  Ville _initialValueVilleExpediteur;
-  Ville _initialValueVilleDestinataire;
+  var _initialValueVilleExpediteur;
+  var _initialValueVilleDestinataire;
 
   //// Retours de fonds form
   String nbrDeBonsLivraison = "";
@@ -70,14 +82,14 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
   String montant = "";
   String nombre = "";
   //----->dropDown
-  String _initialValueTypeDeRetours = "C/Remboursement";
+  var _initialValueTypeDeRetours;
 
   //// Reglements form
   String nombreDeColis = "";
   //----->dropDown
-  String _initialValueTypeMarchandise = "Marchandise 1";
-  String _initialValueModePaiement = "PP";
-  String _initialValueTypeTaxation = "Forfait";
+  var _initialValueTypeMarchandise;
+  var _initialValueModePaiement;
+  var _initialValueTypeTaxation;
 
   @override
   void dispose() {
@@ -87,6 +99,8 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
     _nbrFacturesFocusNode.dispose();
     _montantRetoursDeFondsFocusNode.dispose();
     _nbrRetoursDeFondsFocusNode.dispose();
+    _nbrDeBonsFocusNode.dispose();
+    _nbrColisFocusNode.dispose();
 
     super.dispose();
   }
@@ -95,19 +109,41 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
   void initState() {
     super.initState();
     //get json Map from Back-End
-    villes = [{
-      'id': 'c1',
-      'nom': 'Fes',
-    },
-    {
-      'id': 'c2',
-      'nom': 'Meknes',
-    },
-    {
-      'id': 'c3',
-      'nom': 'Tanjer',
-    },];
-   
+    villes = [
+      {
+        'id': 'c1',
+        'nom': 'Fes',
+      },
+      {
+        'id': 'c2',
+        'nom': 'Meknes',
+      },
+      {
+        'id': 'c3',
+        'nom': 'Tanjer',
+      },
+    ];
+    listItemsRetoursFondsDropDownButton = [
+      "C/Remboursement",
+      "C/chèque",
+      "C/Traite",
+      "C/BL",
+    ];
+    listItemsTypeMarchandiseDropDownButton = [
+      "Marchandise 1",
+      "Marchandise 2",
+    ];
+    listItemsModePaiementDropDownButton = [
+      "PP",
+      "PPE",
+      "PD",
+      "PDE",
+    ];
+    listItemsTypeTaxationDropDownButton = [
+      "Forfait",
+      "Taxation",
+      "Service",
+    ];
   }
 
   void _saveForm() {
@@ -182,34 +218,34 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
     //   "Meknes",
     //   "Tanjer",
     // ];
-    print(villes);
+    // print(villes);
     var outlineInputBorder = OutlineInputBorder(
       borderRadius: BorderRadius.circular(28),
       borderSide: BorderSide(color: kTextColor),
       gapPadding: 10,
     );
 
-    List listItemsRetoursFondsDropDownButton = [
-      "C/Remboursement",
-      "C/chèque",
-      "C/Traite",
-      "C/BL",
-    ];
-    List listItemsTypeMarchandiseDropDownButton = [
-      "Marchandise 1",
-      "Marchandise 2",
-    ];
-    List listItemsModePaiementDropDownButton = [
-      "PP",
-      "PPE",
-      "PD",
-      "PDE",
-    ];
-    List listItemsTypeTaxationDropDownButton = [
-      "Forfait",
-      "Taxation",
-      "Service",
-    ];
+    // List listItemsRetoursFondsDropDownButton = [
+    //   "C/Remboursement",
+    //   "C/chèque",
+    //   "C/Traite",
+    //   "C/BL",
+    // ];
+    // List listItemsTypeMarchandiseDropDownButton = [
+    //   "Marchandise 1",
+    //   "Marchandise 2",
+    // ];
+    // List listItemsModePaiementDropDownButton = [
+    //   "PP",
+    //   "PPE",
+    //   "PD",
+    //   "PDE",
+    // ];
+    // List listItemsTypeTaxationDropDownButton = [
+    //   "Forfait",
+    //   "Taxation",
+    //   "Service",
+    // ];
     return Form(
       key: _formKey,
       child: SafeArea(
@@ -382,7 +418,7 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
                               underline: SizedBox(),
                               // value: _initialValueVilleExpediteur,
 
-                              value: null,
+                              value: _initialValueVilleExpediteur,
                               onChanged: (newValue) {
                                 setState(() {
                                   _initialValueVilleExpediteur = newValue;
@@ -425,11 +461,13 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
                               isExpanded: true,
                               underline: SizedBox(),
                               // value: _i/nitialValueVilleDestinataire,
-                              value: null,
+                              value: _initialValueVilleDestinataire,
                               onChanged: (newValue) {
                                 setState(() {
                                   _initialValueVilleDestinataire = newValue;
                                 });
+                                FocusScope.of(context)
+                                    .requestFocus(_nbrDeBonsFocusNode);
                               },
                               items: villes.map((ville) {
                                 return DropdownMenuItem(
@@ -449,6 +487,7 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
                         "Retours de fonds",
                         [
                           TextFormField(
+                            focusNode: _nbrDeBonsFocusNode,
                             onSaved: (newValue) =>
                                 nbrDeBonsLivraison = newValue,
                             textInputAction: TextInputAction.next,
@@ -572,6 +611,7 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
                           // buildTextFormField(
                           //     outlineInputBorder, "Enter le nombre", "Nombre"),
                           SizedBox(height: getProportionateScreenHeight(20)),
+
                           buildDropDownButton(
                               _initialValueTypeDeRetours,
                               listItemsRetoursFondsDropDownButton,
@@ -637,8 +677,7 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
     );
   }
 
-  Container buildDropDownButton(
-      String valueChose, List listItems, String hint) {
+  Container buildDropDownButton(var valueChose, List listItems, String hint) {
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: 42,
