@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:trancentum_ui_kit/models/retours_fonds.dart';
+import 'package:provider/provider.dart';
+import 'package:trancentum_ui_kit/models/retour_fonds.dart';
+import 'package:trancentum_ui_kit/models/expedition.dart';
+import 'package:trancentum_ui_kit/providers/retours_de_fonds.dart';
 
 import '../../../constants.dart';
 
 class RetourFondsDatatable extends StatelessWidget {
+  final List<RetourFonds> retourFondsList = [];
+  final Expedition expeditionTrouvee;
+  RetourFondsDatatable({@required this.expeditionTrouvee});
+
   final columns = [
     "Retour",
     "Montant en DH",
@@ -26,10 +33,10 @@ class RetourFondsDatatable extends StatelessWidget {
   List<DataRow> getRows(List<RetourFonds> retoursFonds) =>
       retoursFonds.map((RetourFonds retour) {
         final cells = [
-          retour.retourDeFonds,
-          retour.montant,
-          retour.nombre,
-          retour.banque,
+          retour.type.toString().split('.').last,
+          retour.montant.toString(),
+          retour.nombre.toString(),
+          retour.banqueId,
           retour.serie,
           retour.observation,
           retour.etat,
@@ -45,11 +52,14 @@ class RetourFondsDatatable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final retourFonds =
+        Provider.of<RetoursDeFonds>(context).findById(expeditionTrouvee.codeExpedition);
+    retourFondsList.add(retourFonds);
     return DataTable(
       columnSpacing: defaultPadding,
       horizontalMargin: 0,
       columns: getColumns(columns),
-      rows: getRows(demoRetoursDeFonds),
+      rows: getRows(retourFondsList),
     );
   }
 }

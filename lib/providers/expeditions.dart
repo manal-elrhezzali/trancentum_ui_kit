@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'expedition.dart';
+import '../models/expedition.dart';
 
 class Expeditions with ChangeNotifier {
   List<Expedition> _items = [
@@ -86,203 +86,150 @@ class Expeditions with ChangeNotifier {
         typeLivraison: "a domicile",
         villeDestinataireId: "v3",
         villeExpediteurId: "v1"),
-    // Expedition(
-    //     clientDestinataireId: "c2",
-    //     clientExpediteurId: "c1",
-    //     codeABarre: "323456789",
-    //     codeExpedition: "423456",
-    //     codeGenere: "323456",
-    //     etat: Etat.Livree,
-    //     dCloturation: DateTime.now(),
-    //     dLivraison: DateTime.now(),
-    //     dcreation: DateTime.now(),
-    //     modePaiement: "PP",
-    //     nbrColis: 13,
-    //     nbrFactures: 15,
-    //     pht: 12098,
-    //     premise: 12.32,
-    //     ptaxe1: 11.34,
-    //     ptaxe2: 10.34,
-    //     ptaxe3: 12.32,
-    //     ptaxe4: 12.32,
-    //     pttc: 12.32,
-    //     ptva: 12.32,
-    //     taxation: "Service",
-    //     ttlPoids: 12.32,
-    //     ttlValDeclaree: 12.32,
-    //     typeLivraison: "a domicile",
-    //     villeDestinataireId: "v3",
-    //     villeExpediteurId: "v1"),
-    // Expedition(
-    //     clientDestinataireId: "c2",
-    //     clientExpediteurId: "c1",
-    //     codeABarre: "323456789",
-    //     codeExpedition: "523456",
-    //     codeGenere: "323456",
-    //     etat: Etat.Recue,
-    //     dCloturation: DateTime.now(),
-    //     dLivraison: DateTime.now(),
-    //     dcreation: DateTime.now(),
-    //     modePaiement: "PP",
-    //     nbrColis: 13,
-    //     nbrFactures: 15,
-    //     pht: 12098,
-    //     premise: 12.32,
-    //     ptaxe1: 11.34,
-    //     ptaxe2: 10.34,
-    //     ptaxe3: 12.32,
-    //     ptaxe4: 12.32,
-    //     pttc: 12.32,
-    //     ptva: 12.32,
-    //     taxation: "Service",
-    //     ttlPoids: 12.32,
-    //     ttlValDeclaree: 12.32,
-    //     typeLivraison: "a domicile",
-    //     villeDestinataireId: "v3",
-    //     villeExpediteurId: "v1"),
-    // Expedition(
-    //     clientDestinataireId: "c2",
-    //     clientExpediteurId: "c1",
-    //     codeABarre: "323456789",
-    //     codeExpedition: "523456",
-    //     codeGenere: "323456",
-    //     etat: Etat.Retour,
-    //     dCloturation: DateTime.now(),
-    //     dLivraison: DateTime.now(),
-    //     dcreation: DateTime.now(),
-    //     modePaiement: "PP",
-    //     nbrColis: 13,
-    //     nbrFactures: 15,
-    //     pht: 12098,
-    //     premise: 12.32,
-    //     ptaxe1: 11.34,
-    //     ptaxe2: 10.34,
-    //     ptaxe3: 12.32,
-    //     ptaxe4: 12.32,
-    //     pttc: 12.32,
-    //     ptva: 12.32,
-    //     taxation: "Service",
-    //     ttlPoids: 12.32,
-    //     ttlValDeclaree: 12.32,
-    //     typeLivraison: "a domicile",
-    //     villeDestinataireId: "v3",
-    //     villeExpediteurId: "v1"),
-    // Expedition(
-    //     clientDestinataireId: "c3",
-    //     clientExpediteurId: "c1",
-    //     codeABarre: "123456789",
-    //     codeExpedition: "623456",
-    //     codeGenere: "123456",
-    //     etat: Etat.Chargee,
-    //     dCloturation: DateTime.now(),
-    //     dLivraison: DateTime.now(),
-    //     dcreation: DateTime.now(),
-    //     modePaiement: "PP",
-    //     nbrColis: 11,
-    //     nbrFactures: 15,
-    //     pht: 12098,
-    //     premise: 12.32,
-    //     ptaxe1: 11.34,
-    //     ptaxe2: 10.34,
-    //     ptaxe3: 12.32,
-    //     ptaxe4: 12.32,
-    //     pttc: 12.32,
-    //     ptva: 12.32,
-    //     taxation: "Forfait",
-    //     ttlPoids: 12.32,
-    //     ttlValDeclaree: 12.32,
-    //     typeLivraison: "a domicile",
-    //     villeDestinataireId: "v2",
-    //     villeExpediteurId: "v1"),
-    // Expedition(
-    //     clientDestinataireId: "c3",
-    //     clientExpediteurId: "c1",
-    //     codeABarre: "123456789",
-    //     codeExpedition: "723456",
-    //     codeGenere: "123456",
-    //     etat: Etat.Chargee,
-    //     dCloturation: DateTime.now(),
-    //     dLivraison: DateTime.now(),
-    //     dcreation: DateTime.now(),
-    //     modePaiement: "PP",
-    //     nbrColis: 11,
-    //     nbrFactures: 15,
-    //     pht: 12098,
-    //     premise: 12.32,
-    //     ptaxe1: 11.34,
-    //     ptaxe2: 10.34,
-    //     ptaxe3: 12.32,
-    //     ptaxe4: 12.32,
-    //     pttc: 12.32,
-    //     ptva: 12.32,
-    //     taxation: "Forfait",
-    //     ttlPoids: 12.32,
-    //     ttlValDeclaree: 12.32,
-    //     typeLivraison: "a domicile",
-    //     villeDestinataireId: "v2",
-    //     villeExpediteurId: "v1"),
-    // Expedition(
-    //     clientDestinataireId: "c3",
-    //     clientExpediteurId: "c1",
-    //     codeABarre: "123456789",
-    //     codeExpedition: "823456",
-    //     codeGenere: "123456",
-    //     etat: Etat.Cloturee,
-    //     dCloturation: DateTime.now(),
-    //     dLivraison: DateTime.now(),
-    //     dcreation: DateTime.now(),
-    //     modePaiement: "PP",
-    //     nbrColis: 11,
-    //     nbrFactures: 15,
-    //     pht: 12098,
-    //     premise: 12.32,
-    //     ptaxe1: 11.34,
-    //     ptaxe2: 10.34,
-    //     ptaxe3: 12.32,
-    //     ptaxe4: 12.32,
-    //     pttc: 12.32,
-    //     ptva: 12.32,
-    //     taxation: "Forfait",
-    //     ttlPoids: 12.32,
-    //     ttlValDeclaree: 12.32,
-    //     typeLivraison: "a domicile",
-    //     villeDestinataireId: "v2",
-    //     villeExpediteurId: "v1"),
-    // Expedition(
-    //     clientDestinataireId: "c3",
-    //     clientExpediteurId: "c1",
-    //     codeABarre: "123456789",
-    //     codeExpedition: "923456",
-    //     codeGenere: "123456",
-    //     etat: Etat.Cloturee,
-    //     dCloturation: DateTime.now(),
-    //     dLivraison: DateTime.now(),
-    //     dcreation: DateTime.now(),
-    //     modePaiement: "PP",
-    //     nbrColis: 11,
-    //     nbrFactures: 15,
-    //     pht: 12098,
-    //     premise: 12.32,
-    //     ptaxe1: 11.34,
-    //     ptaxe2: 10.34,
-    //     ptaxe3: 12.32,
-    //     ptaxe4: 12.32,
-    //     pttc: 12.32,
-    //     ptva: 12.32,
-    //     taxation: "Service",
-    //     ttlPoids: 12.32,
-    //     ttlValDeclaree: 12.32,
-    //     typeLivraison: "a domicile",
-    //     villeDestinataireId: "v2",
-    //     villeExpediteurId: "v1",),
+    Expedition(
+        clientDestinataireId: "c2",
+        clientExpediteurId: "c1",
+        codeABarre: "323456789",
+        codeExpedition: "423456",
+        codeGenere: "323456",
+        etat: Etat.Livree,
+        dCloturation: DateTime.now(),
+        dLivraison: DateTime.now(),
+        dcreation: DateTime.now(),
+        modePaiement: ModePaiement.PDE,
+        nbrColis: 13,
+        nbrFactures: 15,
+        pht: 12098,
+        premise: 12.32,
+        ptaxe1: 11.34,
+        ptaxe2: 10.34,
+        ptaxe3: 12.32,
+        ptaxe4: 12.32,
+        pttc: 12.32,
+        ptva: 12.32,
+        taxation: TypeTaxation.Taxation,
+        ttlPoids: 12.32,
+        ttlValDeclaree: 12.32,
+        typeLivraison: "a domicile",
+        villeDestinataireId: "v3",
+        villeExpediteurId: "v1"),
+    Expedition(
+        clientDestinataireId: "c2",
+        clientExpediteurId: "c1",
+        codeABarre: "323456789",
+        codeExpedition: "523456",
+        codeGenere: "323456",
+        etat: Etat.Recue,
+        dCloturation: DateTime.now(),
+        dLivraison: DateTime.now(),
+        dcreation: DateTime.now(),
+        modePaiement: ModePaiement.PPE,
+        nbrColis: 13,
+        nbrFactures: 15,
+        pht: 12098,
+        premise: 12.32,
+        ptaxe1: 11.34,
+        ptaxe2: 10.34,
+        ptaxe3: 12.32,
+        ptaxe4: 12.32,
+        pttc: 12.32,
+        ptva: 12.32,
+        taxation: TypeTaxation.Taxation,
+        ttlPoids: 12.32,
+        ttlValDeclaree: 12.32,
+        typeLivraison: "a domicile",
+        villeDestinataireId: "v3",
+        villeExpediteurId: "v1"),
+    Expedition(
+        clientDestinataireId: "c2",
+        clientExpediteurId: "c1",
+        codeABarre: "323456789",
+        codeExpedition: "523456",
+        codeGenere: "323456",
+        etat: Etat.Retour,
+        dCloturation: DateTime.now(),
+        dLivraison: DateTime.now(),
+        dcreation: DateTime.now(),
+        modePaiement: ModePaiement.PP,
+        nbrColis: 13,
+        nbrFactures: 15,
+        pht: 12098,
+        premise: 12.32,
+        ptaxe1: 11.34,
+        ptaxe2: 10.34,
+        ptaxe3: 12.32,
+        ptaxe4: 12.32,
+        pttc: 12.32,
+        ptva: 12.32,
+        taxation: TypeTaxation.Forfait,
+        ttlPoids: 12.32,
+        ttlValDeclaree: 12.32,
+        typeLivraison: "a domicile",
+        villeDestinataireId: "v3",
+        villeExpediteurId: "v1"),
+    Expedition(
+        clientDestinataireId: "c3",
+        clientExpediteurId: "c1",
+        codeABarre: "123456789",
+        codeExpedition: "623456",
+        codeGenere: "123456",
+        etat: Etat.Chargee,
+        dCloturation: DateTime.now(),
+        dLivraison: DateTime.now(),
+        dcreation: DateTime.now(),
+        modePaiement: ModePaiement.PPE,
+        nbrColis: 11,
+        nbrFactures: 15,
+        pht: 12098,
+        premise: 12.32,
+        ptaxe1: 11.34,
+        ptaxe2: 10.34,
+        ptaxe3: 12.32,
+        ptaxe4: 12.32,
+        pttc: 12.32,
+        ptva: 12.32,
+        taxation: TypeTaxation.Service,
+        ttlPoids: 12.32,
+        ttlValDeclaree: 12.32,
+        typeLivraison: "a domicile",
+        villeDestinataireId: "v2",
+        villeExpediteurId: "v1"),
+    Expedition(
+      clientDestinataireId: "c3",
+      clientExpediteurId: "c1",
+      codeABarre: "123456789",
+      codeExpedition: "923456",
+      codeGenere: "123456",
+      etat: Etat.Cloturee,
+      dCloturation: DateTime.now(),
+      dLivraison: DateTime.now(),
+      dcreation: DateTime.now(),
+      modePaiement: ModePaiement.PD,
+      nbrColis: 11,
+      nbrFactures: 15,
+      pht: 12098,
+      premise: 12.32,
+      ptaxe1: 11.34,
+      ptaxe2: 10.34,
+      ptaxe3: 12.32,
+      ptaxe4: 12.32,
+      pttc: 12.32,
+      ptva: 12.32,
+      taxation: TypeTaxation.Taxation,
+      ttlPoids: 12.32,
+      ttlValDeclaree: 12.32,
+      typeLivraison: "a domicile",
+      villeDestinataireId: "v2",
+      villeExpediteurId: "v1",
+    ),
   ];
 
-  int expeditionEnregistreeCount = 0;
-  int expeditionRecueCount = 0;
-  int expeditionChargeeCount = 0;
-  int expeditionLivreeCount = 0;
-  int expeditionRetourCount = 0;
-  int expeditionClotureeCount = 0;
+  int _expeditionEnregistreeCount;
+  int _expeditionRecueCount;
+  int _expeditionChargeeCount;
+  int _expeditionLivreeCount;
+  int _expeditionRetourCount;
+  int _expeditionClotureeCount;
 
   List<Expedition> get items {
     return [..._items];
@@ -293,62 +240,69 @@ class Expeditions with ChangeNotifier {
   }
 
   int get nbrOfExpeditionsRetour {
+    _expeditionRetourCount = 0;
     _items.forEach((element) {
       if (element.etat == Etat.Retour) {
-        expeditionRetourCount++;
+        _expeditionRetourCount++;
       }
     });
-    return expeditionEnregistreeCount;
+    return _expeditionRetourCount;
   }
 
   int get nbrOfExpeditionsRecue {
+    _expeditionRecueCount = 0;
     _items.forEach((element) {
       if (element.etat == Etat.Recue) {
-        expeditionRecueCount++;
+        _expeditionRecueCount++;
       }
     });
-    return expeditionEnregistreeCount;
+    return _expeditionRecueCount;
   }
 
   int get nbrOfExpeditionsEnregistree {
+    _expeditionEnregistreeCount = 0;
     _items.forEach((element) {
       if (element.etat == Etat.Enregistree) {
-        expeditionEnregistreeCount++;
+        _expeditionEnregistreeCount++;
       }
     });
-    return expeditionEnregistreeCount;
+    return _expeditionEnregistreeCount;
   }
 
   int get nbrOfExpeditionsLivree {
+    _expeditionLivreeCount = 0;
     _items.forEach((element) {
       if (element.etat == Etat.Livree) {
-        expeditionLivreeCount++;
+        _expeditionLivreeCount++;
       }
     });
-    return expeditionEnregistreeCount;
+    return _expeditionLivreeCount;
   }
 
   int get nbrOfExpeditionsChargee {
+    _expeditionChargeeCount = 0;
     _items.forEach((element) {
       if (element.etat == Etat.Chargee) {
-        expeditionChargeeCount++;
+        _expeditionChargeeCount++;
       }
     });
-    return expeditionChargeeCount;
+    return _expeditionChargeeCount;
   }
 
   int get nbrOfExpeditionsCloturee {
+    _expeditionClotureeCount = 0;
     _items.forEach((element) {
       if (element.etat == Etat.Cloturee) {
-        expeditionClotureeCount++;
+        _expeditionClotureeCount++;
       }
     });
-    return expeditionClotureeCount;
+    return _expeditionClotureeCount;
   }
 
   Expedition findById(String codeExpedition) {
     return _items.firstWhere(
-        (expedition) => expedition.codeExpedition == codeExpedition);
+        (expedition) => expedition.codeExpedition == codeExpedition,
+        orElse: () => null);
   }
 
   void addExpedition(Expedition expedition) {
@@ -379,21 +333,15 @@ class Expeditions with ChangeNotifier {
       codeGenere: expedition.codeGenere,
       dCloturation: expedition.dCloturation,
       dLivraison: expedition.dLivraison,
-
-      // title: product.title,
-      // description: product.description,
-      // price: product.price,
-      // imageUrl: product.imageUrl,
-      // id: DateTime.now().toString(),
     );
     _items.add(newExpedition);
     // _items.insert(0, newProduct); // at the start of the list
     notifyListeners();
   }
 
-  void deleteExpedition(String codeExpedition) {
-    _items.removeWhere(
-        (expedition) => expedition.codeExpedition == codeExpedition);
-    notifyListeners();
-  }
+  // void deleteExpedition(String codeExpedition) {
+  //   _items.removeWhere(
+  //       (expedition) => expedition.codeExpedition == codeExpedition);
+  //   notifyListeners();
+  // }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:trancentum_ui_kit/data/dummyExpeditions.dart';
-import 'package:trancentum_ui_kit/providers/expedition.dart';
+import 'package:provider/provider.dart';
+
+import 'package:trancentum_ui_kit/providers/expeditions.dart';
+import 'package:trancentum_ui_kit/providers/villes.dart';
 import 'package:trancentum_ui_kit/screens/expedition_detail/components/infos_generales_datatable.dart';
 import 'package:trancentum_ui_kit/screens/no_result_found/no_result_found_screen.dart';
 
@@ -41,14 +43,15 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final expeditionCode = ModalRoute.of(context).settings.arguments as String;
-    print(expeditionCode);
+    final _expeditionCode = ModalRoute.of(context).settings.arguments as String;
+    print(_expeditionCode);
+    final _searchedExpedition = Provider.of<Expeditions>(
+      context,
+      listen: false,
+    ).findById(_expeditionCode);
 
-    Expedition expedition = demoExpeditions.firstWhere(
-        (element) => element.codeExpedition == expeditionCode,
-        orElse: () => null);
     return SafeArea(
-      child: expedition == null
+      child: _searchedExpedition == null
           ? NoResultFoundScreen()
           : Center(
               child: Row(
@@ -65,16 +68,16 @@ class Body extends StatelessWidget {
                             buildDataTable(
                                 "Informations Générales",
                                 InfoGeneraleDatatable(
-                                  expeditionTrouvee: expedition,
+                                  expeditionTrouvee: _searchedExpedition,
                                 )),
                             SizedBox(height: defaultPadding),
                             buildDataTable("Expediteur / Destinataire",
-                                ExpediteurDestinataireDatatable()),
+                                ExpediteurDestinataireDatatable(expeditionTrouvee: _searchedExpedition,)),
                             SizedBox(height: defaultPadding),
                             buildDataTable(
-                                "Retours de fonds", RetourFondsDatatable()),
+                                "Retours de fonds", RetourFondsDatatable(expeditionTrouvee: _searchedExpedition)),
                             SizedBox(height: defaultPadding),
-                            buildDataTable("Règlements", ReglementDatatable()),
+                            buildDataTable("Règlements", ReglementDatatable(expeditionTrouvee: _searchedExpedition)),
                           ],
                         ),
                       ),

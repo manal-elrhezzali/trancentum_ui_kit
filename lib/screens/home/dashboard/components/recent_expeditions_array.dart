@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:trancentum_ui_kit/data/dummyExpeditions.dart';
-import 'package:trancentum_ui_kit/providers/expedition.dart';
+import 'package:provider/provider.dart';
+import 'package:trancentum_ui_kit/models/expedition.dart';
+import 'package:trancentum_ui_kit/providers/expeditions.dart';
 import 'package:trancentum_ui_kit/screens/expedition_detail/expedition_detail_screen.dart';
 
 import '../../../../constants.dart';
@@ -13,6 +14,9 @@ class RecentExpeditionsArray extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //get expeditions from local storage
+    final expeditionsData = Provider.of<Expeditions>(context);
+    final expeditions = expeditionsData.items;
     return Container(
       padding: EdgeInsets.all(defaultPadding),
       decoration: BoxDecoration(
@@ -67,9 +71,9 @@ class RecentExpeditionsArray extends StatelessWidget {
                   ),
                 ],
                 rows: List.generate(
-                    demoExpeditions.length,
+                    expeditions.length,
                     (index) => buildRecentExpeditionsDataRow(
-                        demoExpeditions[index], context)),
+                        expeditions[index], context)),
               ),
             ),
           ),
@@ -83,7 +87,8 @@ class RecentExpeditionsArray extends StatelessWidget {
     return DataRow(
       onSelectChanged: (bool selected) {
         if (selected) {
-          Navigator.of(context).pushNamed(ExpeditionDetailScreen.routeName, arguments: expedition.codeExpedition);
+          Navigator.of(context).pushNamed(ExpeditionDetailScreen.routeName,
+              arguments: expedition.codeExpedition);
         }
       },
       cells: [

@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:trancentum_ui_kit/models/reglement.dart';
+import 'package:trancentum_ui_kit/models/expedition.dart';
 
 import '../../../constants.dart';
 
 class ReglementDatatable extends StatelessWidget {
+  final List<Expedition> expeditionList = [];
+  final Expedition expeditionTrouvee;
+
+  ReglementDatatable({@required this.expeditionTrouvee});
+
   final columns = [
     "Mode Paiement",
     "Type Taxation",
@@ -56,6 +62,7 @@ class ReglementDatatable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //find reglement by code expedition
     return DataTable(
       columnSpacing: defaultPadding,
       horizontalMargin: 0,

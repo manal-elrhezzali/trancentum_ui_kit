@@ -16,9 +16,9 @@ enum TypeTaxation {
   Service,
 }
 
-enum ModePaiement { PP, PPE, PD, PDE }
+enum ModePaiement { PP, PPE, PD, PDE,}
 
-class Expedition with ChangeNotifier{
+class Expedition{
   String clientDestinataireId;
   String clientExpediteurId;
   String codeABarre;

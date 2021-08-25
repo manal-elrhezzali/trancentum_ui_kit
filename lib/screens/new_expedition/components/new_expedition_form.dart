@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trancentum_ui_kit/components/default_button.dart';
-import 'package:trancentum_ui_kit/providers/expedition.dart';
+import 'package:trancentum_ui_kit/models/expedition.dart';
 import 'package:trancentum_ui_kit/screens/home/home_screen.dart';
 
 import '../../../constants.dart';
@@ -122,10 +122,10 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
       },
     ];
     listItemsRetoursFondsDropDownButton = [
-      "C/Remboursement",
-      "C/chèque",
-      "C/Traite",
-      "C/BL",
+      "Remboursement",
+      "Cheque",
+      "Traite",
+      "BL",
     ];
     listItemsTypeMarchandiseDropDownButton = [
       "Marchandise 1",
@@ -170,17 +170,12 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
     // print(_initialValueTypeTaxation);
 
     Navigator.of(context).pushNamed(HomeScreen.routeName);
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(
           "Expedition added",
         ),
-        action: SnackBarAction(
-            label: "UNDO",
-            onPressed: () {
-              //undo the  addition
-              //show dilaog to confirm with user
-            }),
       ),
     );
   }

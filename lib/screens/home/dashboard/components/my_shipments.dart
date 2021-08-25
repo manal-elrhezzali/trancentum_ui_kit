@@ -20,7 +20,7 @@ class MyShipments extends StatelessWidget{
   Widget build(BuildContext context) {
     
     
-    List<PackagesStatusInfo> demoMyPackages = [
+    List<PackagesStatusInfo> myPackages = [
     PackagesStatusInfo(
       title: "Enregistrée",
       numOfPackages: expeditionEnregistreeCount,
@@ -83,15 +83,15 @@ class MyShipments extends StatelessWidget{
         SizedBox(height: defaultPadding),
         ResponsiveWidget(
           mobile: PackageStatusInfoCardGridView(
-            demoMyPackages: demoMyPackages,
+            myPackages: myPackages,
             crossAxisCount: _size.width < 650 ? 3 : 6,
             childAspectRatio: _size.width < 650 ? 0.8 : 0.6,
           ),
           tablet: PackageStatusInfoCardGridView(
-            demoMyPackages: demoMyPackages,
+            myPackages: myPackages,
           ),
           desktop: PackageStatusInfoCardGridView(
-            demoMyPackages: demoMyPackages,
+            myPackages: myPackages,
             childAspectRatio: _size.width < 1400 ? 0.7 : 0.9,
           ),
         ),
@@ -103,12 +103,12 @@ class MyShipments extends StatelessWidget{
 class PackageStatusInfoCardGridView extends StatelessWidget {
   const PackageStatusInfoCardGridView({
     Key key,
-    @required this.demoMyPackages,
+    @required this.myPackages,
     this.crossAxisCount = 6,
     this.childAspectRatio = 1,
   }) : super(key: key);
 
-  final List<PackagesStatusInfo> demoMyPackages;
+  final List<PackagesStatusInfo> myPackages;
 
   final int crossAxisCount;
   final double childAspectRatio;
@@ -116,7 +116,7 @@ class PackageStatusInfoCardGridView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
       physics: NeverScrollableScrollPhysics(),
-      itemCount: demoMyPackages.length, //dummy data
+      itemCount: myPackages.length, //dummy data
       shrinkWrap: true,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: crossAxisCount,
@@ -125,8 +125,8 @@ class PackageStatusInfoCardGridView extends StatelessWidget {
         childAspectRatio: childAspectRatio,
       ),
       itemBuilder: (context, index) => HeaderPackageInfoCard(
-        info: demoMyPackages[index],
-        myPackages: demoMyPackages,
+        info: myPackages[index],
+        myPackages: myPackages,
       ),
     );
   }

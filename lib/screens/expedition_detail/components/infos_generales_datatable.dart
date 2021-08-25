@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:trancentum_ui_kit/providers/expedition.dart';
+import 'package:trancentum_ui_kit/models/expedition.dart';
 
 import '../../../constants.dart';
 
