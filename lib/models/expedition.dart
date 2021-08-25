@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 
-enum Etat {
-  Enregistree,
-  Chargee,
-  Recue,
-  Livree,
-  Retour,
-  Cloturee,
-  Brouillon,
-}
+// enum Etat {
+//   Enregistree,
+//   Chargee,
+//   Recue,
+//   Livree,
+//   Retour,
+//   Cloturee,
+//   Brouillon,
+// }
 
-enum TypeTaxation {
-  Forfait,
-  Taxation,
-  Service,
-}
+// enum TypeTaxation {
+//   Forfait,
+//   Taxation,
+//   Service,
+// }
 
-enum ModePaiement { PP, PPE, PD, PDE,}
+// enum ModePaiement { PP, PPE, PD, PDE,}
 
 class Expedition{
   String clientDestinataireId;
@@ -27,8 +27,8 @@ class Expedition{
   DateTime dCloturation;
   DateTime dLivraison;
   DateTime dcreation;
-  Etat etat;
-  ModePaiement modePaiement;
+  String etat;
+  String modePaiement;
   int nbrColis;
   int nbrFactures;
   num pht;
@@ -39,7 +39,7 @@ class Expedition{
   double ptaxe4;
   double pttc;
   double ptva;
-  TypeTaxation taxation;
+  String taxation;
   double ttlPoids;
   double ttlValDeclaree;
   String typeLivraison;
@@ -55,7 +55,7 @@ class Expedition{
     this.dCloturation,
     this.dLivraison,
     @required this.dcreation,
-    this.etat = Etat.Brouillon,
+    this.etat = "Brouillon",
     @required this.modePaiement,
     @required this.nbrColis,
     @required this.nbrFactures,

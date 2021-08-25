@@ -10,11 +10,11 @@ class Expeditions with ChangeNotifier {
         codeABarre: "123456789",
         codeExpedition: "123456",
         codeGenere: "123456",
-        etat: Etat.Chargee,
+        etat: "Chargee",
         dCloturation: DateTime.now(),
         dLivraison: DateTime.now(),
         dcreation: DateTime.now(),
-        modePaiement: ModePaiement.PP,
+        modePaiement: "PP",
         nbrColis: 11,
         nbrFactures: 15,
         pht: 12098,
@@ -25,7 +25,7 @@ class Expeditions with ChangeNotifier {
         ptaxe4: 12.32,
         pttc: 12.32,
         ptva: 12.32,
-        taxation: TypeTaxation.Forfait,
+        taxation: "Forfait",
         ttlPoids: 12.32,
         ttlValDeclaree: 12.32,
         typeLivraison: "a domicile",
@@ -37,11 +37,11 @@ class Expeditions with ChangeNotifier {
       codeABarre: "223456789",
       codeExpedition: "223456",
       codeGenere: "223456",
-      etat: Etat.Cloturee,
+      etat: "Cloturee",
       dCloturation: DateTime.now(),
       dLivraison: DateTime.now(),
       dcreation: DateTime.now(),
-      modePaiement: ModePaiement.PDE,
+      modePaiement: "PDE",
       nbrColis: 12,
       nbrFactures: 15,
       pht: 12098,
@@ -52,7 +52,7 @@ class Expeditions with ChangeNotifier {
       ptaxe4: 12.32,
       pttc: 12.32,
       ptva: 12.32,
-      taxation: TypeTaxation.Service,
+      taxation: "TypeTaxationService",
       ttlPoids: 12.32,
       ttlValDeclaree: 12.32,
       typeLivraison: "a domicile",
@@ -65,11 +65,11 @@ class Expeditions with ChangeNotifier {
         codeABarre: "323456789",
         codeExpedition: "323456",
         codeGenere: "323456",
-        etat: Etat.Enregistree,
+        etat: "Enregistree",
         dCloturation: DateTime.now(),
         dLivraison: DateTime.now(),
         dcreation: DateTime.now(),
-        modePaiement: ModePaiement.PP,
+        modePaiement: "PP",
         nbrColis: 13,
         nbrFactures: 15,
         pht: 12098,
@@ -80,7 +80,7 @@ class Expeditions with ChangeNotifier {
         ptaxe4: 12.32,
         pttc: 12.32,
         ptva: 12.32,
-        taxation: TypeTaxation.Service,
+        taxation: "Service",
         ttlPoids: 12.32,
         ttlValDeclaree: 12.32,
         typeLivraison: "a domicile",
@@ -92,11 +92,11 @@ class Expeditions with ChangeNotifier {
         codeABarre: "323456789",
         codeExpedition: "423456",
         codeGenere: "323456",
-        etat: Etat.Livree,
+        etat: "Livree",
         dCloturation: DateTime.now(),
         dLivraison: DateTime.now(),
         dcreation: DateTime.now(),
-        modePaiement: ModePaiement.PDE,
+        modePaiement: "PDE",
         nbrColis: 13,
         nbrFactures: 15,
         pht: 12098,
@@ -107,7 +107,7 @@ class Expeditions with ChangeNotifier {
         ptaxe4: 12.32,
         pttc: 12.32,
         ptva: 12.32,
-        taxation: TypeTaxation.Taxation,
+        taxation: "Taxation",
         ttlPoids: 12.32,
         ttlValDeclaree: 12.32,
         typeLivraison: "a domicile",
@@ -119,11 +119,11 @@ class Expeditions with ChangeNotifier {
         codeABarre: "323456789",
         codeExpedition: "523456",
         codeGenere: "323456",
-        etat: Etat.Recue,
+        etat: "Recue",
         dCloturation: DateTime.now(),
         dLivraison: DateTime.now(),
         dcreation: DateTime.now(),
-        modePaiement: ModePaiement.PPE,
+        modePaiement: "PPE",
         nbrColis: 13,
         nbrFactures: 15,
         pht: 12098,
@@ -134,7 +134,7 @@ class Expeditions with ChangeNotifier {
         ptaxe4: 12.32,
         pttc: 12.32,
         ptva: 12.32,
-        taxation: TypeTaxation.Taxation,
+        taxation: "Taxation",
         ttlPoids: 12.32,
         ttlValDeclaree: 12.32,
         typeLivraison: "a domicile",
@@ -144,13 +144,13 @@ class Expeditions with ChangeNotifier {
         clientDestinataireId: "c2",
         clientExpediteurId: "c1",
         codeABarre: "323456789",
-        codeExpedition: "523456",
+        codeExpedition: "623456",
         codeGenere: "323456",
-        etat: Etat.Retour,
+        etat: "Retour",
         dCloturation: DateTime.now(),
         dLivraison: DateTime.now(),
         dcreation: DateTime.now(),
-        modePaiement: ModePaiement.PP,
+        modePaiement: "PP",
         nbrColis: 13,
         nbrFactures: 15,
         pht: 12098,
@@ -161,7 +161,7 @@ class Expeditions with ChangeNotifier {
         ptaxe4: 12.32,
         pttc: 12.32,
         ptva: 12.32,
-        taxation: TypeTaxation.Forfait,
+        taxation: "Forfait",
         ttlPoids: 12.32,
         ttlValDeclaree: 12.32,
         typeLivraison: "a domicile",
@@ -171,13 +171,13 @@ class Expeditions with ChangeNotifier {
         clientDestinataireId: "c3",
         clientExpediteurId: "c1",
         codeABarre: "123456789",
-        codeExpedition: "623456",
+        codeExpedition: "723456",
         codeGenere: "123456",
-        etat: Etat.Chargee,
+        etat: "Chargee",
         dCloturation: DateTime.now(),
         dLivraison: DateTime.now(),
         dcreation: DateTime.now(),
-        modePaiement: ModePaiement.PPE,
+        modePaiement:"PPE",
         nbrColis: 11,
         nbrFactures: 15,
         pht: 12098,
@@ -188,7 +188,7 @@ class Expeditions with ChangeNotifier {
         ptaxe4: 12.32,
         pttc: 12.32,
         ptva: 12.32,
-        taxation: TypeTaxation.Service,
+        taxation: "Service",
         ttlPoids: 12.32,
         ttlValDeclaree: 12.32,
         typeLivraison: "a domicile",
@@ -198,13 +198,13 @@ class Expeditions with ChangeNotifier {
       clientDestinataireId: "c3",
       clientExpediteurId: "c1",
       codeABarre: "123456789",
-      codeExpedition: "923456",
+      codeExpedition: "823456",
       codeGenere: "123456",
-      etat: Etat.Cloturee,
+      etat: "Cloturee",
       dCloturation: DateTime.now(),
       dLivraison: DateTime.now(),
       dcreation: DateTime.now(),
-      modePaiement: ModePaiement.PD,
+      modePaiement: "PD",
       nbrColis: 11,
       nbrFactures: 15,
       pht: 12098,
@@ -215,7 +215,7 @@ class Expeditions with ChangeNotifier {
       ptaxe4: 12.32,
       pttc: 12.32,
       ptva: 12.32,
-      taxation: TypeTaxation.Taxation,
+      taxation: "Taxation",
       ttlPoids: 12.32,
       ttlValDeclaree: 12.32,
       typeLivraison: "a domicile",
@@ -242,7 +242,7 @@ class Expeditions with ChangeNotifier {
   int get nbrOfExpeditionsRetour {
     _expeditionRetourCount = 0;
     _items.forEach((element) {
-      if (element.etat == Etat.Retour) {
+      if (element.etat == "Retour") {
         _expeditionRetourCount++;
       }
     });
@@ -252,7 +252,7 @@ class Expeditions with ChangeNotifier {
   int get nbrOfExpeditionsRecue {
     _expeditionRecueCount = 0;
     _items.forEach((element) {
-      if (element.etat == Etat.Recue) {
+      if (element.etat == "Recue") {
         _expeditionRecueCount++;
       }
     });
@@ -262,7 +262,7 @@ class Expeditions with ChangeNotifier {
   int get nbrOfExpeditionsEnregistree {
     _expeditionEnregistreeCount = 0;
     _items.forEach((element) {
-      if (element.etat == Etat.Enregistree) {
+      if (element.etat == "Enregistree") {
         _expeditionEnregistreeCount++;
       }
     });
@@ -272,7 +272,7 @@ class Expeditions with ChangeNotifier {
   int get nbrOfExpeditionsLivree {
     _expeditionLivreeCount = 0;
     _items.forEach((element) {
-      if (element.etat == Etat.Livree) {
+      if (element.etat == "Livree") {
         _expeditionLivreeCount++;
       }
     });
@@ -282,7 +282,7 @@ class Expeditions with ChangeNotifier {
   int get nbrOfExpeditionsChargee {
     _expeditionChargeeCount = 0;
     _items.forEach((element) {
-      if (element.etat == Etat.Chargee) {
+      if (element.etat == "Chargee") {
         _expeditionChargeeCount++;
       }
     });
@@ -292,7 +292,7 @@ class Expeditions with ChangeNotifier {
   int get nbrOfExpeditionsCloturee {
     _expeditionClotureeCount = 0;
     _items.forEach((element) {
-      if (element.etat == Etat.Cloturee) {
+      if (element.etat == "Cloturee") {
         _expeditionClotureeCount++;
       }
     });

@@ -28,14 +28,8 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     // print("Building...................");
-    final expeditionsData = Provider.of<Expeditions>(context, listen: false);
-    _expeditions = expeditionsData.items;
-    _expeditionEnregistreeCount = expeditionsData.nbrOfExpeditionsEnregistree;
-    _expeditionRecueCount = expeditionsData.nbrOfExpeditionsRecue;
-    _expeditionChargeeCount = expeditionsData.nbrOfExpeditionsChargee;
-    _expeditionLivreeCount = expeditionsData.nbrOfExpeditionsLivree;
-    _expeditionRetourCount = expeditionsData.nbrOfExpeditionsRetour;
-    _expeditionClotureeCount = expeditionsData.nbrOfExpeditionsCloturee;
+    final expeditionsInfo = Provider.of<Expeditions>(context, listen: false);
+    _expeditions = expeditionsInfo.items;
     return _expeditions.isEmpty
         ? LayoutBuilder(builder: (ctx, constraints) {
             return SingleChildScrollView(
@@ -62,41 +56,32 @@ class _DashboardState extends State<Dashboard> {
               ),
             );
           })
-        : Center(
-            child: SingleChildScrollView(
-              padding: EdgeInsets.all(defaultPadding),
-              child: Column(
-                children: [
-                  SearchField(),
-                  SizedBox(height: defaultPadding),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+        : Consumer<Expeditions>(
+            builder: (ctx, expeditionsData, child) {
+              _expeditions = expeditionsData.items;
+              _expeditionEnregistreeCount =
+                  expeditionsData.nbrOfExpeditionsEnregistree;
+              _expeditionRecueCount = expeditionsData.nbrOfExpeditionsRecue;
+              _expeditionChargeeCount = expeditionsData.nbrOfExpeditionsChargee;
+              _expeditionLivreeCount = expeditionsData.nbrOfExpeditionsLivree;
+              _expeditionRetourCount = expeditionsData.nbrOfExpeditionsRetour;
+              _expeditionClotureeCount =
+                  expeditionsData.nbrOfExpeditionsCloturee;
+              return Center(
+                child: SingleChildScrollView(
+                  padding: EdgeInsets.all(defaultPadding),
+                  child: Column(
                     children: [
-                      Expanded(
-                        flex: 5,
-                        child: Column(
-                          children: [
-                            MyShipments(
-                              expeditionChargeeCount: _expeditionChargeeCount,
-                              expeditionClotureeCount: _expeditionClotureeCount,
-                              expeditionEnregistreeCount:
-                                  _expeditionEnregistreeCount,
-                              expeditionLivreeCount: _expeditionLivreeCount,
-                              expeditionRecueCount: _expeditionRecueCount,
-                              expeditionRetourCount: _expeditionRetourCount,
-                            ),
-                            SizedBox(height: defaultPadding),
-                            RecentExpeditionsArray(),
-                            if (ResponsiveWidget.isMobile(context))
-                              SizedBox(height: defaultPadding),
-                            if (_expeditionChargeeCount != 0 &&
-                                _expeditionClotureeCount != 0 &&
-                                _expeditionEnregistreeCount != 0 &&
-                                _expeditionLivreeCount != 0 &&
-                                _expeditionRecueCount != 0 &&
-                                _expeditionRetourCount != 0)
-                              if (ResponsiveWidget.isMobile(context))
-                                AllPackagesStatus(
+                      SearchField(),
+                      SizedBox(height: defaultPadding),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            flex: 5,
+                            child: Column(
+                              children: [
+                                MyShipments(
                                   expeditionChargeeCount:
                                       _expeditionChargeeCount,
                                   expeditionClotureeCount:
@@ -107,35 +92,66 @@ class _DashboardState extends State<Dashboard> {
                                   expeditionRecueCount: _expeditionRecueCount,
                                   expeditionRetourCount: _expeditionRetourCount,
                                 ),
-                          ],
-                        ),
-                      ),
-                      if (!ResponsiveWidget.isMobile(context))
-                        SizedBox(width: defaultPadding),
-                      if (_expeditionChargeeCount != 0 &&
-                          _expeditionClotureeCount != 0 &&
-                          _expeditionEnregistreeCount != 0 &&
-                          _expeditionLivreeCount != 0 &&
-                          _expeditionRecueCount != 0 &&
-                          _expeditionRetourCount != 0)
-                        if (!ResponsiveWidget.isMobile(context))
-                          Expanded(
-                            flex: 2,
-                            child: AllPackagesStatus(
-                              expeditionChargeeCount: _expeditionChargeeCount,
-                              expeditionClotureeCount: _expeditionClotureeCount,
-                              expeditionEnregistreeCount:
-                                  _expeditionEnregistreeCount,
-                              expeditionLivreeCount: _expeditionLivreeCount,
-                              expeditionRecueCount: _expeditionRecueCount,
-                              expeditionRetourCount: _expeditionRetourCount,
+                                SizedBox(height: defaultPadding),
+                                // RecentExpeditionsArray(),
+                                child,
+                                if (ResponsiveWidget.isMobile(context))
+                                  SizedBox(height: defaultPadding),
+                                if (_expeditionChargeeCount != 0 &&
+                                    _expeditionClotureeCount != 0 &&
+                                    _expeditionEnregistreeCount != 0 &&
+                                    _expeditionLivreeCount != 0 &&
+                                    _expeditionRecueCount != 0 &&
+                                    _expeditionRetourCount != 0)
+                                  if (ResponsiveWidget.isMobile(context))
+                                    AllPackagesStatus(
+                                      expeditionChargeeCount:
+                                          _expeditionChargeeCount,
+                                      expeditionClotureeCount:
+                                          _expeditionClotureeCount,
+                                      expeditionEnregistreeCount:
+                                          _expeditionEnregistreeCount,
+                                      expeditionLivreeCount:
+                                          _expeditionLivreeCount,
+                                      expeditionRecueCount:
+                                          _expeditionRecueCount,
+                                      expeditionRetourCount:
+                                          _expeditionRetourCount,
+                                    ),
+                              ],
                             ),
                           ),
+                          if (!ResponsiveWidget.isMobile(context))
+                            SizedBox(width: defaultPadding),
+                          if (_expeditionChargeeCount != 0 &&
+                              _expeditionClotureeCount != 0 &&
+                              _expeditionEnregistreeCount != 0 &&
+                              _expeditionLivreeCount != 0 &&
+                              _expeditionRecueCount != 0 &&
+                              _expeditionRetourCount != 0)
+                            if (!ResponsiveWidget.isMobile(context))
+                              Expanded(
+                                flex: 2,
+                                child: AllPackagesStatus(
+                                  expeditionChargeeCount:
+                                      _expeditionChargeeCount,
+                                  expeditionClotureeCount:
+                                      _expeditionClotureeCount,
+                                  expeditionEnregistreeCount:
+                                      _expeditionEnregistreeCount,
+                                  expeditionLivreeCount: _expeditionLivreeCount,
+                                  expeditionRecueCount: _expeditionRecueCount,
+                                  expeditionRetourCount: _expeditionRetourCount,
+                                ),
+                              ),
+                        ],
+                      ),
                     ],
                   ),
-                ],
-              ),
-            ),
+                ),
+              );
+            },
+            child: RecentExpeditionsArray(),
           );
   }
 }

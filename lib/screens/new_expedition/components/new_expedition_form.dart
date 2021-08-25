@@ -27,6 +27,8 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
   //Reglement focus noddes
   final _nbrColisFocusNode = FocusNode();
 
+  // List<Ville> villes = [];
+
   List villes = <Map>[];
   List listItemsRetoursFondsDropDownButton = [];
   List listItemsTypeMarchandiseDropDownButton = [];
@@ -37,16 +39,17 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
   // var fixePattern = r'ˆ[0][0-9]{9}$'; //review this
   // var faxPattern = r'ˆ[0][0-9]{9}$'; //review this
 
+
   Expedition expedition = Expedition(
-    etat: Etat.Brouillon,
+    etat: "Brouillon",
     ptaxe1: 0.0,
     ptaxe2: 0.0,
     ptaxe3: 0.0,
     dcreation: DateTime.now(),
     codeGenere: "",
     codeExpedition: "",
-    modePaiement: ModePaiement.PD,
-    taxation: TypeTaxation.Forfait,
+    modePaiement: "PD",
+    taxation: "Forfait",
     nbrColis: 0,
     nbrFactures: 0,
     pht: 0,
@@ -103,9 +106,20 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
     super.dispose();
   }
 
+  // @override
+  // void didChangeDependencies() {
+  
+  //     villes = Provider.of<Villes>(context).items;
+  //     print("villes got from provider are : ${villes[0].nom}");
+    
+   
+  //   super.didChangeDependencies();
+  // }
+
   @override
   void initState() {
     super.initState();
+
     //get json Map from Back-End
     villes = [
       {
@@ -122,10 +136,10 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
       },
     ];
     listItemsRetoursFondsDropDownButton = [
-      "Remboursement",
-      "Cheque",
-      "Traite",
-      "BL",
+      "C/Remboursement",
+      "C/Cheque",
+      "C/Traite",
+      "C/BL",
     ];
     listItemsTypeMarchandiseDropDownButton = [
       "Marchandise 1",
@@ -206,39 +220,11 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
 
   @override
   Widget build(BuildContext context) {
-    // List villes = [
-    //   "Fes",
-    //   "Meknes",
-    //   "Tanjer",
-    // ];
-    // print(villes);
     var outlineInputBorder = OutlineInputBorder(
       borderRadius: BorderRadius.circular(28),
       borderSide: BorderSide(color: kTextColor),
       gapPadding: 10,
     );
-
-    // List listItemsRetoursFondsDropDownButton = [
-    //   "C/Remboursement",
-    //   "C/chèque",
-    //   "C/Traite",
-    //   "C/BL",
-    // ];
-    // List listItemsTypeMarchandiseDropDownButton = [
-    //   "Marchandise 1",
-    //   "Marchandise 2",
-    // ];
-    // List listItemsModePaiementDropDownButton = [
-    //   "PP",
-    //   "PPE",
-    //   "PD",
-    //   "PDE",
-    // ];
-    // List listItemsTypeTaxationDropDownButton = [
-    //   "Forfait",
-    //   "Taxation",
-    //   "Service",
-    // ];
     return Form(
       key: _formKey,
       child: SafeArea(

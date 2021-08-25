@@ -1,12 +1,12 @@
 import 'package:flutter/foundation.dart';
 
 
-enum TypeRetourFonds {
-  Remboursement,
-      Cheque,
-      Traite,
-      BL,
-}
+// enum TypeRetourFonds {
+//   Remboursement,
+//       Cheque,
+//       Traite,
+//       BL,
+// }
 class RetourFonds {
   String banqueId;
   String dCreation;
@@ -17,7 +17,7 @@ class RetourFonds {
   int nombre;
   String observation;
   String serie;
-  TypeRetourFonds type;
+  String type;
 
   RetourFonds({
   @required this.banqueId,
