@@ -9,7 +9,8 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     final notificationsData = Provider.of<Notifications>(context);
     List notifications = notificationsData.items;
-    print(notifications[0].id);
+    // print(notifications[0].id);
+    //why is it null?
 
     return Center(
       child: ListView.builder(

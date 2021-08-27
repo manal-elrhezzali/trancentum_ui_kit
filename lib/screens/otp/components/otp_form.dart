@@ -269,7 +269,9 @@ class _OtpFormState extends State<OtpForm> {
             text: "Continue",
             pressHandler: () {
               String codeOTP =
-                  digit1 + digit2 + digit3 + digit4 + digit5 + digit6;
+                  digit1+digit2 + digit3 +digit4 +digit5 +digit6;
+                  //  String codeOTP =
+                  // digit1.trim()+digit2.trim() + digit3.trim() +digit4.trim() +digit5.trim() +digit6.trim();
               _saveForm(email, codeOTP);
             },
           ),

@@ -639,7 +639,7 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
                         [
                           TextFormField(
                             keyboardType: TextInputType.number,
-                            onSaved: (newValue) => montant = newValue,
+                            onSaved: (newValue) => nombreDeColis = newValue,
                             validator: (value) {
                               if (value.isEmpty) {
                                 return "Veuillez saisir le Nombre de Colis";
