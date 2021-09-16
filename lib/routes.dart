@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 import 'screens/error/error_screen.dart';
+import 'screens/expeditions_by_status/expeditions_by_status_screen.dart';
 import 'screens/notifications/notifications_screen.dart';
 import 'screens/expedition_detail/expedition_detail_screen.dart';
 import 'screens/help_center/help_center_screen.dart';
@@ -26,6 +27,10 @@ final Map<String, WidgetBuilder> routes = {
   NewExpeditionScreen.routeName: (context) => NewExpeditionScreen(),
   HelpCenterScreen.routeName: (context) => HelpCenterScreen(),//after native device features course
   NotificationsScreen.routeName: (context) => NotificationsScreen(),//after push notif course
+  ExpeditionsByStatusScreen.routeName: (context) => ExpeditionsByStatusScreen(),  
+
+
+  //error screens
   UnknownRouteScreen.routeName: (context) => UnknownRouteScreen(),
   ErrorScreen.routeName: (context) => ErrorScreen(),//for OTP verification => email not sent error and 401- 403 errors
 
