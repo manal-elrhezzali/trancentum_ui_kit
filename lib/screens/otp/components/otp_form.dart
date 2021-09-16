@@ -2,8 +2,8 @@ import 'package:email_auth/email_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mailer/mailer.dart';
 import 'package:mailer/smtp_server.dart';
-
 import 'package:trancentum_ui_kit/screens/error/error_screen.dart';
+
 import '../../../components/default_button.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';

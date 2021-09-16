@@ -5,6 +5,8 @@ import 'package:trancentum_ui_kit/providers/banques.dart';
 import 'package:trancentum_ui_kit/providers/marchandises.dart';
 import 'package:trancentum_ui_kit/providers/retours_de_fonds.dart';
 import 'package:trancentum_ui_kit/providers/villes.dart';
+import 'package:trancentum_ui_kit/screens/error/error_screen.dart';
+import 'package:trancentum_ui_kit/screens/sign_in/sign_in_screen.dart';
 
 import 'package:trancentum_ui_kit/screens/splash/splash_screen.dart';
 import 'package:trancentum_ui_kit/screens/unknown_route/unknown_route_screen.dart';

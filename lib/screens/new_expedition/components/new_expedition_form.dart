@@ -39,7 +39,6 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
   // var fixePattern = r'ˆ[0][0-9]{9}$'; //review this
   // var faxPattern = r'ˆ[0][0-9]{9}$'; //review this
 
-
   Expedition expedition = Expedition(
     etat: "Brouillon",
     ptaxe1: 0.0,
@@ -108,11 +107,10 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
 
   // @override
   // void didChangeDependencies() {
-  
+
   //     villes = Provider.of<Villes>(context).items;
   //     print("villes got from provider are : ${villes[0].nom}");
-    
-   
+
   //   super.didChangeDependencies();
   // }
 
@@ -164,24 +162,25 @@ class _NewExpeditionFormState extends State<NewExpeditionForm> {
       return;
     }
     _formKey.currentState.save();
-    /////remove these prints
-    // print(nomExpediteur);
-    // print(telExpediteur);
-    // print(nomDestinataire);
-    // print(telDestinataire);
-    // print(_initialValueVilleExpediteur);
-    // print(_initialValueVilleDestinataire);
-    // //
-    // print(nbrDeBonsLivraison);
-    // print(nbrFactures);
-    // print(montant);
-    // print(nombre);
-    // print(_initialValueTypeDeRetours);
-    // //
-    // print(nombreDeColis);
-    // print(_initialValueTypeMarchandise);
-    // print(_initialValueModePaiement);
-    // print(_initialValueTypeTaxation);
+
+    ///remove these prints
+    print(nomExpediteur);
+    print(telExpediteur);
+    print(nomDestinataire);
+    print(telDestinataire);
+    print(_initialValueVilleExpediteur);
+    print(_initialValueVilleDestinataire);
+    //
+    print(nbrDeBonsLivraison);
+    print(nbrFactures);
+    print(montant);
+    print(nombre);
+    print(_initialValueTypeDeRetours);
+    //
+    print(nombreDeColis);
+    print(_initialValueTypeMarchandise);
+    print(_initialValueModePaiement);
+    print(_initialValueTypeTaxation);
 
     Navigator.of(context).pushNamed(HomeScreen.routeName);
     ScaffoldMessenger.of(context).hideCurrentSnackBar();

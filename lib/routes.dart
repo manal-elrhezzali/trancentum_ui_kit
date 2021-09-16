@@ -27,7 +27,7 @@ final Map<String, WidgetBuilder> routes = {
   HelpCenterScreen.routeName: (context) => HelpCenterScreen(),//after native device features course
   NotificationsScreen.routeName: (context) => NotificationsScreen(),//after push notif course
   UnknownRouteScreen.routeName: (context) => UnknownRouteScreen(),
-  ErrorScreen.routeName: (context) => ErrorScreen(),//for OTP verification => email not sent error
+  ErrorScreen.routeName: (context) => ErrorScreen(),//for OTP verification => email not sent error and 401- 403 errors
 
   
 
